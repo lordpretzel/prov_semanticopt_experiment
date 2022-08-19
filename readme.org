@@ -11,8 +11,9 @@
   - comparison with PDQ
   - optimization time + execution time breakdown
 *** TODO experiments [0/2]
-- [ ] TPC-H
-  - [ ] translate queries into Datalog (8 / 19?) *(4 hours)*
+- [-] TPC-H
+  - [X] translate queries into Datalog (8 / 19?) *(4 hours)*
+  - [ ] adapt script from Q18 to others
   - [ ] measure optimization time and runtimes *(4 hours)*
   - [ ] measure PDQ optimization times *(16 hours)*
   - [ ] analyze and plot *(24 hours)*
@@ -23,7 +24,7 @@
   - [ ] measure PDQ optimization times
   - [ ] analyze and plot
 *** TODO missing proofs
-*** TODO replace latex template
+*** TODO replace latex template :Boris:
 *** TODO writing [0/6]
 **** TODO introduction [1/4]
 - [ ] add running example
@@ -31,19 +32,19 @@
 - [X] prior (new results of IPAW paper)
 - [ ] contributions list
 - [ ] outline of paper
-**** TODO background [1/4]
+**** TODO background [1/4] :Boris:
 - [ ] Datalog
 - [ ] provenance and capture
 - [X] dependencies
 - [ ] semantic query optimization with chase & backchase
+**** TODO restricted provenance capture (capture for one input table) [0/2] :Boris:
+- [ ] explain basic idea
+- [ ] write rules
 **** TODO related work [0/2]
 - [ ] provenance capture & querying
   - [ ] check for new papers
 - [ ] semantic query optimization
   - [ ] more citations including (provenance-directed) chase & backchase, PDQ-related papers, ...
-**** TODO restricted provenance capture (capture for one input table) [0/2]
-- [ ] explain basic idea
-- [ ] write rules
 **** TODO semantic optimization algorithm [0/3]
 - [ ] write algorithm
 - [ ] explain algorithm
