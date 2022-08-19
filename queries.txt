@@ -1,0 +1,58 @@
+// Test Query [Join Nation and Region]
+
+STEPS (To handle strings):
+1. CREATE a table in postgres database. Add rows for which we want to find the provenance. To add row -- you may want to run the Datalog query and pick result row(s).
+
+Example: CREATE TABLE "rp" with 3 columns (int, string, string)
+
+2. ./src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -db semanticopt -port 5453 -passwd test -frontend dl -Osemantic_opt TRUE -Oflatten_dl TRUE -loglevel 3 -timing -query 'Q(A,B,Y) :- "region"(X,Y,Z), "nation"(A,B,X,C). FD "nation": "n_nationkey" -> "n_regionkey", "n_comment", "n_name". FD "region": "r_regionkey" -> "r_name", "r_comment". RP(X, Y, Z) :- "rpostgres"(X, Y, Z). ANS: Q. LINEAGE FOR "nation" FOR RESULTS FROM RP.'
+
+TPCQueries -- Q18 -- modified without group by
+
+Step 1: create a table (as view is not supported in DL?) in postgres -- with the group by
+Step 2: DL query:
+Q(c2,c1,o1,o4,o3,q1) :- "customer"(c1,c2,c3,c4,c5,c6,c7,c8),"orders"(o1,c1,o2,o3,o4,o5,o6,o7,o8),"lineitem"(o1,l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11,l12,l13,l14,l15),"q18_tmp"(o1,q1).
+
+Step 3: FDs:
+FD "customer": "c_custkey" -> "c_name", "c_address", "c_nationkey", "c_phone", "c_acctbal", "c_mktsegment", "c_comment". FD "orders": "o_orderkey" -> "o_custkey", "o_orderstatus", "o_totalprice", "o_orderdate", "o_orderpriority", "o_clerk", "o_shippriority", "o_comment". FD "lineitem": "l_orderkey", "l_linenumber" -> "l_partkey", "l_suppkey", "l_quantity", "l_extendedprice", "l_discount", "l_tax", "l_returnflag", "l_linestatus", "l_shipdate", "l_commitdate", "l_receiptdate", "l_shipinstruct", "l_shipmode", "l_comment" . FD "q18_tmp": "l_orderkey" -> "t_sum_quantity" .
+
+-----------
+
+Step 4: Complete command..
+ ./src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -db semanticopt -port 5453 -passwd test -frontend dl -Osemantic_opt TRUE -Oflatten_dl TRUE -loglevel 3 -timing -query 'Q(c2,c1,o1,o4,o3,q1) :- "customer"(c1,c2,c3,c4,c5,c6,c7,c8),"orders"(o1,c1,o2,o3,o4,o5,o6,o7,o8),"lineitem"(o1,l1,l2,l3,l4,l5,l6,l7,l8,l9,l10,l11,l12,l13,l14,l15),"q18_tmp"(o1,q1). FD "customer": "c_custkey" -> "c_name", "c_address", "c_nationkey", "c_phone", "c_acctbal", "c_mktsegment", "c_comment". FD "orders": "o_orderkey" -> "o_custkey", "o_orderstatus", "o_totalprice", "o_orderdate", "o_orderpriority", "o_clerk", "o_shippriority", "o_comment". FD "lineitem": "l_orderkey", "l_linenumber" -> "l_partkey", "l_suppkey", "l_quantity", "l_extendedprice", "l_discount", "l_tax", "l_returnflag", "l_linestatus", "l_shipdate", "l_commitdate", "l_receiptdate", "l_shipinstruct", "l_shipmode", "l_comment" . FD "q18_tmp": "l_orderkey" -> "t_sum_quantity" . RP(x1, x2, x3, x4, x5, x6) :- "rpostgres" (x1, x2, x3, x4, x5, x6). ANS: Q. LINEAGE FOR "customer" FOR RESULTS FROM RP.'
+
+
+
+QUESTIONS
+---------
+
+1) the round about way of strings in the rows selected.. -- use queryFile
+2) how to handle group by in Datalog?
+3) can Datalog access views in postgres? -- no need because Datalog can now do group by
+
+
+OPTIMIZING FROM QUERY FILES
+------------------------
+
+- evaluate cost optimization
+
+/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -db semanticopt -port 5453 -passwd test -frontend dl -Osemantic_opt TRUE -Oflatten_dl TRUE -loglevel 0 -Pexecutor sql -timing -queryFile ./umflint/tpcq18/customer.sql
+
+- loglevel 0
+- Pexecutor sql (do not run)
+
+- write results to file
+
+- run more than once
+
+for x in `seq 100`; do ./src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -db semanticopt -port 5453 -passwd test -frontend dl -Osemantic_opt TRUE -Oflatten_dl TRUE -loglevel 0 -Pexecutor sql -timing -queryFile ./umflint/tpcq18/customer.sql; done | grep 'timer: TOTAL' | awk ' { print $5 }' > q18-opttime-customer.csv
+
+- for x in `seq 100` loops 100 times
+- | grep 'timer: TOTAL' only return each output line with the TOTAL'
+- | awk ' { print $5 }' - printing the runtime in seconds
+- > q18-opttime-customer.csv - write output to q18-opttime-customer.csv
+
+
+CONNECT TO POSTGRES
+-------------------
+psql -h 127.0.0.1 -U postgres -p 5453 semanticopt
