@@ -9,5 +9,5 @@ cd ../..
 
 sed -i 's/;/ LIMIT 1;/g' $fullPath.sql
 
-psql -h 127.0.0.1 -U postgres -d semanticopt -p 5453 -f $fullPath.sql
+psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -f $fullPath.sql
 

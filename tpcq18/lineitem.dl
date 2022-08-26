@@ -10,4 +10,7 @@ t1 > 300.
 
 ANS: Q.
 
-LINEAGE FOR lineitem.
+RP(x1, x2, x3, x4, x5, x6) :- rtpcq18(x1, x2, x3, x4, x5, x6).
+
+LINEAGE FOR lineitem FOR RESULTS FROM RP.
+
