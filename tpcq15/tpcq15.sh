@@ -1,9 +1,6 @@
 #!/bin/bash
 
-baseName="tpcq15"
-fullPath="umflint/$baseName/$baseName"
-
-echo CREATE TABLE $baseName AS > $baseName.sql
+echo CREATE TABLE r$baseName AS > $baseName.sql
 cd ../..
 ./run_gprom.sh -Pexecutor sql -queryFile $fullPath.dl -loglevel 0 >> $fullPath.>
 

@@ -16,6 +16,6 @@ Q2(s_suppkey).
 
 ANS: Q.
 
-RP(x1, x2, x3, x4, x5, x6) :- rtpcq18(x1, x2, x3, x4, x5, x6).
+RP(x1, x2, x3, x4, x5, x6) :- rtpcq20(x1, x2, x3, x4, x5, x6).
 
 LINEAGE FOR part FOR RESULTS FROM RP.

@@ -6,7 +6,7 @@ Q(l_orderkey,o_orderdate,o_shippriority,sum(l_extendedprice*(1 - l_discount))) :
 
 ANS: Q.
 
-RP(x1, x2, x3, x4) :- rtpcq18(x1, x2, x3, x4).
+RP(x1, x2, x3, x4) :- rtpcq03(x1, x2, x3, x4).
 
-LINEAGE FOR part FOR RESULTS FROM RP.
+LINEAGE FOR orders FOR RESULTS FROM RP.
 
