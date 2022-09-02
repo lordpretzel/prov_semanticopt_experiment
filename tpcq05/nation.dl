@@ -10,4 +10,6 @@ o_od < '1995-01-01'.
 
 ANS: Q.
 
-LINEAGE FOR nation.
+RP(x1, x2) :- rtpcq18(x1, x2).
+
+LINEAGE FOR part FOR RESULTS FROM RP.

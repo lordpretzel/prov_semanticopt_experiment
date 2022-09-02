@@ -8,4 +8,6 @@ o_od < '1994-01-01'.
 
 ANS: Q. 
 
-LINEAGE FOR nation.
+RP(x1, x2, x3, x4, x5, x6, x7, x8) :- rtpcq10(x1, x2, x3, x4, x5, x6, x7, x8).
+
+LINEAGE FOR nation FOR RESULTS FROM RP.

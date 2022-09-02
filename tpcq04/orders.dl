@@ -10,7 +10,9 @@ o_odate < '1993-10-01'.
 
 ANS:Q.
 
-LINEAGE FOR orders.
+RP(x1, x2) :- rtpcq18(x1, x2).
+
+LINEAGE FOR part FOR RESULTS FROM RP.
 
 
 

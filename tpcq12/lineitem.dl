@@ -18,4 +18,6 @@ l_shipmode = 'SHIP'.
 
 ANS:Q.
 
-LINEAGE FOR lineitem.
+RP(x1, x2) :- rtpcq12(x1, x2).
+
+LINEAGE FOR lineitem FOR RESULTS FROM RP.

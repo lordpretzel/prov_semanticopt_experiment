@@ -6,4 +6,7 @@ Q(c_count, count(1)) :-
 Q1(q1, c_count).
 
 ANS: Q.
-LINEAGE FOR customer.
+
+RP(x1, x2) :- rtpcq13(x1, x2).
+
+LINEAGE FOR customer FOR RESULTS FROM RP.

@@ -6,4 +6,7 @@ l_shipdate >= '1995-09-01',
 l_shipdate < '1995-10-01'.
 
 ANS: Q.
-LINEAGE FOR part.
+
+RP(x1) :- rtpcq14(x1).
+
+LINEAGE FOR part FOR RESULTS FROM RP.

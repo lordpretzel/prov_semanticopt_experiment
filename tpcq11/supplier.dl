@@ -9,4 +9,6 @@ Q(c1,c2) :- Qsub1(c1, c2), Qsub2(c3), c2 > c3.
 
 ANS: Q.
 
-LINEAGE FOR supplier.
+RP(x1, x2) :- rtpcq11(x1, x2).
+
+LINEAGE FOR supplier FOR RESULTS FROM RP.

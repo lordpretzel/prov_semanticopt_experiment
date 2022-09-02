@@ -7,4 +7,7 @@ l_d <= 0.07,
 l_q < 24.
 
 ANS: Q.
-LINEAGE FOR lineitem.
+
+RP(x) :- rtpcq18(x).
+
+LINEAGE FOR part FOR RESULTS FROM RP.

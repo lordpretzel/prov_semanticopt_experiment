@@ -14,4 +14,6 @@ Q(nation, o_year, sum(amount)) :-
 
 ANS: Q.
 
-LINEAGE FOR orders.
+RP(x1, x2, x3) :- rtpcq09(x1, x2, x3).
+
+LINEAGE FOR orders FOR RESULTS FROM RP.
