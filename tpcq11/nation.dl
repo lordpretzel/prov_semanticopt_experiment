@@ -12,3 +12,4 @@ ANS: Q.
 RP(x1, x2) :- rtpcq11(x1, x2).
 
 LINEAGE FOR nation FOR RESULTS FROM RP.
+

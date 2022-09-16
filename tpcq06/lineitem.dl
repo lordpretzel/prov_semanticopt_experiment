@@ -8,6 +8,6 @@ l_q < 24.
 
 ANS: Q.
 
-RP(x) :- rtpcq18(x).
+RP(x) :- rtpcq06(x).
 
-LINEAGE FOR part FOR RESULTS FROM RP.
+LINEAGE FOR lineitem FOR RESULTS FROM RP.

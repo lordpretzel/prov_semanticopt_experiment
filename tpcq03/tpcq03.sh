@@ -2,7 +2,7 @@
 
 echo CREATE TABLE r${baseName} AS > $baseName.sql
 cd ../..
-./run_gprom.sh -Pexecutor sql -queryFile $fullPath.dl -loglevel 0 >> $fullPath.>
+./run_gprom.sh -Pexecutor sql -queryFile $fullPath.dl -loglevel 0 >> $fullPath.sql
 
 sed -i 's/;/ LIMIT 1;/g' $fullPath.sql
 
