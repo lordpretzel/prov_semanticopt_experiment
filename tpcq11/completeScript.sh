@@ -1,7 +1,7 @@
 export baseName=tpcq11
 export partialPath="umflint/$baseName"
 export fullPath="umflint/$baseName/$baseName"
-export repetitions=10
+export repetitions=100
 
 echo "================================================================================
 RUN: $baseName.sh"
