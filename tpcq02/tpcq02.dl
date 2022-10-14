@@ -6,7 +6,6 @@ supplier(s_key,s_name,s_addr,n_key,s_phone,s_account_bal,s_comment),
 part(p_key,x3,p_manu,x4,p_type,15,x5,x6,x7),
 partsupp(p_key,s_key,x8,s_cost,x9).
 
-
 Q2(p_key,min(s_cost)) :-
 Q1(x1,x2,x3,p_key,s_cost,x5,x6,x7,x8).
 
