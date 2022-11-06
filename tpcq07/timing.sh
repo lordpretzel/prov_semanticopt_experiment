@@ -1,6 +1,7 @@
 echo "RUN TIMING WITH: partialPath=$partialPath"
 
 for x in *.dl
+#for x in customer.dl
 do
   if [[ $x == *"tpc"* ]]; then
     continue
