@@ -101,7 +101,7 @@ def gprom_command(gprom_opts, f=None):
     return cmd
 
 def gprom_connection_options_as_list():
-    return ['-backend', 'postgres', '-host' , options.host,  '-user', options.user, '-passwd', options.password, '-port', str(options.port), '-db', options.db, '-frontend', 'dl']
+    return ['-backend', 'postgres', '-host' , options.host,  '-user', options.user, '-passwd', options.password, '-port', str(options.port), '-db', options.db, '-frontend', 'dl', '-Loperator_verbose', 'TRUE']
 
 def gprom_command_as_list(gprom_opts, f=None):
     fopts = ["-queryFile", f"{f}"] if f else []
