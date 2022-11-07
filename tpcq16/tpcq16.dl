@@ -24,5 +24,5 @@ Q1(p_brand,p_type,p_size,ps_suppkey) :-
     p_type NOT LIKE 'MEDIUM POLISHED%',
     QSizes(p_size),
     Qttlcom(ps_suppkey, 0).
-    ,
-ANS: Q
+    
+ANS: Q.

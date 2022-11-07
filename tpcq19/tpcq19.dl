@@ -30,8 +30,7 @@ Qshipmodes('AIR').
 Qshipmodes('AIR REG').
 
 Qfilter(l_orderkey, l_linenumber, l_discount, l_extp) :-
-    lineitem(l_orderkey,p_partkey,l2,l_linenumber,l_quantity,l_extp,l_discount,l4,l5,l6,l7,l8,l9,'DELIVER
-    IN PERSON',l_shipmode,l10),
+    lineitem(l_orderkey,p_partkey,l2,l_linenumber,l_quantity,l_extp,l_discount,l4,l5,l6,l7,l8,l9,'DELIVER IN PERSON',l_shipmode,l10),
     part(p_partkey,p1,p2,p_brand,p3,p_size,p_container,p4,p5),
     Qshipmodes(l_shipmode),
     Qoptions(q_low, q_high, p_container, p_high, p_brand),
@@ -43,4 +42,4 @@ Qfilter(l_orderkey, l_linenumber, l_discount, l_extp) :-
 Q(sum(l_extp * (1-l_discount))) :-
     Qfilter(l_orderkey, l_linenumber, l_discount, l_extp).
 
-ANS: Q
+ANS: Q.

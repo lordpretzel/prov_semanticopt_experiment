@@ -42,8 +42,11 @@ gprom_settings = [
 ]
 
 GPROM_BIN = "~/semantic_opt_gprom/src/command_line/gprom"
-
+DEBUG_ARGS = [ "-loglevel" ]
 options = None
+
+def get_debug_args():
+    return DEBUG_ARGS + [ str(options.loglevel) ]
 
 def log(m):
     print(m)
@@ -127,6 +130,10 @@ def materialize_result_subset(q):
     logfat(f"create table for {q}") 
     dlfile = qdir(q) + "tpcq" + q + ".dl"
     sqlfile = qdir(q) + "tpcq" + q + ".sql"
+    if options.debug:
+        (rt,sql,err) = run_gprom(["-Pexecutor", "sql"] + get_debug_args(), dlfile)
+        log(f"EXECUTION [{rt}]:\n\n{sql}\n\n{err}")
+    
     (rt,sql,err) = run_gprom(["-Pexecutor", "sql","-loglevel","0"], dlfile)
     if rt:
         log(f"error running gprom {dlfile} [ERR:{rt}]:\n{err}\n{sql}")
@@ -152,6 +159,9 @@ def generate_rewritten_sql(q):
         for s in gprom_settings:
             outfile = d + f"p_{pt}_{s.name}.sql"
             logfat(f"generate sql for {s.name} for {q}")
+            if options.debug:
+                (rt, out, err) = run_gprom(common_opts + s.args + get_debug_args(), infile)
+                log(out)
             if os.path.exists(outfile) and not options.overwrite:
                 log("do not overwrite file {outfile}")
             else:
@@ -198,9 +208,10 @@ def main(args):
     options = args
     if not os.path.exists(options.resultdir):
         os.mkdir(options.resultdir)
-    if args.query:
-        logfat(f"process query q{args.query}")
-        process_one_query(args.query)
+    if args.queries:
+        for q in args.queries.strip().split(","):
+            logfat(f"process query q{q}")
+            process_one_query(q)
     else:
         for q in queries:
             logfat(f"process query q{q}")
@@ -210,19 +221,24 @@ if __name__ == '__main__':
     ap = argparse.ArgumentParser(description='Running semantic optimization experiment')
     ap.add_argument('-r', '--repetitions', type=int, default=1,
                     help="number of repetitions for each experiment")
-    ap.add_argument('-q', '--query', type=str, default=None,
+    ap.add_argument('-q', '--queries', type=str, default=None,
                     help="run only this query (default is to run all)")
     ap.add_argument('--gprom', type=str, default=GPROM_BIN,
                     help="use this gprom binary")
-    ap.add_argument('-o', '--overwrite', type=bool, default=False,
+    ap.add_argument('-o', '--overwrite', action='store_true',
                     help="overwrite existing files")
-    ap.add_argument('-c', '--cleanup', type=bool, default=False,
+    ap.add_argument('-c', '--cleanup', action='store_true',
                     help="cleanup by dropping table with result row")
     ap.add_argument('-n', '--num-result-rows', type=int, default=1,
                     help="compute provenance for this many result row")
     ap.add_argument("-R", "--resultdir", type=str, default="results",
                     help="store results in this folder")
 
+    ap.add_argument("-D", "--debug", action='store_true',
+                    help="debug the process by logging more information.")
+    ap.add_argument("-l", "--loglevel", type=int, default=3,
+                    help="log level to use when debugging.")
+    
     ap.add_argument("-H", "--host", type=str, default="127.0.0.1",
                     help="database host")
     ap.add_argument("-u", "--user", type=str, default="postgres",
