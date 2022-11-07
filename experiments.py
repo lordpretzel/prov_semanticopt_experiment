@@ -41,7 +41,7 @@ gprom_settings = [
     GpromSetting("opt", ["-Osemantic_opt","TRUE", "-Oflatten_dl", "TRUE" ]),
 ]
 
-GPROM_BIN = "~/semantic_opt_gprom/src/command_line/gprom"
+GPROM_BIN = "/home/perm/semantic_opt_gprom/src/command_line/gprom"
 DEBUG_ARGS = [ "-loglevel" ]
 options = None
 
