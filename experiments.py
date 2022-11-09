@@ -150,6 +150,8 @@ def materialize_result_subset(q):
         with open(sqlfile, "w") as f:
             f.write(sql)
     ensure_file_exists(sqlfile)
+    if options.overwrite:
+        cleanup_result_table(q)
     #TODO check that table has the number of rows we need
     create_table = f"CREATE TABLE IF NOT EXISTS {get_result_table(q)} AS ({sql}"[0:-1] + " LIMIT 1);"
     log(f"created table:\n{create_table}")
@@ -171,7 +173,7 @@ def generate_rewritten_sql(q):
                 (rt, out, err) = run_gprom(common_opts + s.args + get_debug_args(), infile)
                 log(out)
             if os.path.exists(outfile) and not options.overwrite:
-                log("do not overwrite file {outfile}")
+                log(f"do not overwrite file {outfile}")
             else:
                 (rt, err) = run_gprom_store_output(common_opts + s.args, infile, outfile)
                 if rt:
@@ -182,7 +184,7 @@ def get_result_table(query):
 
 def cleanup_result_table(q):    
     logfat(f"dropped result table {get_result_table(q)}")
-    psql_cmd(f"DROP TABLE {get_result_table(q)};")
+    psql_cmd(f"DROP TABLE IF EXISTS {get_result_table(q)};")
 
 def time_provenance_capture(q):
     d = qdir(q)
