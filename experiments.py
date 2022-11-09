@@ -169,6 +169,7 @@ def generate_rewritten_sql(q):
         for s in gprom_settings:
             outfile = d + f"p_{pt}_{s.name}.sql"
             logfat(f"generate sql for {s.name} for {q} for provenance of {pt}")
+            log(f"sql file: {outfile} from dl file {infile}")
             if options.debug:
                 (rt, out, err) = run_gprom(common_opts + s.args + get_debug_args(), infile)
                 log(out)
@@ -191,7 +192,7 @@ def time_provenance_capture(q):
     for pt in queries[q]:
         for s in gprom_settings:
             logfat(f"time runtime {s.name} for {q} for provenance of {pt} with {str(options.repetitions)} repetitions")
-            infile = d + f"p_{pt}_{s.name}.dl"
+            infile = d + f"p_{pt}_{s.name}.sql"
             ensure_file_exists(infile)
             outfile = options.resultdir + "/" + f"runtime_{q}_{pt}_{s.name}.csv"
             if os.path.exists(outfile) and not options.overwrite:
