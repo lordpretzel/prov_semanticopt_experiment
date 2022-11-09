@@ -57,6 +57,11 @@ def logfat(m, other=""):
 def qdir(q):
     return f"{os.getcwd()}/tpcq{q}/"
 
+def ensure_file_exists(f):
+    if not os.path.exists(f):
+        log(f"sql file <{f}> does not exist")
+        exit(1)
+
 def get_shell_command_results(cmd):
     process = subprocess.run(cmd,
                              stdout=subprocess.PIPE,
@@ -129,6 +134,7 @@ def run_gprom_store_output(gprom_opts, inf, outf):
 def materialize_result_subset(q):
     logfat(f"create table for {q}") 
     dlfile = qdir(q) + "tpcq" + q + ".dl"
+    ensure_file_exists(dlfile)
     sqlfile = qdir(q) + "tpcq" + q + ".sql"
     if options.debug:
         (rt,sql,err) = run_gprom(["-Pexecutor", "sql"] + get_debug_args(), dlfile)
@@ -143,6 +149,7 @@ def materialize_result_subset(q):
     else:
         with open(sqlfile, "w") as f:
             f.write(sql)
+    ensure_file_exists(sqlfile)
     #TODO check that table has the number of rows we need
     create_table = f"CREATE TABLE IF NOT EXISTS {get_result_table(q)} AS ({sql}"[0:-1] + " LIMIT 1);"
     log(f"created table:\n{create_table}")
@@ -156,6 +163,7 @@ def generate_rewritten_sql(q):
     common_opts = ['-loglevel', '0', '-Pexecutor', 'sql']
     for pt in queries[q]:
         infile = d + f"{pt}.dl"
+        ensure_file_exists(infile)
         for s in gprom_settings:
             outfile = d + f"p_{pt}_{s.name}.sql"
             logfat(f"generate sql for {s.name} for {q}")
@@ -182,30 +190,32 @@ def time_provenance_capture(q):
         for s in gprom_settings:
             logfat(f"time runtime {s.name} for {q} with {str(options.repetitions)} repetitions")
             infile = d + f"p_{pt}_{s.name}.dl"
+            ensure_file_exists(infile)
             outfile = options.resultdir + "/" + f"runtime_{q}_{pt}_{s.name}.csv"
             if os.path.exists(outfile) and not options.overwrite:
                 log(f"do not overwrite file {outfile}")
             else:
                 psql_time(infile, outfile, options.repetitions)
 
-def process_one_query(q):
+def process_one_query(q):    
     d = qdir(q)
     if not os.path.exists(d):
         log(f"missing directory {d}")
         exit(1)
 
-    if not options.only or options.only == 'table':
+    if not options.only or 'table' in options.only:
         materialize_result_subset(q)
-    if not options.only or options.only == 'gensql':
+    if not options.only or 'gensql' in options.only:
         generate_rewritten_sql(q)
-    if not options.only or options.only == 'time':
+    if not options.only or 'time' in options.only:
         time_provenance_capture(q)
-    if (options.cleanup and options.only is None) or options.only == 'cleanup':
+    if (options.cleanup and options.only is None) or 'cleanup' in options.only:
         cleanup_result_table(q)
     
 def main(args):
     global options
     options = args
+    options.steps = options.steps.strip().split(",") if options.steps else None
     if not os.path.exists(options.resultdir):
         os.mkdir(options.resultdir)
     if args.queries:
@@ -250,8 +260,8 @@ if __name__ == '__main__':
     ap.add_argument("-P", "--password", type=str, default="test",
                     help="database password")
 
-    ap.add_argument("--only", type=str, default=None,
-                    help="only execute one step (table, gensql, time, clean)")
+    ap.add_argument('-O', "--only", type=str, default=None,
+                    help="only execute only listed steps (table, gensql, time, clean) separated by comma")
     
     args = ap.parse_args()
     
