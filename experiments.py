@@ -215,7 +215,7 @@ def process_one_query(q):
 def main(args):
     global options
     options = args
-    options.steps = options.steps.strip().split(",") if options.steps else None
+    options.only = options.only.strip().split(",") if options.only else None
     if not os.path.exists(options.resultdir):
         os.mkdir(options.resultdir)
     if args.queries:
