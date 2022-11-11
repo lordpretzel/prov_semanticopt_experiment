@@ -1,0 +1,894 @@
+================================================================================
+process query q01
+================================================================================
+
+================================================================================
+generate sql for flatten for 01 for provenance of lineitem
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq01/p_lineitem_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq01/lineitem.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq01/lineitem.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq01/lineitem.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq01/p_lineitem_flatten.sql
+================================================================================
+generate sql for opt for 01 for provenance of lineitem
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq01/p_lineitem_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq01/lineitem.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq01/lineitem.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq01/lineitem.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq01/p_lineitem_opt.sql
+================================================================================
+process query q02
+================================================================================
+
+================================================================================
+generate sql for flatten for 02 for provenance of nation
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq02/p_nation_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq02/nation.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq02/nation.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq02/nation.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq02/p_nation_flatten.sql
+================================================================================
+generate sql for opt for 02 for provenance of nation
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq02/p_nation_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq02/nation.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq02/nation.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq02/nation.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq02/p_nation_opt.sql
+================================================================================
+generate sql for flatten for 02 for provenance of part
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq02/p_part_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq02/part.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq02/part.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq02/part.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq02/p_part_flatten.sql
+================================================================================
+generate sql for opt for 02 for provenance of part
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq02/p_part_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq02/part.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq02/part.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq02/part.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq02/p_part_opt.sql
+================================================================================
+generate sql for flatten for 02 for provenance of partsupp
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq02/p_partsupp_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq02/partsupp.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq02/partsupp.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq02/partsupp.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq02/p_partsupp_flatten.sql
+================================================================================
+generate sql for opt for 02 for provenance of partsupp
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq02/p_partsupp_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq02/partsupp.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq02/partsupp.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq02/partsupp.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq02/p_partsupp_opt.sql
+================================================================================
+generate sql for flatten for 02 for provenance of region
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq02/p_region_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq02/region.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq02/region.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq02/region.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq02/p_region_flatten.sql
+================================================================================
+generate sql for opt for 02 for provenance of region
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq02/p_region_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq02/region.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq02/region.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq02/region.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq02/p_region_opt.sql
+================================================================================
+process query q03
+================================================================================
+
+================================================================================
+generate sql for flatten for 03 for provenance of customer
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq03/p_customer_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq03/customer.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq03/customer.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq03/customer.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq03/p_customer_flatten.sql
+================================================================================
+generate sql for opt for 03 for provenance of customer
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq03/p_customer_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq03/customer.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq03/customer.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq03/customer.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq03/p_customer_opt.sql
+================================================================================
+generate sql for flatten for 03 for provenance of lineitem
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq03/p_lineitem_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq03/lineitem.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq03/lineitem.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq03/lineitem.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq03/p_lineitem_flatten.sql
+================================================================================
+generate sql for opt for 03 for provenance of lineitem
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq03/p_lineitem_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq03/lineitem.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq03/lineitem.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq03/lineitem.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq03/p_lineitem_opt.sql
+================================================================================
+generate sql for flatten for 03 for provenance of orders
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq03/p_orders_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq03/orders.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq03/orders.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq03/orders.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq03/p_orders_flatten.sql
+================================================================================
+generate sql for opt for 03 for provenance of orders
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq03/p_orders_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq03/orders.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq03/orders.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq03/orders.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq03/p_orders_opt.sql
+================================================================================
+process query q04
+================================================================================
+
+================================================================================
+generate sql for flatten for 04 for provenance of lineitem
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq04/p_lineitem_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq04/lineitem.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq04/lineitem.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq04/lineitem.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq04/p_lineitem_flatten.sql
+================================================================================
+generate sql for opt for 04 for provenance of lineitem
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq04/p_lineitem_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq04/lineitem.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq04/lineitem.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq04/lineitem.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq04/p_lineitem_opt.sql
+================================================================================
+generate sql for flatten for 04 for provenance of orders
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq04/p_orders_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq04/orders.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq04/orders.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq04/orders.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq04/p_orders_flatten.sql
+================================================================================
+generate sql for opt for 04 for provenance of orders
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq04/p_orders_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq04/orders.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq04/orders.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq04/orders.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq04/p_orders_opt.sql
+================================================================================
+process query q05
+================================================================================
+
+================================================================================
+generate sql for flatten for 05 for provenance of customer
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq05/p_customer_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq05/customer.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq05/customer.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq05/customer.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq05/p_customer_flatten.sql
+================================================================================
+generate sql for opt for 05 for provenance of customer
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq05/p_customer_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq05/customer.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq05/customer.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq05/customer.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq05/p_customer_opt.sql
+================================================================================
+generate sql for flatten for 05 for provenance of lineitem
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq05/p_lineitem_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq05/lineitem.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq05/lineitem.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq05/lineitem.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq05/p_lineitem_flatten.sql
+================================================================================
+generate sql for opt for 05 for provenance of lineitem
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq05/p_lineitem_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq05/lineitem.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq05/lineitem.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq05/lineitem.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq05/p_lineitem_opt.sql
+================================================================================
+generate sql for flatten for 05 for provenance of nation
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq05/p_nation_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq05/nation.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq05/nation.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq05/nation.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq05/p_nation_flatten.sql
+================================================================================
+generate sql for opt for 05 for provenance of nation
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq05/p_nation_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq05/nation.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq05/nation.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq05/nation.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq05/p_nation_opt.sql
+================================================================================
+generate sql for flatten for 05 for provenance of orders
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq05/p_orders_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq05/orders.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq05/orders.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq05/orders.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq05/p_orders_flatten.sql
+================================================================================
+generate sql for opt for 05 for provenance of orders
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq05/p_orders_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq05/orders.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq05/orders.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq05/orders.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq05/p_orders_opt.sql
+================================================================================
+generate sql for flatten for 05 for provenance of region
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq05/p_region_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq05/region.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq05/region.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq05/region.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq05/p_region_flatten.sql
+================================================================================
+generate sql for opt for 05 for provenance of region
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq05/p_region_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq05/region.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq05/region.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq05/region.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq05/p_region_opt.sql
+================================================================================
+process query q06
+================================================================================
+
+================================================================================
+generate sql for flatten for 06 for provenance of lineitem
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq06/p_lineitem_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq06/lineitem.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq06/lineitem.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq06/lineitem.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq06/p_lineitem_flatten.sql
+================================================================================
+generate sql for opt for 06 for provenance of lineitem
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq06/p_lineitem_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq06/lineitem.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq06/lineitem.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq06/lineitem.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq06/p_lineitem_opt.sql
+================================================================================
+process query q07
+================================================================================
+
+================================================================================
+generate sql for flatten for 07 for provenance of customer
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq07/p_customer_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq07/customer.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq07/customer.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq07/customer.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq07/p_customer_flatten.sql
+================================================================================
+generate sql for opt for 07 for provenance of customer
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq07/p_customer_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq07/customer.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq07/customer.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq07/customer.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq07/p_customer_opt.sql
+================================================================================
+generate sql for flatten for 07 for provenance of lineitem
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq07/p_lineitem_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq07/lineitem.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq07/lineitem.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq07/lineitem.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq07/p_lineitem_flatten.sql
+================================================================================
+generate sql for opt for 07 for provenance of lineitem
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq07/p_lineitem_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq07/lineitem.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq07/lineitem.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq07/lineitem.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq07/p_lineitem_opt.sql
+================================================================================
+generate sql for flatten for 07 for provenance of nation
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq07/p_nation_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq07/nation.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq07/nation.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq07/nation.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq07/p_nation_flatten.sql
+================================================================================
+generate sql for opt for 07 for provenance of nation
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq07/p_nation_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq07/nation.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq07/nation.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq07/nation.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq07/p_nation_opt.sql
+================================================================================
+generate sql for flatten for 07 for provenance of orders
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq07/p_orders_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq07/orders.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq07/orders.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq07/orders.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq07/p_orders_flatten.sql
+================================================================================
+generate sql for opt for 07 for provenance of orders
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq07/p_orders_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq07/orders.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq07/orders.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq07/orders.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq07/p_orders_opt.sql
+================================================================================
+generate sql for flatten for 07 for provenance of supplier
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq07/p_supplier_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq07/supplier.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq07/supplier.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq07/supplier.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq07/p_supplier_flatten.sql
+================================================================================
+generate sql for opt for 07 for provenance of supplier
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq07/p_supplier_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq07/supplier.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq07/supplier.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq07/supplier.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq07/p_supplier_opt.sql
+================================================================================
+process query q08
+================================================================================
+
+================================================================================
+generate sql for flatten for 08 for provenance of customer
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq08/p_customer_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq08/customer.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq08/customer.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq08/customer.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq08/p_customer_flatten.sql
+================================================================================
+generate sql for opt for 08 for provenance of customer
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq08/p_customer_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq08/customer.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq08/customer.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq08/customer.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq08/p_customer_opt.sql
+error running commands from /home/perm/semantic_opt_gprom/umflint/tpcq08/customer.dl and storing result in /home/perm/semantic_opt_gprom/umflint/tpcq08/p_customer_opt.sql using command line:
+['/home/perm/semantic_opt_gprom/src/command_line/gprom', '-backend', 'postgres', '-host', '127.0.0.1', '-user', 'postgres', '-passwd', 'test', '-port', '5463', '-db', 'semanticopt', '-frontend', 'dl', '-Loperator_verbose', 'TRUE', '-loglevel', '0', '-Pexecutor', 'sql', '-Osemantic_opt', 'TRUE', '-Oflatten_dl', 'TRUE', '-queryFile', '/home/perm/semantic_opt_gprom/umflint/tpcq08/customer.dl']
+error generating rewritting SQL for opt for 08 [1]:
+[5m[37m[41mEXCEPTION[0m Handler requested us to die because of exception at [31m(analyze_dl.c:765) [0m
+
+rule is not safe: prov_q2_pre_4(c_ckey,x8,x9,c_nkey,x10,x11,x12,x13,date_part('YEAR', o_odate),(l_extend * (1 - l_discount)),n_name) :- customer(c_ckey,x8,x9,c_nkey,x10,x11,x12,x13),nation(c_nkey,x14,n_rkey,x15),region(n_rkey,'AMERICA',x16).
+
+
+================================================================================
+generate sql for flatten for 08 for provenance of nation
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq08/p_nation_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq08/nation.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq08/nation.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq08/nation.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq08/p_nation_flatten.sql
+================================================================================
+generate sql for opt for 08 for provenance of nation
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq08/p_nation_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq08/nation.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq08/nation.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq08/nation.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq08/p_nation_opt.sql
+error running commands from /home/perm/semantic_opt_gprom/umflint/tpcq08/nation.dl and storing result in /home/perm/semantic_opt_gprom/umflint/tpcq08/p_nation_opt.sql using command line:
+['/home/perm/semantic_opt_gprom/src/command_line/gprom', '-backend', 'postgres', '-host', '127.0.0.1', '-user', 'postgres', '-passwd', 'test', '-port', '5463', '-db', 'semanticopt', '-frontend', 'dl', '-Loperator_verbose', 'TRUE', '-loglevel', '0', '-Pexecutor', 'sql', '-Osemantic_opt', 'TRUE', '-Oflatten_dl', 'TRUE', '-queryFile', '/home/perm/semantic_opt_gprom/umflint/tpcq08/nation.dl']
+error generating rewritting SQL for opt for 08 [1]:
+[5m[37m[41mEXCEPTION[0m Handler requested us to die because of exception at [31m(analyze_dl.c:765) [0m
+
+rule is not safe: prov_q2_pre_4(c_nkey,x14,n_rkey,x15,date_part('YEAR', o_odate),(l_extend * (1 - l_discount)),n_name) :- nation(c_nkey,x14,n_rkey,x15),customer(c_ckey,x8,x9,c_nkey,x10,x11,x12,x13),region(n_rkey,'AMERICA',x16).
+
+
+================================================================================
+generate sql for flatten for 08 for provenance of part
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq08/p_part_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq08/part.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq08/part.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq08/part.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq08/p_part_flatten.sql
+================================================================================
+generate sql for opt for 08 for provenance of part
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq08/p_part_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq08/part.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq08/part.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq08/part.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq08/p_part_opt.sql
+================================================================================
+generate sql for flatten for 08 for provenance of supplier
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq08/p_supplier_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq08/supplier.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq08/supplier.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq08/supplier.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq08/p_supplier_flatten.sql
+================================================================================
+generate sql for opt for 08 for provenance of supplier
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq08/p_supplier_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq08/supplier.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq08/supplier.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq08/supplier.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq08/p_supplier_opt.sql
+================================================================================
+process query q09
+================================================================================
+
+================================================================================
+generate sql for flatten for 09 for provenance of lineitem
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq09/p_lineitem_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq09/lineitem.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq09/lineitem.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq09/lineitem.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq09/p_lineitem_flatten.sql
+================================================================================
+generate sql for opt for 09 for provenance of lineitem
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq09/p_lineitem_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq09/lineitem.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq09/lineitem.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq09/lineitem.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq09/p_lineitem_opt.sql
+================================================================================
+generate sql for flatten for 09 for provenance of nation
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq09/p_nation_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq09/nation.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq09/nation.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq09/nation.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq09/p_nation_flatten.sql
+================================================================================
+generate sql for opt for 09 for provenance of nation
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq09/p_nation_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq09/nation.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq09/nation.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq09/nation.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq09/p_nation_opt.sql
+================================================================================
+generate sql for flatten for 09 for provenance of orders
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq09/p_orders_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq09/orders.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq09/orders.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq09/orders.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq09/p_orders_flatten.sql
+================================================================================
+generate sql for opt for 09 for provenance of orders
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq09/p_orders_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq09/orders.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq09/orders.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq09/orders.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq09/p_orders_opt.sql
+================================================================================
+generate sql for flatten for 09 for provenance of part
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq09/p_part_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq09/part.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq09/part.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq09/part.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq09/p_part_flatten.sql
+================================================================================
+generate sql for opt for 09 for provenance of part
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq09/p_part_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq09/part.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq09/part.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq09/part.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq09/p_part_opt.sql
+================================================================================
+generate sql for flatten for 09 for provenance of partsupp
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq09/p_partsupp_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq09/partsupp.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq09/partsupp.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq09/partsupp.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq09/p_partsupp_flatten.sql
+================================================================================
+generate sql for opt for 09 for provenance of partsupp
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq09/p_partsupp_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq09/partsupp.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq09/partsupp.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq09/partsupp.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq09/p_partsupp_opt.sql
+================================================================================
+generate sql for flatten for 09 for provenance of supplier
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq09/p_supplier_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq09/supplier.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq09/supplier.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq09/supplier.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq09/p_supplier_flatten.sql
+================================================================================
+generate sql for opt for 09 for provenance of supplier
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq09/p_supplier_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq09/supplier.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq09/supplier.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq09/supplier.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq09/p_supplier_opt.sql
+================================================================================
+process query q10
+================================================================================
+
+================================================================================
+generate sql for flatten for 10 for provenance of customer
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq10/p_customer_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq10/customer.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq10/customer.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq10/customer.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq10/p_customer_flatten.sql
+================================================================================
+generate sql for opt for 10 for provenance of customer
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq10/p_customer_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq10/customer.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq10/customer.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq10/customer.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq10/p_customer_opt.sql
+================================================================================
+generate sql for flatten for 10 for provenance of lineitem
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq10/p_lineitem_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq10/lineitem.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq10/lineitem.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq10/lineitem.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq10/p_lineitem_flatten.sql
+================================================================================
+generate sql for opt for 10 for provenance of lineitem
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq10/p_lineitem_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq10/lineitem.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq10/lineitem.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq10/lineitem.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq10/p_lineitem_opt.sql
+================================================================================
+generate sql for flatten for 10 for provenance of nation
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq10/p_nation_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq10/nation.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq10/nation.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq10/nation.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq10/p_nation_flatten.sql
+================================================================================
+generate sql for opt for 10 for provenance of nation
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq10/p_nation_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq10/nation.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq10/nation.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq10/nation.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq10/p_nation_opt.sql
+================================================================================
+generate sql for flatten for 10 for provenance of orders
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq10/p_orders_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq10/orders.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq10/orders.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq10/orders.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq10/p_orders_flatten.sql
+================================================================================
+generate sql for opt for 10 for provenance of orders
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq10/p_orders_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq10/orders.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq10/orders.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq10/orders.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq10/p_orders_opt.sql
+================================================================================
+process query q11
+================================================================================
+
+================================================================================
+generate sql for flatten for 11 for provenance of nation
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq11/p_nation_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq11/nation.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq11/nation.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq11/nation.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq11/p_nation_flatten.sql
+================================================================================
+generate sql for opt for 11 for provenance of nation
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq11/p_nation_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq11/nation.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq11/nation.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq11/nation.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq11/p_nation_opt.sql
+================================================================================
+generate sql for flatten for 11 for provenance of partsupp
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq11/p_partsupp_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq11/partsupp.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq11/partsupp.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq11/partsupp.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq11/p_partsupp_flatten.sql
+================================================================================
+generate sql for opt for 11 for provenance of partsupp
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq11/p_partsupp_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq11/partsupp.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq11/partsupp.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq11/partsupp.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq11/p_partsupp_opt.sql
+================================================================================
+generate sql for flatten for 11 for provenance of supplier
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq11/p_supplier_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq11/supplier.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq11/supplier.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq11/supplier.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq11/p_supplier_flatten.sql
+================================================================================
+generate sql for opt for 11 for provenance of supplier
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq11/p_supplier_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq11/supplier.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq11/supplier.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq11/supplier.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq11/p_supplier_opt.sql
+================================================================================
+process query q12
+================================================================================
+
+================================================================================
+generate sql for flatten for 12 for provenance of lineitem
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq12/p_lineitem_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq12/lineitem.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq12/lineitem.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq12/lineitem.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq12/p_lineitem_flatten.sql
+================================================================================
+generate sql for opt for 12 for provenance of lineitem
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq12/p_lineitem_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq12/lineitem.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq12/lineitem.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq12/lineitem.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq12/p_lineitem_opt.sql
+================================================================================
+generate sql for flatten for 12 for provenance of orders
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq12/p_orders_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq12/orders.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq12/orders.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq12/orders.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq12/p_orders_flatten.sql
+================================================================================
+generate sql for opt for 12 for provenance of orders
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq12/p_orders_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq12/orders.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq12/orders.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq12/orders.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq12/p_orders_opt.sql
+================================================================================
+process query q13
+================================================================================
+
+================================================================================
+generate sql for flatten for 13 for provenance of customer
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq13/p_customer_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq13/customer.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq13/customer.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq13/customer.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq13/p_customer_flatten.sql
+================================================================================
+generate sql for opt for 13 for provenance of customer
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq13/p_customer_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq13/customer.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq13/customer.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq13/customer.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq13/p_customer_opt.sql
+================================================================================
+generate sql for flatten for 13 for provenance of orders
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq13/p_orders_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq13/orders.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq13/orders.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq13/orders.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq13/p_orders_flatten.sql
+================================================================================
+generate sql for opt for 13 for provenance of orders
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq13/p_orders_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq13/orders.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq13/orders.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq13/orders.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq13/p_orders_opt.sql
+================================================================================
+process query q14
+================================================================================
+
+================================================================================
+generate sql for flatten for 14 for provenance of lineitem
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq14/p_lineitem_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq14/lineitem.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq14/lineitem.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq14/lineitem.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq14/p_lineitem_flatten.sql
+================================================================================
+generate sql for opt for 14 for provenance of lineitem
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq14/p_lineitem_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq14/lineitem.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq14/lineitem.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq14/lineitem.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq14/p_lineitem_opt.sql
+================================================================================
+generate sql for flatten for 14 for provenance of part
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq14/p_part_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq14/part.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq14/part.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq14/part.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq14/p_part_flatten.sql
+================================================================================
+generate sql for opt for 14 for provenance of part
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq14/p_part_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq14/part.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq14/part.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq14/part.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq14/p_part_opt.sql
+================================================================================
+process query q15
+================================================================================
+
+================================================================================
+generate sql for flatten for 15 for provenance of lineitem
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq15/p_lineitem_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq15/lineitem.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq15/lineitem.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq15/lineitem.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq15/p_lineitem_flatten.sql
+================================================================================
+generate sql for opt for 15 for provenance of lineitem
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq15/p_lineitem_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq15/lineitem.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq15/lineitem.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq15/lineitem.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq15/p_lineitem_opt.sql
+================================================================================
+generate sql for flatten for 15 for provenance of supplier
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq15/p_supplier_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq15/supplier.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq15/supplier.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq15/supplier.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq15/p_supplier_flatten.sql
+================================================================================
+generate sql for opt for 15 for provenance of supplier
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq15/p_supplier_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq15/supplier.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq15/supplier.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq15/supplier.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq15/p_supplier_opt.sql
+================================================================================
+process query q16
+================================================================================
+
+================================================================================
+generate sql for flatten for 16 for provenance of part
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq16/p_part_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq16/part.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq16/part.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq16/part.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq16/p_part_flatten.sql
+================================================================================
+generate sql for opt for 16 for provenance of part
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq16/p_part_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq16/part.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq16/part.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq16/part.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq16/p_part_opt.sql
+================================================================================
+generate sql for flatten for 16 for provenance of partsupp
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq16/p_partsupp_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq16/partsupp.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq16/partsupp.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq16/partsupp.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq16/p_partsupp_flatten.sql
+================================================================================
+generate sql for opt for 16 for provenance of partsupp
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq16/p_partsupp_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq16/partsupp.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq16/partsupp.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq16/partsupp.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq16/p_partsupp_opt.sql
+================================================================================
+generate sql for flatten for 16 for provenance of supplier
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq16/p_supplier_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq16/supplier.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq16/supplier.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq16/supplier.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq16/p_supplier_flatten.sql
+================================================================================
+generate sql for opt for 16 for provenance of supplier
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq16/p_supplier_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq16/supplier.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq16/supplier.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq16/supplier.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq16/p_supplier_opt.sql
+================================================================================
+process query q17
+================================================================================
+
+================================================================================
+generate sql for flatten for 17 for provenance of lineitem
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq17/p_lineitem_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq17/lineitem.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq17/lineitem.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq17/lineitem.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq17/p_lineitem_flatten.sql
+================================================================================
+generate sql for opt for 17 for provenance of lineitem
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq17/p_lineitem_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq17/lineitem.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq17/lineitem.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq17/lineitem.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq17/p_lineitem_opt.sql
+================================================================================
+generate sql for flatten for 17 for provenance of part
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq17/p_part_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq17/part.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq17/part.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq17/part.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq17/p_part_flatten.sql
+================================================================================
+generate sql for opt for 17 for provenance of part
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq17/p_part_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq17/part.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq17/part.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq17/part.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq17/p_part_opt.sql
+================================================================================
+process query q18
+================================================================================
+
+================================================================================
+generate sql for flatten for 18 for provenance of customer
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq18/p_customer_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq18/customer.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq18/customer.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq18/customer.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq18/p_customer_flatten.sql
+================================================================================
+generate sql for opt for 18 for provenance of customer
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq18/p_customer_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq18/customer.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq18/customer.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq18/customer.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq18/p_customer_opt.sql
+================================================================================
+generate sql for flatten for 18 for provenance of lineitem
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq18/p_lineitem_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq18/lineitem.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq18/lineitem.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq18/lineitem.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq18/p_lineitem_flatten.sql
+================================================================================
+generate sql for opt for 18 for provenance of lineitem
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq18/p_lineitem_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq18/lineitem.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq18/lineitem.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq18/lineitem.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq18/p_lineitem_opt.sql
+================================================================================
+generate sql for flatten for 18 for provenance of orders
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq18/p_orders_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq18/orders.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq18/orders.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq18/orders.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq18/p_orders_flatten.sql
+================================================================================
+generate sql for opt for 18 for provenance of orders
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq18/p_orders_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq18/orders.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq18/orders.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq18/orders.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq18/p_orders_opt.sql
+================================================================================
+process query q19
+================================================================================
+
+================================================================================
+generate sql for flatten for 19 for provenance of lineitem
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq19/p_lineitem_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq19/lineitem.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq19/lineitem.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq19/lineitem.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq19/p_lineitem_flatten.sql
+================================================================================
+generate sql for opt for 19 for provenance of lineitem
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq19/p_lineitem_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq19/lineitem.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq19/lineitem.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq19/lineitem.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq19/p_lineitem_opt.sql
+================================================================================
+generate sql for flatten for 19 for provenance of part
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq19/p_part_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq19/part.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq19/part.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq19/part.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq19/p_part_flatten.sql
+================================================================================
+generate sql for opt for 19 for provenance of part
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq19/p_part_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq19/part.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq19/part.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq19/part.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq19/p_part_opt.sql
+================================================================================
+process query q20
+================================================================================
+
+================================================================================
+generate sql for flatten for 20 for provenance of part
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq20/p_part_flatten.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq20/part.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt FALSE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq20/part.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq20/part.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq20/p_part_flatten.sql
+================================================================================
+generate sql for opt for 20 for provenance of part
+================================================================================
+
+sql file: /home/perm/semantic_opt_gprom/umflint/tpcq20/p_part_opt.sql from dl file /home/perm/semantic_opt_gprom/umflint/tpcq20/part.dl
+run /home/perm/semantic_opt_gprom/src/command_line/gprom -backend postgres -host 127.0.0.1 -user postgres -passwd test -port 5463 -db semanticopt -frontend dl -Loperator_verbose TRUE -loglevel 0 -Pexecutor sql -Osemantic_opt TRUE -Oflatten_dl TRUE -queryFile /home/perm/semantic_opt_gprom/umflint/tpcq20/part.dl
+ to execute /home/perm/semantic_opt_gprom/umflint/tpcq20/part.dl and store output in /home/perm/semantic_opt_gprom/umflint/tpcq20/p_part_opt.sql

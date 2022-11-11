@@ -1,0 +1,1814 @@
+
+================================================================================
+time runtime flatten for 01 for provenance of lineitem with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq01/p_lineitem_flatten.sql
+Timing is on.
+   A0    |   A1   |  A2   | A3 | A4 |    A5     |  A6  |  A7  | A8 | A9 |    A10     |    A11     |    A12     |        A13        |   A14   |                     A15
+---------+--------+-------+----+----+-----------+------+------+----+----+------------+------------+------------+-------------------+---------+---------------------------------------------
+  205318 | 170017 |  5052 |  1 | 39 |  42393.39 | 0.05 | 0.04 | A  | F  | 1992-01-15 | 1992-04-05 | 1992-02-11 | COLLECT COD       | SHIP    | according to the ir
+  180101 |  32132 |  2133 |  3 |  7 |   7448.91 | 0.02 | 0.01 | A  | F  | 1993-01-26 | 1993-02-20 | 1993-02-01 | COLLECT COD       | TRUCK   | blithely ir
+ 5862082 | 151125 |  6156 |  6 | 42 |  49397.04 | 0.07 | 0.04 | A  | F  | 1994-05-31 | 1994-07-31 | 1994-06-19 | DELIVER IN PERSON | RAIL    | egular packages are blithel
+ 3463591 | 117985 |  7986 |  6 | 43 |  86128.14 |    0 | 0.07 | A  | F  | 1992-01-11 | 1992-02-09 | 1992-02-03 | TAKE BAC
+took 11395.563 ms
+================================================================================
+time runtime opt for 01 for provenance of lineitem with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq01/p_lineitem_opt.sql
+Timing is on.
+   A0    |   A1   |  A2   | A3 | A4 |    A5     |  A6  |  A7  | A8 | A9 |    A10     |    A11     |    A12     |        A13        |   A14   |                     A15
+---------+--------+-------+----+----+-----------+------+------+----+----+------------+------------+------------+-------------------+---------+---------------------------------------------
+  205318 | 170017 |  5052 |  1 | 39 |  42393.39 | 0.05 | 0.04 | A  | F  | 1992-01-15 | 1992-04-05 | 1992-02-11 | COLLECT COD       | SHIP    | according to the ir
+  180101 |  32132 |  2133 |  3 |  7 |   7448.91 | 0.02 | 0.01 | A  | F  | 1993-01-26 | 1993-02-20 | 1993-02-01 | COLLECT COD       | TRUCK   | blithely ir
+ 5862082 | 151125 |  6156 |  6 | 42 |  49397.04 | 0.07 | 0.04 | A  | F  | 1994-05-31 | 1994-07-31 | 1994-06-19 | DELIVER IN PERSON | RAIL    | egular packages are blithel
+ 3463591 | 117985 |  7986 |  6 | 43 |  86128.14 |    0 | 0.07 | A  | F  | 1992-01-11 | 1992-02-09 | 1992-02-03 | TAKE BAC
+took 11470.653 ms
+================================================================================
+process query q02
+================================================================================
+
+================================================================================
+time runtime flatten for 02 for provenance of nation with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq02/p_nation_flatten.sql
+Timing is on.
+ A0 |   A1   | A2 |                                       A3
+----+--------+----+---------------------------------------------------------------------------------
+  6 | FRANCE |  3 | refully final requests. regular, ironi
+ 22 | RUSSIA |  3 |  requests against the platelets use never according to the quickly regular pint
+(2 rows)
+
+Time: 2335.074 ms (00:02.335)
+took 2335.074 ms
+================================================================================
+time runtime opt for 02 for provenance of nation with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq02/p_nation_opt.sql
+Timing is on.
+ A0 |   A1   | A2 |                                       A3
+----+--------+----+---------------------------------------------------------------------------------
+  6 | FRANCE |  3 | refully final requests. regular, ironi
+ 22 | RUSSIA |  3 |  requests against the platelets use never according to the quickly regular pint
+(2 rows)
+
+Time: 902.211 ms
+took 902.211 ms
+================================================================================
+time runtime flatten for 02 for provenance of part with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq02/p_part_flatten.sql
+Timing is on.
+   A0   |               A1                |       A2       |    A3    |          A4           | A5 |    A6    |   A7    |    A8
+--------+---------------------------------+----------------+----------+-----------------------+----+----------+---------+----------
+ 107955 | coral seashell light azure lime | Manufacturer#1 | Brand#13 | PROMO BURNISHED STEEL | 15 | WRAP BAG | 1962.95 | gular de
+(1 row)
+
+Time: 2324.283 ms (00:02.324)
+took 2324.283 ms
+================================================================================
+time runtime opt for 02 for provenance of part with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq02/p_part_opt.sql
+Timing is on.
+   A0   |               A1                |       A2       |    A3    |          A4           | A5 |    A6    |   A7    |    A8
+--------+---------------------------------+----------------+----------+-----------------------+----+----------+---------+----------
+ 107955 | coral seashell light azure lime | Manufacturer#1 | Brand#13 | PROMO BURNISHED STEEL | 15 | WRAP BAG | 1962.95 | gular de
+(1 row)
+
+Time: 16.895 ms
+took 16.895 ms
+================================================================================
+time runtime flatten for 02 for provenance of partsupp with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq02/p_partsupp_flatten.sql
+Timing is on.
+   A0   |  A1  |  A2  |   A3   |                                                                                               A4
+--------+------+------+--------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 107955 |  466 | 2916 | 510.86 | ully ironic pinto beans are slyly ironic sheaves. slyly final asymptotes haggle quickl
+ 107955 | 7956 | 2479 |   6.91 | usual packages. blithely ironic packages boost. carefully express gifts along the furiously express pinto beans boost carefully furiously ironic instructions. blithely pending deposits integr
+(2 rows)
+
+Time: 2364.682 ms (00:02.365)
+took 2364.682 ms
+================================================================================
+time runtime opt for 02 for provenance of partsupp with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq02/p_partsupp_opt.sql
+Timing is on.
+   A0   |  A1  |  A2  |   A3   |                                                                                               A4
+--------+------+------+--------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 107955 |  466 | 2916 | 510.86 | ully ironic pinto beans are slyly ironic sheaves. slyly final asymptotes haggle quickl
+ 107955 | 7956 | 2479 |   6.91 | usual packages. blithely ironic packages boost. carefully express gifts along the furiously express pinto beans boost carefully furiously ironic instructions. blithely pending deposits integr
+(2 rows)
+
+Time: 893.095 ms
+took 893.095 ms
+================================================================================
+time runtime flatten for 02 for provenance of region with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq02/p_region_flatten.sql
+Timing is on.
+ A0 |   A1   |                      A2
+----+--------+-----------------------------------------------
+  3 | EUROPE | ly final courts cajole furiously final excuse
+(1 row)
+
+Time: 2307.959 ms (00:02.308)
+took 2307.959 ms
+================================================================================
+time runtime opt for 02 for provenance of region with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq02/p_region_opt.sql
+Timing is on.
+ A0 |   A1   |                      A2
+----+--------+-----------------------------------------------
+  3 | EUROPE | ly final courts cajole furiously final excuse
+(1 row)
+
+Time: 897.231 ms
+took 897.231 ms
+================================================================================
+process query q03
+================================================================================
+
+================================================================================
+time runtime flatten for 03 for provenance of customer with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq03/p_customer_flatten.sql
+Timing is on.
+  A0   |         A1         |      A2      | A3 |       A4        |   A5    |    A6    |                                      A7
+-------+--------------------+--------------+----+-----------------+---------+----------+------------------------------------------------------------------------------
+ 55126 | Customer#000055126 | YkXgB5CviGh  | 13 | 23-784-771-4784 | -545.68 | BUILDING |  fluffily bold ideas about the slyly express deposits wake fluffily across t
+(1 row)
+
+Time: 5.164 ms
+took 5.164 ms
+================================================================================
+time runtime opt for 03 for provenance of customer with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq03/p_customer_opt.sql
+Timing is on.
+  A0   |         A1         |      A2      | A3 |       A4        |   A5    |    A6    |                                      A7
+-------+--------------------+--------------+----+-----------------+---------+----------+------------------------------------------------------------------------------
+ 55126 | Customer#000055126 | YkXgB5CviGh  | 13 | 23-784-771-4784 | -545.68 | BUILDING |  fluffily bold ideas about the slyly express deposits wake fluffily across t
+(1 row)
+
+Time: 4.226 ms
+took 4.226 ms
+================================================================================
+time runtime flatten for 03 for provenance of lineitem with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq03/p_lineitem_flatten.sql
+Timing is on.
+ A0  |  A1   |  A2  | A3 | A4 |    A5    |  A6  |  A7  | A8 | A9 |    A10     |    A11     |    A12     |        A13        | A14  |                  A15
+-----+-------+------+----+----+----------+------+------+----+----+------------+------------+------------+-------------------+------+----------------------------------------
+ 577 | 25886 |  891 |  1 | 25 |    45297 | 0.06 | 0.01 | A  | F  | 1995-04-09 | 1995-02-20 | 1995-05-09 | TAKE BACK RETURN  | AIR  | ve slyly of the frets. careful
+ 577 | 63233 | 8246 |  2 | 14 | 16747.22 | 0.08 | 0.03 | R  | F  | 1995-03-19 | 1995-02-25 | 1995-04-09 | DELIVER IN PERSON | RAIL | l accounts wake deposits. ironic packa
+(2 rows)
+
+Time: 5.289 ms
+took 5.289 ms
+================================================================================
+time runtime opt for 03 for provenance of lineitem with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq03/p_lineitem_opt.sql
+Timing is on.
+ A0  |  A1   |  A2  | A3 | A4 |    A5    |  A6  |  A7  | A8 | A9 |    A10     |    A11     |    A12     |        A13        | A14  |                  A15
+-----+-------+------+----+----+----------+------+------+----+----+------------+------------+------------+-------------------+------+----------------------------------------
+ 577 | 25886 |  891 |  1 | 25 |    45297 | 0.06 | 0.01 | A  | F  | 1995-04-09 | 1995-02-20 | 1995-05-09 | TAKE BACK RETURN  | AIR  | ve slyly of the frets. careful
+ 577 | 63233 | 8246 |  2 | 14 | 16747.22 | 0.08 | 0.03 | R  | F  | 1995-03-19 | 1995-02-25 | 1995-04-09 | DELIVER IN PERSON | RAIL | l accounts wake deposits. ironic packa
+(2 rows)
+
+Time: 3.502 ms
+took 3.502 ms
+================================================================================
+time runtime flatten for 03 for provenance of orders with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq03/p_orders_flatten.sql
+Timing is on.
+ A0  |  A1   | A2 |    A3    |     A4     |  A5   |       A6        | A7 |             A8
+-----+-------+----+----------+------------+-------+-----------------+----+----------------------------
+ 577 | 55126 | F  | 58874.63 | 1994-12-19 | 5-LOW | Clerk#000000154 |  0 |  deposits engage stealthil
+(1 row)
+
+Time: 5.190 ms
+took 5.190 ms
+================================================================================
+time runtime opt for 03 for provenance of orders with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq03/p_orders_opt.sql
+Timing is on.
+ A0  |  A1   | A2 |    A3    |     A4     |  A5   |       A6        | A7 |             A8
+-----+-------+----+----------+------------+-------+-----------------+----+----------------------------
+ 577 | 55126 | F  | 58874.63 | 1994-12-19 | 5-LOW | Clerk#000000154 |  0 |  deposits engage stealthil
+(1 row)
+
+Time: 3.066 ms
+took 3.066 ms
+================================================================================
+process query q04
+================================================================================
+
+================================================================================
+time runtime flatten for 04 for provenance of lineitem with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq04/p_lineitem_flatten.sql
+Timing is on.
+   A0    |   A1   |  A2   | A3 | A4 |    A5     |  A6  |  A7  | A8 | A9 |    A10     |    A11     |    A12     |        A13        |   A14   |                     A15
+---------+--------+-------+----+----+-----------+------+------+----+----+------------+------------+------------+-------------------+---------+---------------------------------------------
+ 3521794 | 130619 |   620 |  3 | 17 |  28043.37 | 0.09 | 0.02 | R  | F  | 1993-10-18 | 1993-09-19 | 1993-10-27 | NONE              | REG AIR | uctions maintain furiously caref
+ 1481063 | 167617 |  2650 |  1 | 35 |  58961.35 |  0.1 |    0 | A  | F  | 1993-12-16 | 1993-09-16 | 1994-01-09 | COLLECT COD       | AIR     | y pending foxes. carefully
+ 2362467 |  38703 |  8704 |  3 | 20 |     32834 | 0.05 | 0.08 | A  | F  | 1993-10-27 | 1993-10-04 | 1993-11-02 | DELIVER IN PERSON | MAIL    | y. accounts sleep blith
+ 5722530 | 171923 |  9475 |  2 |  6 |  11969.52 | 0.02 | 0.01 | A  | F  | 1993-12-01 | 1993-11-2
+took 952.238 ms
+================================================================================
+time runtime opt for 04 for provenance of lineitem with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq04/p_lineitem_opt.sql
+Timing is on.
+   A0    |   A1   |  A2   | A3 | A4 |    A5     |  A6  |  A7  | A8 | A9 |    A10     |    A11     |    A12     |        A13        |   A14   |                     A15
+---------+--------+-------+----+----+-----------+------+------+----+----+------------+------------+------------+-------------------+---------+---------------------------------------------
+ 3521794 | 130619 |   620 |  3 | 17 |  28043.37 | 0.09 | 0.02 | R  | F  | 1993-10-18 | 1993-09-19 | 1993-10-27 | NONE              | REG AIR | uctions maintain furiously caref
+ 1481063 | 167617 |  2650 |  1 | 35 |  58961.35 |  0.1 |    0 | A  | F  | 1993-12-16 | 1993-09-16 | 1994-01-09 | COLLECT COD       | AIR     | y pending foxes. carefully
+ 2362467 |  38703 |  8704 |  3 | 20 |     32834 | 0.05 | 0.08 | A  | F  | 1993-10-27 | 1993-10-04 | 1993-11-02 | DELIVER IN PERSON | MAIL    | y. accounts sleep blith
+ 5722530 | 171923 |  9475 |  2 |  6 |  11969.52 | 0.02 | 0.01 | A  | F  | 1993-12-01 | 1993-11-2
+took 950.994 ms
+================================================================================
+time runtime flatten for 04 for provenance of orders with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq04/p_orders_flatten.sql
+Timing is on.
+   A0    |   A1   | A2 |    A3     |     A4     |    A5    |       A6        | A7 |                                       A8
+---------+--------+----+-----------+------------+----------+-----------------+----+--------------------------------------------------------------------------------
+ 3999233 | 147439 | F  |  92091.81 | 1993-08-13 | 1-URGENT | Clerk#000000347 |  0 | ily unusual packages haggle. pending platelets use carefully. slyly iron
+ 4990694 |   2704 | F  |  92712.81 | 1993-08-10 | 1-URGENT | Clerk#000000088 |  0 | s are furiously according to the blithely pe
+ 3614145 | 115480 | F  | 235903.82 | 1993-08-05 | 1-URGENT | Clerk#000000641 |  0 | se slyly. final, even ideas across the quic
+  791589 | 147370 | F  | 162121.11 | 1993-07-20 | 1-URGENT | Clerk#000000218 |  0 | ly final excuses nag carefully about the platele
+  340805 |  50375 | F  | 216282.26 | 1993-09-26 | 1-URGENT | Clerk#000000690 |  0 | wake against the ideas. iro
+took 404.744 ms
+================================================================================
+time runtime opt for 04 for provenance of orders with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq04/p_orders_opt.sql
+Timing is on.
+   A0    |   A1   | A2 |    A3     |     A4     |    A5    |       A6        | A7 |                                       A8
+---------+--------+----+-----------+------------+----------+-----------------+----+--------------------------------------------------------------------------------
+ 3999233 | 147439 | F  |  92091.81 | 1993-08-13 | 1-URGENT | Clerk#000000347 |  0 | ily unusual packages haggle. pending platelets use carefully. slyly iron
+ 4990694 |   2704 | F  |  92712.81 | 1993-08-10 | 1-URGENT | Clerk#000000088 |  0 | s are furiously according to the blithely pe
+ 3614145 | 115480 | F  | 235903.82 | 1993-08-05 | 1-URGENT | Clerk#000000641 |  0 | se slyly. final, even ideas across the quic
+  791589 | 147370 | F  | 162121.11 | 1993-07-20 | 1-URGENT | Clerk#000000218 |  0 | ly final excuses nag carefully about the platele
+  340805 |  50375 | F  | 216282.26 | 1993-09-26 | 1-URGENT | Clerk#000000690 |  0 | wake against the ideas. iro
+took 404.980 ms
+================================================================================
+process query q05
+================================================================================
+
+================================================================================
+time runtime flatten for 05 for provenance of customer with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq05/p_customer_flatten.sql
+Timing is on.
+   A0   |         A1         |                    A2                    | A3 |       A4        |   A5    |     A6     |                                                          A7                                                         
+--------+--------------------+------------------------------------------+----+-----------------+---------+------------+----------------------------------------------------------------------------------------------------------------------
+  98827 | Customer#000098827 | IKgu3Xir,,zaapEYZmXdvuHSA,AR05           | 18 | 28-335-717-5202 | 5740.35 | BUILDING   |  unusual packages. carefully final accounts wake furiously against the blithely pending theodol
+ 101512 | Customer#000101512 | AV2dIHwyTX8UOJzABrYp                     | 18 | 28-180-191-5740 | 5854.19 | MACHINERY  | r foxes. unusual, unusual accounts cajole blithely. regular requests alongside of the blithely fin
+  42370 | Customer#000042370 | j9W5sCf3KnbTRX4hklK9K9U6IUJFaIOgYrcjn4Q  | 1
+took 472.365 ms
+================================================================================
+time runtime opt for 05 for provenance of customer with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq05/p_customer_opt.sql
+Timing is on.
+   A0   |         A1         |                    A2                    | A3 |       A4        |   A5    |     A6     |                                                          A7                                                         
+--------+--------------------+------------------------------------------+----+-----------------+---------+------------+----------------------------------------------------------------------------------------------------------------------
+  98827 | Customer#000098827 | IKgu3Xir,,zaapEYZmXdvuHSA,AR05           | 18 | 28-335-717-5202 | 5740.35 | BUILDING   |  unusual packages. carefully final accounts wake furiously against the blithely pending theodol
+ 101512 | Customer#000101512 | AV2dIHwyTX8UOJzABrYp                     | 18 | 28-180-191-5740 | 5854.19 | MACHINERY  | r foxes. unusual, unusual accounts cajole blithely. regular requests alongside of the blithely fin
+  42370 | Customer#000042370 | j9W5sCf3KnbTRX4hklK9K9U6IUJFaIOgYrcjn4Q  | 1
+took 481.200 ms
+================================================================================
+time runtime flatten for 05 for provenance of lineitem with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq05/p_lineitem_flatten.sql
+Timing is on.
+   A0    |   A1   |  A2  | A3 | A4 |    A5    |  A6  |  A7  | A8 | A9 |    A10     |    A11     |    A12     |        A13        |   A14   |                     A15
+---------+--------+------+----+----+----------+------+------+----+----+------------+------------+------------+-------------------+---------+---------------------------------------------
+   19300 | 165418 | 2967 |  2 | 32 | 47469.12 | 0.04 | 0.05 | A  | F  | 1995-01-13 | 1995-02-12 | 1995-01-18 | TAKE BACK RETURN  | RAIL    | across the even requests: final, regular
+ 3046919 | 129250 | 1763 |  1 | 39 | 49890.75 | 0.02 | 0.03 | R  | F  | 1994-12-17 | 1995-02-03 | 1995-01-07 | DELIVER IN PERSON | SHIP    | s boost. slyly silent dolphins above
+ 2343138 |  82266 | 7283 |  2 |  2 |  2496.52 |  0.1 | 0.05 | A  | F  | 1995-02-11 | 1995-01-08 | 1995-02-24 | COLLECT COD       | SHIP    | the carefully even pinto beans sleep sly
+  978404 |  95694 | 5695 |  2 | 11 | 18586.59 | 0.06 |    0 | A  | F
+took 487.044 ms
+================================================================================
+time runtime opt for 05 for provenance of lineitem with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq05/p_lineitem_opt.sql
+Timing is on.
+   A0    |   A1   |  A2  | A3 | A4 |    A5    |  A6  |  A7  | A8 | A9 |    A10     |    A11     |    A12     |        A13        |   A14   |                     A15
+---------+--------+------+----+----+----------+------+------+----+----+------------+------------+------------+-------------------+---------+---------------------------------------------
+   19300 | 165418 | 2967 |  2 | 32 | 47469.12 | 0.04 | 0.05 | A  | F  | 1995-01-13 | 1995-02-12 | 1995-01-18 | TAKE BACK RETURN  | RAIL    | across the even requests: final, regular
+ 3046919 | 129250 | 1763 |  1 | 39 | 49890.75 | 0.02 | 0.03 | R  | F  | 1994-12-17 | 1995-02-03 | 1995-01-07 | DELIVER IN PERSON | SHIP    | s boost. slyly silent dolphins above
+ 2343138 |  82266 | 7283 |  2 |  2 |  2496.52 |  0.1 | 0.05 | A  | F  | 1995-02-11 | 1995-01-08 | 1995-02-24 | COLLECT COD       | SHIP    | the carefully even pinto beans sleep sly
+  978404 |  95694 | 5695 |  2 | 11 | 18586.59 | 0.06 |    0 | A  | F
+took 486.479 ms
+================================================================================
+time runtime flatten for 05 for provenance of nation with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq05/p_nation_flatten.sql
+Timing is on.
+ A0 |  A1   | A2 |                                             A3
+----+-------+----+---------------------------------------------------------------------------------------------
+ 18 | CHINA |  2 | c dependencies. furiously express notornis sleep slyly regular accounts. ideas sleep. depos
+(1 row)
+
+Time: 470.734 ms
+took 470.734 ms
+================================================================================
+time runtime opt for 05 for provenance of nation with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq05/p_nation_opt.sql
+Timing is on.
+ A0 |  A1   | A2 |                                             A3
+----+-------+----+---------------------------------------------------------------------------------------------
+ 18 | CHINA |  2 | c dependencies. furiously express notornis sleep slyly regular accounts. ideas sleep. depos
+(1 row)
+
+Time: 479.312 ms
+took 479.312 ms
+================================================================================
+time runtime flatten for 05 for provenance of orders with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq05/p_orders_flatten.sql
+Timing is on.
+   A0    |   A1   | A2 |    A3     |     A4     |       A5        |       A6        | A7 |                                       A8
+---------+--------+----+-----------+------------+-----------------+-----------------+----+--------------------------------------------------------------------------------
+ 1130180 |  37468 | F  |  21822.67 | 1994-05-06 | 4-NOT SPECIFIED | Clerk#000000323 |  0 | cajole across the unusual, bold foxes. express requests sle
+ 3693508 |  59833 | F  | 204135.79 | 1994-03-05 | 1-URGENT        | Clerk#000000132 |  0 | wake furiously about the blithely special pa
+ 5549380 |  45325 | F  |  79439.79 | 1994-10-02 | 1-URGENT        | Clerk#000000337 |  0 | cajole furiously through the care
+ 4270598 |   2749 | F  | 143160.78 | 1994-04-22 | 4-NOT SPECIFIED | Clerk#000000689 |  0 | y final dinos. carefully bold pinto beans hinder
+ 5556900 |  22696 | F  | 208199.16 | 1994-07-27 | 3-MEDIUM        | Clerk#000000785 |  0 | g
+took 472.682 ms
+================================================================================
+time runtime opt for 05 for provenance of orders with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq05/p_orders_opt.sql
+Timing is on.
+   A0    |   A1   | A2 |    A3     |     A4     |       A5        |       A6        | A7 |                                       A8
+---------+--------+----+-----------+------------+-----------------+-----------------+----+--------------------------------------------------------------------------------
+ 1130180 |  37468 | F  |  21822.67 | 1994-05-06 | 4-NOT SPECIFIED | Clerk#000000323 |  0 | cajole across the unusual, bold foxes. express requests sle
+ 3693508 |  59833 | F  | 204135.79 | 1994-03-05 | 1-URGENT        | Clerk#000000132 |  0 | wake furiously about the blithely special pa
+ 5549380 |  45325 | F  |  79439.79 | 1994-10-02 | 1-URGENT        | Clerk#000000337 |  0 | cajole furiously through the care
+ 4270598 |   2749 | F  | 143160.78 | 1994-04-22 | 4-NOT SPECIFIED | Clerk#000000689 |  0 | y final dinos. carefully bold pinto beans hinder
+ 5556900 |  22696 | F  | 208199.16 | 1994-07-27 | 3-MEDIUM        | Clerk#000000785 |  0 | g
+took 473.859 ms
+================================================================================
+time runtime flatten for 05 for provenance of region with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq05/p_region_flatten.sql
+Timing is on.
+ A0 |  A1  |               A2
+----+------+---------------------------------
+  2 | ASIA | ges. thinly even pinto beans ca
+(1 row)
+
+Time: 465.641 ms
+took 465.641 ms
+================================================================================
+time runtime opt for 05 for provenance of region with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq05/p_region_opt.sql
+Timing is on.
+ A0 |  A1  |               A2
+----+------+---------------------------------
+  2 | ASIA | ges. thinly even pinto beans ca
+(1 row)
+
+Time: 413.423 ms
+took 413.423 ms
+================================================================================
+process query q06
+================================================================================
+
+================================================================================
+time runtime flatten for 06 for provenance of lineitem with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq06/p_lineitem_flatten.sql
+Timing is on.
+   A0    |   A1   |  A2   | A3 | A4 |    A5    |  A6  |  A7  | A8 | A9 |    A10     |    A11     |    A12     |        A13        |   A14   |                     A15
+---------+--------+-------+----+----+----------+------+------+----+----+------------+------------+------------+-------------------+---------+---------------------------------------------
+  391522 |  37364 |  9868 |  1 | 10 |  13013.6 | 0.07 | 0.01 | A  | F  | 1994-04-10 | 1994-04-02 | 1994-05-07 | COLLECT COD       | SHIP    | ly silent pinto beans sleep caref
+  978534 |  37708 |  7709 |  6 |  3 |   4937.1 | 0.07 | 0.06 | R  | F  | 1994-02-20 | 1993-12-10 | 1994-03-08 | NONE              | SHIP    | arefully ironic asym
+  160608 | 185716 |   753 |  1 | 11 | 19818.81 | 0.06 | 0.08 | R  | F  | 1994-05-28 | 1994-06-23 | 1994-06-11 | DELIVER IN PERSON | AIR     | ost. quickly ironic depen
+  494309 |  42330 |  2331 |  6 | 21 | 26718.93 | 0.05 | 0.02 | R  | F  | 1994-08-22 | 1994-08-20 | 1994-0
+took 1163.704 ms
+================================================================================
+time runtime opt for 06 for provenance of lineitem with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq06/p_lineitem_opt.sql
+Timing is on.
+   A0    |   A1   |  A2   | A3 | A4 |    A5    |  A6  |  A7  | A8 | A9 |    A10     |    A11     |    A12     |        A13        |   A14   |                     A15
+---------+--------+-------+----+----+----------+------+------+----+----+------------+------------+------------+-------------------+---------+---------------------------------------------
+  391522 |  37364 |  9868 |  1 | 10 |  13013.6 | 0.07 | 0.01 | A  | F  | 1994-04-10 | 1994-04-02 | 1994-05-07 | COLLECT COD       | SHIP    | ly silent pinto beans sleep caref
+  978534 |  37708 |  7709 |  6 |  3 |   4937.1 | 0.07 | 0.06 | R  | F  | 1994-02-20 | 1993-12-10 | 1994-03-08 | NONE              | SHIP    | arefully ironic asym
+  160608 | 185716 |   753 |  1 | 11 | 19818.81 | 0.06 | 0.08 | R  | F  | 1994-05-28 | 1994-06-23 | 1994-06-11 | DELIVER IN PERSON | AIR     | ost. quickly ironic depen
+  494309 |  42330 |  2331 |  6 | 21 | 26718.93 | 0.05 | 0.02 | R  | F  | 1994-08-22 | 1994-08-20 | 1994-0
+took 1167.002 ms
+================================================================================
+process query q07
+================================================================================
+
+================================================================================
+time runtime flatten for 07 for provenance of customer with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq07/p_customer_flatten.sql
+Timing is on.
+   A0   |         A1         |                    A2                    | A3 |       A4        |   A5    |     A6     |                                                          A7                                                         
+--------+--------------------+------------------------------------------+----+-----------------+---------+------------+----------------------------------------------------------------------------------------------------------------------
+     62 | Customer#000000062 | upJK2Dnw13,                              |  7 | 17-361-978-7059 |  595.61 | MACHINERY  | kly special dolphins. pinto beans are slyly. quickly regular accounts are furiously a
+    161 | Customer#000000161 | 2oRkx,NtjFUh                             |  7 | 17-805-718-2449 | 3714.06 | MACHINERY  | ptotes nag carefully instructions. silent accounts are. furiously even accounts alongside
+    202 | Customer#000000202 | Q0uJ1frCbi9yvu                           |  7 | 17-905-805-4635
+took 3891.449 ms
+================================================================================
+time runtime opt for 07 for provenance of customer with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq07/p_customer_opt.sql
+Timing is on.
+   A0   |         A1         |                    A2                    | A3 |       A4        |   A5    |     A6     |                                                          A7                                                         
+--------+--------------------+------------------------------------------+----+-----------------+---------+------------+----------------------------------------------------------------------------------------------------------------------
+     62 | Customer#000000062 | upJK2Dnw13,                              |  7 | 17-361-978-7059 |  595.61 | MACHINERY  | kly special dolphins. pinto beans are slyly. quickly regular accounts are furiously a
+    161 | Customer#000000161 | 2oRkx,NtjFUh                             |  7 | 17-805-718-2449 | 3714.06 | MACHINERY  | ptotes nag carefully instructions. silent accounts are. furiously even accounts alongside
+    202 | Customer#000000202 | Q0uJ1frCbi9yvu                           |  7 | 17-905-805-4635
+took 10408.726 ms
+================================================================================
+time runtime flatten for 07 for provenance of lineitem with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq07/p_lineitem_flatten.sql
+Timing is on.
+   A0    |   A1   |  A2  | A3 | A4 |    A5    |  A6  |  A7  | A8 | A9 |    A10     |    A11     |    A12     |        A13        |   A14   |                     A15
+---------+--------+------+----+----+----------+------+------+----+----+------------+------------+------------+-------------------+---------+---------------------------------------------
+    1414 | 106423 | 6424 |  2 |  4 |  5717.68 | 0.02 | 0.05 | N  | O  | 1995-09-16 | 1995-11-01 | 1995-10-02 | COLLECT COD       | AIR     |  haggle quickly
+    4423 |  59576 | 4587 |  2 |  2 |  3071.14 | 0.07 | 0.04 | A  | F  | 1995-03-04 | 1995-04-04 | 1995-03-08 | TAKE BACK RETURN  | REG AIR | old sheaves sleep
+   12355 |  55091 | 7597 |  2 | 36 | 37659.24 | 0.09 | 0.06 | N  | O  | 1995-08-11 | 1995-07-14 | 1995-08-17 | COLLECT COD       | TRUCK   | egular accounts. fluff
+   12355 |  79033 | 1541 |  5 | 18 | 18216.54 | 0.09 | 0.04 | N  | F  | 1995-06-17 | 1995-08-20 | 1995-07-13 | DELIVER IN PERSON | MAI
+took 3873.054 ms
+================================================================================
+time runtime opt for 07 for provenance of lineitem with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq07/p_lineitem_opt.sql
+Timing is on.
+   A0    |   A1   |  A2  | A3 | A4 |    A5    |  A6  |  A7  | A8 | A9 |    A10     |    A11     |    A12     |        A13        |   A14   |                     A15
+---------+--------+------+----+----+----------+------+------+----+----+------------+------------+------------+-------------------+---------+---------------------------------------------
+    1414 | 106423 | 6424 |  2 |  4 |  5717.68 | 0.02 | 0.05 | N  | O  | 1995-09-16 | 1995-11-01 | 1995-10-02 | COLLECT COD       | AIR     |  haggle quickly
+    4423 |  59576 | 4587 |  2 |  2 |  3071.14 | 0.07 | 0.04 | A  | F  | 1995-03-04 | 1995-04-04 | 1995-03-08 | TAKE BACK RETURN  | REG AIR | old sheaves sleep
+   12355 |  55091 | 7597 |  2 | 36 | 37659.24 | 0.09 | 0.06 | N  | O  | 1995-08-11 | 1995-07-14 | 1995-08-17 | COLLECT COD       | TRUCK   | egular accounts. fluff
+   12355 |  79033 | 1541 |  5 | 18 | 18216.54 | 0.09 | 0.04 | N  | F  | 1995-06-17 | 1995-08-20 | 1995-07-13 | DELIVER IN PERSON | MAI
+took 11370.152 ms
+================================================================================
+time runtime flatten for 07 for provenance of nation with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq07/p_nation_flatten.sql
+Timing is on.
+ A0 |   A1    | A2 |                             A3
+----+---------+----+------------------------------------------------------------
+  6 | FRANCE  |  3 | refully final requests. regular, ironi
+  7 | GERMANY |  3 | l platelets. regular accounts x-ray: unusual, regular acco
+(2 rows)
+
+Time: 4127.467 ms (00:04.127)
+took 4127.467 ms
+================================================================================
+time runtime opt for 07 for provenance of nation with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq07/p_nation_opt.sql
+Timing is on.
+ A0 |   A1    | A2 |                             A3
+----+---------+----+------------------------------------------------------------
+  6 | FRANCE  |  3 | refully final requests. regular, ironi
+  7 | GERMANY |  3 | l platelets. regular accounts x-ray: unusual, regular acco
+(2 rows)
+
+Time: 27693.700 ms (00:27.694)
+took 27693.700 ms
+================================================================================
+time runtime flatten for 07 for provenance of orders with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq07/p_orders_flatten.sql
+Timing is on.
+   A0    |   A1   | A2 |    A3     |     A4     |       A5        |       A6        | A7 |                                       A8
+---------+--------+----+-----------+------------+-----------------+-----------------+----+--------------------------------------------------------------------------------
+    1414 |  76268 | O  |  48480.38 | 1995-08-16 | 1-URGENT        | Clerk#000000883 |  0 | ccounts. ironic foxes haggle car
+    4423 |  63460 | F  |   6719.14 | 1995-02-17 | 5-LOW           | Clerk#000000888 |  0 | excuses are ruthless
+   12355 |  17774 | P  |  296673.8 | 1995-05-29 | 4-NOT SPECIFIED | Clerk#000000081 |  0 | arhorses. close, final foxes are slyly
+   31524 |  74765 | O  | 136684.32 | 1995-06-27 | 5-LOW           | Clerk#000000972 |  0 | ess requests boost blithe
+   35457 | 112444 | F  | 302962.79 | 1994-12-08 | 5-LOW           | Clerk#000000648 |  0 | uriously ironic packages are quickly blithely ironic pinto bean
+   411
+took 3734.625 ms
+================================================================================
+time runtime opt for 07 for provenance of orders with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq07/p_orders_opt.sql
+Timing is on.
+   A0    |   A1   | A2 |    A3     |     A4     |       A5        |       A6        | A7 |                                       A8
+---------+--------+----+-----------+------------+-----------------+-----------------+----+--------------------------------------------------------------------------------
+    1414 |  76268 | O  |  48480.38 | 1995-08-16 | 1-URGENT        | Clerk#000000883 |  0 | ccounts. ironic foxes haggle car
+    4423 |  63460 | F  |   6719.14 | 1995-02-17 | 5-LOW           | Clerk#000000888 |  0 | excuses are ruthless
+   12355 |  17774 | P  |  296673.8 | 1995-05-29 | 4-NOT SPECIFIED | Clerk#000000081 |  0 | arhorses. close, final foxes are slyly
+   31524 |  74765 | O  | 136684.32 | 1995-06-27 | 5-LOW           | Clerk#000000972 |  0 | ess requests boost blithe
+   35457 | 112444 | F  | 302962.79 | 1994-12-08 | 5-LOW           | Clerk#000000648 |  0 | uriously ironic packages are quickly blithely ironic pinto bean
+   411
+took 10706.902 ms
+================================================================================
+time runtime flatten for 07 for provenance of supplier with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq07/p_supplier_flatten.sql
+Timing is on.
+  A0  |         A1         |                    A2                    | A3 |       A4        |   A5    |                                                  A6
+------+--------------------+------------------------------------------+----+-----------------+---------+------------------------------------------------------------------------------------------------------
+   70 | Supplier#000000070 | INWNH2w,OOWgNDq0BRCcBwOMQc6PdFDc4        |  6 | 16-821-608-1166 | 9508.37 | ests sleep quickly express ideas. ironic ideas haggle about the final T
+   90 | Supplier#000000090 | bPE6Uhz1f2m3gwSGMrnRt,g,3gq37r5kxgphqss1 |  6 | 16-380-123-9217 | 6201.77 | hely fluffily regular theodoli
+  104 | Supplier#000000104 | Dcl4yGrzqv3OPeRO49bKh78XmQEDR7PBXIs0m    |  6 | 16-434-972-6922 | 1381.97 | gular ideas. bravely bold deposits haggle through the carefully final deposits. slyly unusual idea
+  121 | Supplier#000000121 | CWGri,tKI 7gDcDsI
+took 3401.558 ms
+================================================================================
+time runtime opt for 07 for provenance of supplier with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq07/p_supplier_opt.sql
+Timing is on.
+  A0  |         A1         |                    A2                    | A3 |       A4        |   A5    |                                                  A6
+------+--------------------+------------------------------------------+----+-----------------+---------+------------------------------------------------------------------------------------------------------
+   70 | Supplier#000000070 | INWNH2w,OOWgNDq0BRCcBwOMQc6PdFDc4        |  6 | 16-821-608-1166 | 9508.37 | ests sleep quickly express ideas. ironic ideas haggle about the final T
+   90 | Supplier#000000090 | bPE6Uhz1f2m3gwSGMrnRt,g,3gq37r5kxgphqss1 |  6 | 16-380-123-9217 | 6201.77 | hely fluffily regular theodoli
+  104 | Supplier#000000104 | Dcl4yGrzqv3OPeRO49bKh78XmQEDR7PBXIs0m    |  6 | 16-434-972-6922 | 1381.97 | gular ideas. bravely bold deposits haggle through the carefully final deposits. slyly unusual idea
+  121 | Supplier#000000121 | CWGri,tKI 7gDcDsI
+took 2244.261 ms
+================================================================================
+process query q08
+================================================================================
+
+================================================================================
+time runtime flatten for 08 for provenance of customer with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq08/p_customer_flatten.sql
+Timing is on.
+   A0   |         A1         |                    A2                    | A3 |       A4        |   A5    |     A6     |                                                          A7                                                         
+--------+--------------------+------------------------------------------+----+-----------------+---------+------------+----------------------------------------------------------------------------------------------------------------------
+  45428 | Customer#000045428 | twsFwpvd FZJGibmHSqnaNsnhr0R7            | 17 | 27-692-641-8219 | 1242.64 | HOUSEHOLD  | cial instructions along the accounts cajole furiously
+  88611 | Customer#000088611 | MhxBMlY,HVD70g,Rnif3gEMxzmJ6PVu5Nh       |  2 | 12-771-868-1134 | 9260.56 | BUILDING   | dependencies wake along the quickly regular foxes. silent, final accounts wake
+  88119 | Customer#000088119 | JU4cnkbgr kQ7QL5T0                       |  2 | 12-772-697-3552 | 9994.38 | BUILDING   |  deposits cajole
+took 9802891.051 ms
+================================================================================
+time runtime opt for 08 for provenance of customer with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq08/p_customer_opt.sql
+Timing is on.
+Time: 0.423 ms
+took 0.423 ms
+================================================================================
+time runtime flatten for 08 for provenance of nation with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq08/p_nation_flatten.sql
+Timing is on.
+ A0 |       A1       | A2 |                                                         A3
+----+----------------+----+--------------------------------------------------------------------------------------------------------------------
+  0 | ALGERIA        |  0 |  haggle. carefully final deposits detect slyly agai
+  1 | ARGENTINA      |  1 | al foxes promise slyly according to the regular accounts. bold requests alon
+  2 | BRAZIL         |  1 | y alongside of the pending deposits. carefully special packages are about the ironic forges. slyly special
+  3 | CANADA         |  1 | eas hang ironic, silent packages. slyly regular packages are furiously over the tithes. fluffily bold
+  4 | EGYPT          |  4 | y above the carefully unusual theodolites. final dugouts are quickly across the furiously regular d
+  5 | ETHIOPIA       |  0 | ven packages wake quickly. regu
+  6 | FRANCE         |  3 | refully final requests. regular
+took 5968795.876 ms
+================================================================================
+time runtime opt for 08 for provenance of nation with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq08/p_nation_opt.sql
+Timing is on.
+Time: 0.305 ms
+took 0.305 ms
+================================================================================
+time runtime flatten for 08 for provenance of part with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq08/p_part_flatten.sql
+Timing is on.
+   A0   |                        A1                        |       A2       |    A3    |           A4           | A5 |     A6     |   A7    |           A8
+--------+--------------------------------------------------+----------------+----------+------------------------+----+------------+---------+------------------------
+ 184170 | papaya khaki magenta tan bisque                  | Manufacturer#5 | Brand#52 | ECONOMY ANODIZED STEEL | 39 | LG JAR     | 1254.17 | yly regula
+  65079 | moccasin floral dodger blue azure                | Manufacturer#5 | Brand#52 | ECONOMY ANODIZED STEEL | 14 | LG CASE    | 1044.07 | y ironic,
+  33392 | black drab brown chocolate cyan                  | Manufacturer#3 | Brand#35 | ECONOMY ANODIZED STEEL | 15 | SM CAN     | 1325.39 | ealthily regu
+ 120437 | blush saddle plum pale azure                     | Manufacturer#1 | Brand#11 | ECONOMY ANODIZED STEEL | 21 | LG PACK    | 1457.43 |  use. fluffily special
+  81914 | misty ivory honeyd
+took 2991412.727 ms
+================================================================================
+time runtime opt for 08 for provenance of part with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq08/p_part_opt.sql
+Timing is on.
+   A0   |                        A1                        |       A2       |    A3    |           A4           | A5 |     A6     |   A7    |           A8
+--------+--------------------------------------------------+----------------+----------+------------------------+----+------------+---------+------------------------
+    157 | navajo lime cream ghost drab                     | Manufacturer#1 | Brand#11 | ECONOMY ANODIZED STEEL | 26 | JUMBO PACK | 1057.15 | ial courts. ru
+    236 | antique lawn gainsboro goldenrod papaya          | Manufacturer#5 | Brand#55 | ECONOMY ANODIZED STEEL | 31 | LG JAR     | 1136.23 | ss packages hag
+    321 | papaya lace cornsilk cream misty                 | Manufacturer#5 | Brand#51 | ECONOMY ANODIZED STEEL |  9 | SM JAR     | 1221.32 | tructions boost car
+    546 | metallic green indian steel blanched             | Manufacturer#2 | Brand#25 | ECONOMY ANODIZED STEEL |  8 | LG CASE    | 1446.54 | ly unusu
+    746 | green blush flor
+took 248841.208 ms
+================================================================================
+time runtime flatten for 08 for provenance of supplier with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq08/p_supplier_flatten.sql
+Timing is on.
+  A0  |         A1         |                    A2                    | A3 |       A4        |   A5    |                                                  A6
+------+--------------------+------------------------------------------+----+-----------------+---------+------------------------------------------------------------------------------------------------------
+ 3169 | Supplier#000003169 | ODz6ABJGTs8Qnz                           |  3 | 13-103-649-1606 | 7513.16 | cies haggle. furiously iron
+ 2743 | Supplier#000002743 | Ogj4Ndxtu7FARpgYmpeQMjoAnYlIi            | 10 | 20-176-647-8475 | -584.12 | y after the regular, final requests. packa
+ 3447 | Supplier#000003447 | h7En559MI3o454De6Ye75                    |  5 | 15-806-372-7742 |  322.43 |  cajole furiously ironic deposits. foxes wake slyly ironic dependencies. platelets cajole
+ 9822 | Supplier#000009822 | AUkDrXor8W                               | 13 | 23-590-235-5159 | 6
+took 2081794.399 ms
+================================================================================
+time runtime opt for 08 for provenance of supplier with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq08/p_supplier_opt.sql
+Timing is on.
+  A0  |         A1         |                    A2                    | A3 |       A4        |   A5    |                                                  A6
+------+--------------------+------------------------------------------+----+-----------------+---------+------------------------------------------------------------------------------------------------------
+    4 | Supplier#000000004 | Bk7ah4CK8SYQTepEmvMkkgMwg                | 15 | 25-843-787-7479 | 4641.08 | riously even requests above the exp
+    7 | Supplier#000000007 | s,4TicNGB4uO6PaSqNBUq                    | 23 | 33-990-965-2201 | 6820.35 | s unwind silently furiously regular courts. final requests are deposits. requests wake quietly blit
+    9 | Supplier#000000009 | 1KhUgZegwM3ua7dsYmekYBsK                 | 10 | 20-403-398-8662 | 5302.37 | s. unusual, even requests along the furiously regular pac
+   14 | Supplier#000000014 | EXsnO5pTNj4iZRm
+took 270683.129 ms
+================================================================================
+process query q09
+================================================================================
+
+================================================================================
+time runtime flatten for 09 for provenance of lineitem with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq09/p_lineitem_flatten.sql
+Timing is on.
+   A0    |   A1   |  A2  | A3 | A4 |    A5    |  A6  |  A7  | A8 | A9 |    A10     |    A11     |    A12     |        A13        |   A14   |                     A15
+---------+--------+------+----+----+----------+------+------+----+----+------------+------------+------------+-------------------+---------+---------------------------------------------
+   49601 |  13921 | 1425 |  2 | 10 |  18349.2 | 0.09 | 0.03 | R  | F  | 1995-03-20 | 1995-04-13 | 1995-04-09 | NONE              | RAIL    | e blithely even ideas. blithely sil
+   65126 |  77194 | 2209 |  2 |  2 |  2342.38 |  0.1 | 0.04 | A  | F  | 1995-03-26 | 1995-03-22 | 1995-04-24 | COLLECT COD       | SHIP    | cies use daringly above the accounts. b
+  127493 |   2543 | 2544 |  1 |  4 |  5782.16 | 0.07 | 0.06 | R  | F  | 1995-05-27 | 1995-04-10 | 1995-06-16 | TAKE BACK RETURN  | SHIP    |  foxes. quick
+  146722 | 152914 | 7945 |  6 | 24 | 47205.84 | 0.09 | 0.03 | R  | F  | 1995-04-07 | 1995-03-21 | 199
+took 94552.512 ms
+================================================================================
+time runtime opt for 09 for provenance of lineitem with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq09/p_lineitem_opt.sql
+Timing is on.
+   A0    |   A1   |  A2  | A3 | A4 |    A5    |  A6  |  A7  | A8 | A9 |    A10     |    A11     |    A12     |        A13        |   A14   |                     A15
+---------+--------+------+----+----+----------+------+------+----+----+------------+------------+------------+-------------------+---------+---------------------------------------------
+   49601 |  13921 | 1425 |  2 | 10 |  18349.2 | 0.09 | 0.03 | R  | F  | 1995-03-20 | 1995-04-13 | 1995-04-09 | NONE              | RAIL    | e blithely even ideas. blithely sil
+   65126 |  77194 | 2209 |  2 |  2 |  2342.38 |  0.1 | 0.04 | A  | F  | 1995-03-26 | 1995-03-22 | 1995-04-24 | COLLECT COD       | SHIP    | cies use daringly above the accounts. b
+  127493 |   2543 | 2544 |  1 |  4 |  5782.16 | 0.07 | 0.06 | R  | F  | 1995-05-27 | 1995-04-10 | 1995-06-16 | TAKE BACK RETURN  | SHIP    |  foxes. quick
+  146722 | 152914 | 7945 |  6 | 24 | 47205.84 | 0.09 | 0.03 | R  | F  | 1995-04-07 | 1995-03-21 | 199
+took 95012.423 ms
+================================================================================
+time runtime flatten for 09 for provenance of nation with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq09/p_nation_flatten.sql
+Timing is on.
+ A0 |   A1   | A2 |                                                     A3
+----+--------+----+-------------------------------------------------------------------------------------------------------------
+  2 | BRAZIL |  1 | y alongside of the pending deposits. carefully special packages are about the ironic forges. slyly special
+(1 row)
+
+Time: 70887.767 ms (01:10.888)
+took 70887.767 ms
+================================================================================
+time runtime opt for 09 for provenance of nation with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq09/p_nation_opt.sql
+Timing is on.
+ A0 |   A1   | A2 |                                                     A3
+----+--------+----+-------------------------------------------------------------------------------------------------------------
+  2 | BRAZIL |  1 | y alongside of the pending deposits. carefully special packages are about the ironic forges. slyly special
+(1 row)
+
+Time: 70231.186 ms (01:10.231)
+took 70231.186 ms
+================================================================================
+time runtime flatten for 09 for provenance of orders with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq09/p_orders_flatten.sql
+Timing is on.
+   A0    |   A1   | A2 |    A3     |     A4     |       A5        |       A6        | A7 |                                      A8
+---------+--------+----+-----------+------------+-----------------+-----------------+----+-------------------------------------------------------------------------------
+   49601 | 114694 | F  | 185015.71 | 1995-01-27 | 5-LOW           | Clerk#000000149 |  0 | r the regular requests. special deposits use: fluff
+   65126 | 100775 | F  |  86047.24 | 1995-01-27 | 3-MEDIUM        | Clerk#000000282 |  0 | lar instructions affix busily ironic gifts. unusual dolphi
+  127493 |  39355 | F  |  85325.42 | 1995-01-27 | 2-HIGH          | Clerk#000000904 |  0 | to cajole slyly against the furiousl
+  146722 |  33632 | F  | 301531.62 | 1995-01-27 | 1-URGENT        | Clerk#000000418 |  0 | fully final dependencies. furiously regular requests wake f
+  225671 |  52327 | F  | 373696.04 | 1995-01-27 | 2-HIGH          | Clerk#
+took 66388.894 ms
+================================================================================
+time runtime opt for 09 for provenance of orders with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq09/p_orders_opt.sql
+Timing is on.
+   A0    |   A1   | A2 |    A3     |     A4     |       A5        |       A6        | A7 |                                      A8
+---------+--------+----+-----------+------------+-----------------+-----------------+----+-------------------------------------------------------------------------------
+   49601 | 114694 | F  | 185015.71 | 1995-01-27 | 5-LOW           | Clerk#000000149 |  0 | r the regular requests. special deposits use: fluff
+   65126 | 100775 | F  |  86047.24 | 1995-01-27 | 3-MEDIUM        | Clerk#000000282 |  0 | lar instructions affix busily ironic gifts. unusual dolphi
+  127493 |  39355 | F  |  85325.42 | 1995-01-27 | 2-HIGH          | Clerk#000000904 |  0 | to cajole slyly against the furiousl
+  146722 |  33632 | F  | 301531.62 | 1995-01-27 | 1-URGENT        | Clerk#000000418 |  0 | fully final dependencies. furiously regular requests wake f
+  225671 |  52327 | F  | 373696.04 | 1995-01-27 | 2-HIGH          | Clerk#
+took 67500.188 ms
+================================================================================
+time runtime flatten for 09 for provenance of part with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq09/p_part_flatten.sql
+Timing is on.
+   A0   |                      A1                       |       A2       |    A3    |            A4             | A5 |     A6     |   A7    |           A8
+--------+-----------------------------------------------+----------------+----------+---------------------------+----+------------+---------+------------------------
+   2543 | medium lawn forest midnight dark              | Manufacturer#2 | Brand#21 | SMALL BRUSHED TIN         | 11 | SM BAG     | 1445.54 | ely ironic theodolite
+   3195 | orange seashell black sandy cornsilk          | Manufacturer#5 | Brand#54 | PROMO ANODIZED NICKEL     | 20 | WRAP BOX   | 1098.19 |  express
+   8036 | tan moccasin misty rosy lavender              | Manufacturer#4 | Brand#43 | MEDIUM PLATED BRASS       | 15 | JUMBO JAR  |  944.03 | usly specia
+  10059 | dodger orange powder puff metallic            | Manufacturer#4 | Brand#43 | STANDARD BURNISHED BRASS  | 23 | JUMBO CASE |  969.05 | ickly packages. quick
+  10060 | dark golde
+took 87102.828 ms
+================================================================================
+time runtime opt for 09 for provenance of part with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq09/p_part_opt.sql
+Timing is on.
+   A0   |                      A1                       |       A2       |    A3    |            A4             | A5 |     A6     |   A7    |           A8
+--------+-----------------------------------------------+----------------+----------+---------------------------+----+------------+---------+------------------------
+   2543 | medium lawn forest midnight dark              | Manufacturer#2 | Brand#21 | SMALL BRUSHED TIN         | 11 | SM BAG     | 1445.54 | ely ironic theodolite
+   3195 | orange seashell black sandy cornsilk          | Manufacturer#5 | Brand#54 | PROMO ANODIZED NICKEL     | 20 | WRAP BOX   | 1098.19 |  express
+   8036 | tan moccasin misty rosy lavender              | Manufacturer#4 | Brand#43 | MEDIUM PLATED BRASS       | 15 | JUMBO JAR  |  944.03 | usly specia
+  10059 | dodger orange powder puff metallic            | Manufacturer#4 | Brand#43 | STANDARD BURNISHED BRASS  | 23 | JUMBO CASE |  969.05 | ickly packages. quick
+  10060 | dark golde
+took 86842.381 ms
+================================================================================
+time runtime flatten for 09 for provenance of partsupp with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq09/p_partsupp_flatten.sql
+Timing is on.
+   A0   |  A1  |  A2  |   A3   |                                                                                                A4
+--------+------+------+--------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   2543 | 2544 |  584 | 650.09 |  the carefully ironic ideas. pinto beans wake over the final dependencies; even, ironic theodolites was quickly alongside of the slyly r
+   3195 | 3196 | 7580 |   8.59 | ess packages nag about the silent sauternes. blithely bold deposits hang final, final foxes. regular
+   8036 | 5537 | 4137 | 853.87 | its above the carefully ironic excuses use against the quickly regular dolphins. regular requests after the q
+  10059 | 5062 | 8693 | 144.95 | ly alongside of the ironic orbits. slow theodolit
+took 78869.789 ms
+================================================================================
+time runtime opt for 09 for provenance of partsupp with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq09/p_partsupp_opt.sql
+Timing is on.
+   A0   |  A1  |  A2  |   A3   |                                                                                                A4
+--------+------+------+--------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+   2543 | 2544 |  584 | 650.09 |  the carefully ironic ideas. pinto beans wake over the final dependencies; even, ironic theodolites was quickly alongside of the slyly r
+   3195 | 3196 | 7580 |   8.59 | ess packages nag about the silent sauternes. blithely bold deposits hang final, final foxes. regular
+   8036 | 5537 | 4137 | 853.87 | its above the carefully ironic excuses use against the quickly regular dolphins. regular requests after the q
+  10059 | 5062 | 8693 | 144.95 | ly alongside of the ironic orbits. slow theodolit
+took 79882.840 ms
+================================================================================
+time runtime flatten for 09 for provenance of supplier with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq09/p_supplier_flatten.sql
+Timing is on.
+  A0  |         A1         |                    A2                    | A3 |       A4        |   A5    |                                                  A6
+------+--------------------+------------------------------------------+----+-----------------+---------+------------------------------------------------------------------------------------------------------
+  309 | Supplier#000000309 | gT84r,AFSrZQpiSCnE02B3QK                 |  2 | 12-950-744-5100 | 7875.48 | riously final deposits boost blithely about the even foxes
+  315 | Supplier#000000315 | HRLhxvqBP,f,NjeUiT                       |  2 | 12-574-691-2832 |    7315 | eas. blithely pending packages cajole blithely ironic packa
+  342 | Supplier#000000342 | YgcA0MYOSB1ou                            |  2 | 12-829-736-2942 | 6791.04 | s wake above the quickly pending attainments. furiously special re
+  528 | Supplier#000000528 | QsnGjo7irxCIbN3                          |
+took 81897.875 ms
+================================================================================
+time runtime opt for 09 for provenance of supplier with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq09/p_supplier_opt.sql
+Timing is on.
+  A0  |         A1         |                    A2                    | A3 |       A4        |   A5    |                                                  A6
+------+--------------------+------------------------------------------+----+-----------------+---------+------------------------------------------------------------------------------------------------------
+  309 | Supplier#000000309 | gT84r,AFSrZQpiSCnE02B3QK                 |  2 | 12-950-744-5100 | 7875.48 | riously final deposits boost blithely about the even foxes
+  315 | Supplier#000000315 | HRLhxvqBP,f,NjeUiT                       |  2 | 12-574-691-2832 |    7315 | eas. blithely pending packages cajole blithely ironic packa
+  342 | Supplier#000000342 | YgcA0MYOSB1ou                            |  2 | 12-829-736-2942 | 6791.04 | s wake above the quickly pending attainments. furiously special re
+  528 | Supplier#000000528 | QsnGjo7irxCIbN3                          |
+took 83658.462 ms
+================================================================================
+process query q10
+================================================================================
+
+================================================================================
+time runtime flatten for 10 for provenance of customer with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq10/p_customer_flatten.sql
+Timing is on.
+ A0 |         A1         |     A2      | A3 |       A4        |   A5    |    A6     |                        A7
+----+--------------------+-------------+----+-----------------+---------+-----------+---------------------------------------------------
+  4 | Customer#000000004 | XxVSJsLAGtn |  4 | 14-128-190-5944 | 2866.83 | MACHINERY |  requests. final, regular ideas sleep final accou
+(1 row)
+
+Time: 7.172 ms
+took 7.172 ms
+================================================================================
+time runtime opt for 10 for provenance of customer with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq10/p_customer_opt.sql
+Timing is on.
+ A0 |         A1         |     A2      | A3 |       A4        |   A5    |    A6     |                        A7
+----+--------------------+-------------+----+-----------------+---------+-----------+---------------------------------------------------
+  4 | Customer#000000004 | XxVSJsLAGtn |  4 | 14-128-190-5944 | 2866.83 | MACHINERY |  requests. final, regular ideas sleep final accou
+(1 row)
+
+Time: 3.380 ms
+took 3.380 ms
+================================================================================
+time runtime flatten for 10 for provenance of lineitem with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq10/p_lineitem_flatten.sql
+Timing is on.
+   A0    |   A1   |  A2  | A3 | A4 |    A5    |  A6  |  A7  | A8 | A9 |    A10     |    A11     |    A12     |       A13        | A14  |                    A15
+---------+--------+------+----+----+----------+------+------+----+----+------------+------------+------------+------------------+------+--------------------------------------------
+ 1226497 |  98547 | 6075 |  2 | 27 | 41729.58 | 0.06 | 0.01 | R  | F  | 1994-01-09 | 1993-12-10 | 1994-01-15 | TAKE BACK RETURN | RAIL | e quickly along th
+ 1226497 | 101559 | 4070 |  1 | 32 |  49937.6 | 0.08 | 0.06 | R  | F  | 1993-11-02 | 1993-12-04 | 1993-11-22 | NONE             | MAIL | . final, unusual deposits cajole slowly. i
+(2 rows)
+
+Time: 7.657 ms
+took 7.657 ms
+================================================================================
+time runtime opt for 10 for provenance of lineitem with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq10/p_lineitem_opt.sql
+Timing is on.
+   A0    |   A1   |  A2  | A3 | A4 |    A5    |  A6  |  A7  | A8 | A9 |    A10     |    A11     |    A12     |       A13        | A14  |                    A15
+---------+--------+------+----+----+----------+------+------+----+----+------------+------------+------------+------------------+------+--------------------------------------------
+ 1226497 |  98547 | 6075 |  2 | 27 | 41729.58 | 0.06 | 0.01 | R  | F  | 1994-01-09 | 1993-12-10 | 1994-01-15 | TAKE BACK RETURN | RAIL | e quickly along th
+ 1226497 | 101559 | 4070 |  1 | 32 |  49937.6 | 0.08 | 0.06 | R  | F  | 1993-11-02 | 1993-12-04 | 1993-11-22 | NONE             | MAIL | . final, unusual deposits cajole slowly. i
+(2 rows)
+
+Time: 4.795 ms
+took 4.795 ms
+================================================================================
+time runtime flatten for 10 for provenance of nation with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq10/p_nation_flatten.sql
+Timing is on.
+ A0 |  A1   | A2 |                                                 A3
+----+-------+----+-----------------------------------------------------------------------------------------------------
+  4 | EGYPT |  4 | y above the carefully unusual theodolites. final dugouts are quickly across the furiously regular d
+(1 row)
+
+Time: 6.786 ms
+took 6.786 ms
+================================================================================
+time runtime opt for 10 for provenance of nation with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq10/p_nation_opt.sql
+Timing is on.
+ A0 |  A1   | A2 |                                                 A3
+----+-------+----+-----------------------------------------------------------------------------------------------------
+  4 | EGYPT |  4 | y above the carefully unusual theodolites. final dugouts are quickly across the furiously regular d
+(1 row)
+
+Time: 3.947 ms
+took 3.947 ms
+================================================================================
+time runtime flatten for 10 for provenance of orders with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq10/p_orders_flatten.sql
+Timing is on.
+   A0    | A1 | A2 |    A3    |     A4     |    A5    |       A6        | A7 |                                  A8
+---------+----+----+----------+------------+----------+-----------------+----+----------------------------------------------------------------------
+ 1226497 |  4 | F  | 88317.19 | 1993-10-04 | 1-URGENT | Clerk#000000154 |  0 | al theodolites. quickly ruthless accounts lose blithely furiously re
+(1 row)
+
+Time: 7.250 ms
+took 7.250 ms
+================================================================================
+time runtime opt for 10 for provenance of orders with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq10/p_orders_opt.sql
+Timing is on.
+   A0    | A1 | A2 |    A3    |     A4     |    A5    |       A6        | A7 |                                  A8
+---------+----+----+----------+------------+----------+-----------------+----+----------------------------------------------------------------------
+ 1226497 |  4 | F  | 88317.19 | 1993-10-04 | 1-URGENT | Clerk#000000154 |  0 | al theodolites. quickly ruthless accounts lose blithely furiously re
+(1 row)
+
+Time: 4.580 ms
+took 4.580 ms
+================================================================================
+process query q11
+================================================================================
+
+================================================================================
+time runtime flatten for 11 for provenance of nation with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq11/p_nation_flatten.sql
+Timing is on.
+ A0 |   A1    | A2 |                             A3
+----+---------+----+------------------------------------------------------------
+  7 | GERMANY |  3 | l platelets. regular accounts x-ray: unusual, regular acco
+(1 row)
+
+Time: 439.302 ms
+took 439.302 ms
+================================================================================
+time runtime opt for 11 for provenance of nation with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq11/p_nation_opt.sql
+Timing is on.
+ A0 |   A1    | A2 |                             A3
+----+---------+----+------------------------------------------------------------
+  7 | GERMANY |  3 | l platelets. regular accounts x-ray: unusual, regular acco
+(1 row)
+
+Time: 480.495 ms
+took 480.495 ms
+================================================================================
+time runtime flatten for 11 for provenance of partsupp with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq11/p_partsupp_flatten.sql
+Timing is on.
+   A0   |  A1  |  A2  |   A3   |                                                                                                   A4
+--------+------+------+--------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  48380 | 3389 | 1526 | 713.75 | oost furiously busy requests; final packages are. regular, si
+ 117857 |  369 | 4403 |  382.1 | gle carefully according to the regular requests. quickly brave dependencies are. ironic pinto beans cajole slyly carefully unusual fray
+ 157222 | 4768 | 8395 | 699.98 | ans. final, ironic requests nag furiously unusual ideas. carefully ironic foxes would sleep according to the special not
+ 191326 | 1327 | 4713 | 385.27 | efully above the quickly regular gifts. furiously ironi
+  88024 |  53
+took 734.881 ms
+================================================================================
+time runtime opt for 11 for provenance of partsupp with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq11/p_partsupp_opt.sql
+Timing is on.
+   A0   |  A1  |  A2  |   A3   |                                                                                                   A4
+--------+------+------+--------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  48380 | 3389 | 1526 | 713.75 | oost furiously busy requests; final packages are. regular, si
+ 117857 |  369 | 4403 |  382.1 | gle carefully according to the regular requests. quickly brave dependencies are. ironic pinto beans cajole slyly carefully unusual fray
+ 157222 | 4768 | 8395 | 699.98 | ans. final, ironic requests nag furiously unusual ideas. carefully ironic foxes would sleep according to the special not
+ 191326 | 1327 | 4713 | 385.27 | efully above the quickly regular gifts. furiously ironi
+  88024 |  53
+took 785.551 ms
+================================================================================
+time runtime flatten for 11 for provenance of supplier with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq11/p_supplier_flatten.sql
+Timing is on.
+  A0  |         A1         |                    A2                    | A3 |       A4        |   A5    |                                                  A6
+------+--------------------+------------------------------------------+----+-----------------+---------+------------------------------------------------------------------------------------------------------
+  533 | Supplier#000000533 | WF9wtTxzbBa4kv FAeer9I1pQJ0Qe,uJf3f w    |  7 | 17-404-617-2581 | 4213.95 | e ironic foxes believe fluffily across the u
+  617 | Supplier#000000617 | Q4haZeO8aVzl2dXziDw3f                    |  7 | 17-563-347-4748 | 1002.43 |  blithely unusual theodolites haggle furiously. even courts use quickly against the
+ 7665 | Supplier#000007665 | Jk1i, VCplzH21                           |  7 | 17-191-303-3379 | 5146.31 | he carefully stealthy platelets. slyly ironic foxes use. blit
+ 4185 | Supplier#000004185 | Q1,8W2TRvPlVM3qFf9
+took 627.349 ms
+================================================================================
+time runtime opt for 11 for provenance of supplier with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq11/p_supplier_opt.sql
+Timing is on.
+  A0  |         A1         |                    A2                    | A3 |       A4        |   A5    |                                                  A6
+------+--------------------+------------------------------------------+----+-----------------+---------+------------------------------------------------------------------------------------------------------
+   33 | Supplier#000000033 | gfeKpYw3400L0SDywXA6Ya1Qmq1w6YB9f3R      |  7 | 17-138-897-9374 | 8564.12 | n sauternes along the regular asymptotes are regularly along the
+   44 | Supplier#000000044 | kERxlLDnlIZJdN66zAPHklyL                 |  7 | 17-713-930-5667 | 9759.38 | x. carefully quiet account
+   53 | Supplier#000000053 | i9v3 EsYCfLKFU6PIt8iihBOHBB37yR7b3GD7Rt  |  7 | 17-886-101-6083 | 6177.35 | onic, special deposits wake furio
+   77 | Supplier#000000077 | wVtcr0uH3CyrSiWMLsqnB09Syo,UuZxPMeBghlY  |  7 | 17-281-345-4863 | 4186.95 | the slyly final asymptote
+took 552.897 ms
+================================================================================
+process query q12
+================================================================================
+
+================================================================================
+time runtime flatten for 12 for provenance of lineitem with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq12/p_lineitem_flatten.sql
+Timing is on.
+   A0    |   A1   |  A2  | A3 | A4 |    A5     |  A6  |  A7  | A8 | A9 |    A10     |    A11     |    A12     |        A13        | A14  |                     A15
+---------+--------+------+----+----+-----------+------+------+----+----+------------+------------+------------+-------------------+------+---------------------------------------------
+ 2705702 |  88087 | 5612 |  4 | 15 |   16126.2 | 0.04 | 0.04 | A  | F  | 1994-06-16 | 1994-07-05 | 1994-07-12 | COLLECT COD       | MAIL | lets haggle. regular warthogs a
+ 2527717 | 113012 | 3013 |  2 | 22 |  22550.22 | 0.09 | 0.01 | R  | F  | 1994-06-14 | 1994-07-07 | 1994-07-14 | TAKE BACK RETURN  | MAIL | ial excuses are among t
+ 1077315 | 129792 | 9793 |  1 |  6 |  10930.74 | 0.04 | 0.02 | A  | F  | 1994-12-02 | 1994-12-15 | 1994-12-25 | NONE              | MAIL | ly regular foxes cajole. furiously pending
+ 2638690 |  31427 | 3931 |  2 | 23 |  31243.66 | 0.03 | 0.05 | A  | F  | 1994-04-02 | 1994-04-08 | 19
+took 753.021 ms
+================================================================================
+time runtime opt for 12 for provenance of lineitem with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq12/p_lineitem_opt.sql
+Timing is on.
+   A0    |   A1   |  A2  | A3 | A4 |    A5     |  A6  |  A7  | A8 | A9 |    A10     |    A11     |    A12     |        A13        | A14  |                     A15
+---------+--------+------+----+----+-----------+------+------+----+----+------------+------------+------------+-------------------+------+---------------------------------------------
+ 4889859 |  73160 | 5668 |  1 | 37 |  41926.92 | 0.03 | 0.03 | R  | F  | 1994-11-05 | 1994-11-26 | 1994-11-27 | COLLECT COD       | MAIL |  the ironic dependencies. slyly ironic pint
+ 2705702 |  88087 | 5612 |  4 | 15 |   16126.2 | 0.04 | 0.04 | A  | F  | 1994-06-16 | 1994-07-05 | 1994-07-12 | COLLECT COD       | MAIL | lets haggle. regular warthogs a
+ 3494823 | 116341 | 8853 |  1 |  4 |   5429.36 |  0.1 | 0.06 | A  | F  | 1994-05-25 | 1994-06-09 | 1994-06-13 | TAKE BACK RETURN  | MAIL | nst the special requests. furiously quic
+ 5566534 | 123202 | 5715 |  3 | 41 |   50233.2 | 0.04 | 0.02 | A  | F  | 1994-08-18
+took 910.445 ms
+================================================================================
+time runtime flatten for 12 for provenance of orders with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq12/p_orders_flatten.sql
+Timing is on.
+   A0    |   A1   | A2 |    A3     |     A4     |       A5        |       A6        | A7 |                                       A8
+---------+--------+----+-----------+------------+-----------------+-----------------+----+--------------------------------------------------------------------------------
+ 2799522 |  15052 | F  | 232658.57 | 1994-03-01 | 2-HIGH          | Clerk#000000063 |  0 | s are carefully regular pinto beans. carefully sile
+ 3898082 |   3974 | F  | 181703.61 | 1994-07-21 | 3-MEDIUM        | Clerk#000000233 |  0 | coys. carefully even accoun
+ 5581796 |  19091 | F  | 234385.96 | 1994-08-13 | 4-NOT SPECIFIED | Clerk#000000229 |  0 | . theodolites alongside of the final foxes cajole according to the slyly pe
+ 3105568 |  30785 | F  | 109741.48 | 1994-06-28 | 3-MEDIUM        | Clerk#000000805 |  0 |  silent asymptotes affix according to the d
+ 4685536 |  60166 | F  |  200409.9 | 1993-12-02 | 4-NOT SPECIFIED | Clerk#000000
+took 726.375 ms
+================================================================================
+time runtime opt for 12 for provenance of orders with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq12/p_orders_opt.sql
+Timing is on.
+   A0    |   A1   | A2 |    A3     |     A4     |       A5        |       A6        | A7 |                                       A8
+---------+--------+----+-----------+------------+-----------------+-----------------+----+--------------------------------------------------------------------------------
+ 2799522 |  15052 | F  | 232658.57 | 1994-03-01 | 2-HIGH          | Clerk#000000063 |  0 | s are carefully regular pinto beans. carefully sile
+ 3384896 | 127855 | F  | 260511.92 | 1994-06-13 | 2-HIGH          | Clerk#000000663 |  0 | ironic theodolites sleep quickly. regular do
+ 3259109 |  96751 | F  | 247688.75 | 1994-10-22 | 5-LOW           | Clerk#000000155 |  0 | ounts across the ironic, unusual ideas haggle across the reg
+ 5228995 |  40717 | F  | 238216.38 | 1993-12-30 | 1-URGENT        | Clerk#000000726 |  0 | usly among the quickly iron
+ 4905766 | 107713 | F  | 236229.45 | 1994-07-13 | 1-URGENT        | Clerk#000000730 |  0 | the
+took 867.481 ms
+================================================================================
+process query q13
+================================================================================
+
+================================================================================
+time runtime flatten for 13 for provenance of customer with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq13/p_customer_flatten.sql
+Timing is on.
+   A0   |         A1         |                    A2                    | A3 |       A4        |   A5    |     A6     |                                                          A7                                                         
+--------+--------------------+------------------------------------------+----+-----------------+---------+------------+----------------------------------------------------------------------------------------------------------------------
+ 128671 | Customer#000128671 | Hg4pPISSIy3                              | 12 | 22-571-924-4453 |  715.06 | BUILDING   | furiously idle deposits. blit
+  76558 | Customer#000076558 | UCytQ8kpKwsYLwZ11mpeR7z xv               |  6 | 16-909-653-8661 | 2336.46 | HOUSEHOLD  | final instructions are fluffily above the silent requ
+ 141487 | Customer#000141487 | m,NwQBhmJSTYzrH,kd2V                     | 18 | 28-268-725-7015 | 5775.18 | HOUSEHOLD  | lithely across the furiously ironic accounts. evenly unusual accou
+took 2048.082 ms
+================================================================================
+time runtime opt for 13 for provenance of customer with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq13/p_customer_opt.sql
+Timing is on.
+   A0   |         A1         |                    A2                    | A3 |       A4        |   A5    |     A6     |                                                          A7                                                         
+--------+--------------------+------------------------------------------+----+-----------------+---------+------------+----------------------------------------------------------------------------------------------------------------------
+ 128671 | Customer#000128671 | Hg4pPISSIy3                              | 12 | 22-571-924-4453 |  715.06 | BUILDING   | furiously idle deposits. blit
+  76558 | Customer#000076558 | UCytQ8kpKwsYLwZ11mpeR7z xv               |  6 | 16-909-653-8661 | 2336.46 | HOUSEHOLD  | final instructions are fluffily above the silent requ
+ 141487 | Customer#000141487 | m,NwQBhmJSTYzrH,kd2V                     | 18 | 28-268-725-7015 | 5775.18 | HOUSEHOLD  | lithely across the furiously ironic accounts. evenly unusual accou
+took 1523.410 ms
+================================================================================
+time runtime flatten for 13 for provenance of orders with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq13/p_orders_flatten.sql
+Timing is on.
+   A0    |   A1   | A2 |    A3     |     A4     |       A5        |       A6        | A7 |                                       A8
+---------+--------+----+-----------+------------+-----------------+-----------------+----+--------------------------------------------------------------------------------
+ 4009570 | 146731 | F  |  68042.91 | 1994-08-12 | 3-MEDIUM        | Clerk#000000969 |  0 | deposits according to the pending
+ 2039329 | 123415 | F  | 164914.13 | 1992-11-14 | 5-LOW           | Clerk#000000950 |  0 | eans. carefully final deposits promise blithely against
+  692353 |  55474 | F  | 250924.64 | 1992-03-28 | 5-LOW           | Clerk#000000987 |  0 | tes nag blithely. packages are slyly. slyly even excuses nag fluf
+ 1881734 |  57205 | O  | 119950.11 | 1997-12-02 | 5-LOW           | Clerk#000000841 |  0 | l ideas along the slyly silent dep
+ 3478241 | 103648 | O  |   40351.6 | 1996-12-19 | 5-LOW           | Clerk#000000797 |  0
+took 2617.346 ms
+================================================================================
+time runtime opt for 13 for provenance of orders with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq13/p_orders_opt.sql
+Timing is on.
+   A0    |   A1   | A2 |    A3     |     A4     |       A5        |       A6        | A7 |                                       A8
+---------+--------+----+-----------+------------+-----------------+-----------------+----+--------------------------------------------------------------------------------
+ 3790531 |  46153 | O  | 263501.25 | 1997-04-13 | 2-HIGH          | Clerk#000000108 |  0 | attainments sleep slyly around the furiously regular request
+  421285 | 123907 | F  | 162598.11 | 1992-11-07 | 5-LOW           | Clerk#000000844 |  0 | endencies. idle requests wake blithely against the fluffily unusual pack
+ 2838150 |  51718 | O  | 108127.16 | 1998-02-09 | 4-NOT SPECIFIED | Clerk#000000356 |  0 | press dinos haggle within the slyly s
+ 1380128 |  67609 | O  | 106708.87 | 1996-07-22 | 4-NOT SPECIFIED | Clerk#000000455 |  0 | ependencies hang finally across the unusual requests. carefully reg
+  720166 |  20770 | O  | 225286.96 | 199
+took 2359.322 ms
+================================================================================
+process query q14
+================================================================================
+
+================================================================================
+time runtime flatten for 14 for provenance of lineitem with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq14/p_lineitem_flatten.sql
+Timing is on.
+   A0    |   A1   |  A2   | A3 | A4 |    A5     |  A6  |  A7  | A8 | A9 |    A10     |    A11     |    A12     |        A13        |   A14   |                     A15
+---------+--------+-------+----+----+-----------+------+------+----+----+------------+------------+------------+-------------------+---------+---------------------------------------------
+ 4511174 | 107584 |  5115 |  2 | 38 |  60480.04 | 0.01 | 0.08 | N  | O  | 1995-09-05 | 1995-08-21 | 1995-09-26 | TAKE BACK RETURN  | RAIL    |  blithely unusual reque
+ 4822336 | 190607 |  3127 |  4 | 10 |     16976 |  0.1 | 0.01 | N  | O  | 1995-09-11 | 1995-08-24 | 1995-09-21 | COLLECT COD       | MAIL    | y silent foxes cajole c
+  884037 |  81708 |  4217 |  5 | 25 |   42242.5 |    0 |    0 | N  | O  | 1995-09-21 | 1995-11-10 | 1995-10-20 | COLLECT COD       | SHIP    | ld foxes along
+ 4556800 | 133942 |  3943 |  6 | 33 |  65206.02 | 0.07 | 0.02 | N  | O  | 1995-09-07 | 1995-07-28 | 1995-09-16 | DELIV
+took 11997.201 ms
+================================================================================
+time runtime opt for 14 for provenance of lineitem with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq14/p_lineitem_opt.sql
+Timing is on.
+   A0    |   A1   |  A2   | A3 | A4 |    A5     |  A6  |  A7  | A8 | A9 |    A10     |    A11     |    A12     |        A13        |   A14   |                     A15
+---------+--------+-------+----+----+-----------+------+------+----+----+------------+------------+------------+-------------------+---------+---------------------------------------------
+ 4047617 | 175481 |  7999 |  5 |  3 |   4669.44 |  0.1 | 0.04 | N  | O  | 1995-09-28 | 1995-08-14 | 1995-10-03 | COLLECT COD       | AIR     | inally fina
+ 3131014 | 103449 |   980 |  2 | 26 |  37763.44 | 0.01 | 0.03 | N  | O  | 1995-09-10 | 1995-09-08 | 1995-09-30 | NONE              | SHIP    | of the bold, silent instructi
+ 5598531 | 156443 |  3989 |  2 | 33 |  49481.52 |  0.1 | 0.07 | N  | O  | 1995-09-07 | 1995-08-04 | 1995-09-30 | COLLECT COD       | SHIP    | uctions boost fluffily brave, regular pack
+ 2273443 |  42836 |  2837 |  1 | 32 |  56922.56 | 0.02 |    0 | N  | O  | 1995-09-28 | 1995-12-1
+took 987.942 ms
+================================================================================
+time runtime flatten for 14 for provenance of part with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq14/p_part_flatten.sql
+Timing is on.
+   A0   |                         A1                         |       A2       |    A3    |            A4             | A5 |     A6     |   A7    |           A8
+--------+----------------------------------------------------+----------------+----------+---------------------------+----+------------+---------+------------------------
+  71566 | sandy floral navajo chiffon peru                   | Manufacturer#2 | Brand#21 | PROMO PLATED TIN          | 15 | JUMBO PKG  | 1537.56 | lly across t
+ 111737 | drab sky spring misty medium                       | Manufacturer#1 | Brand#14 | PROMO PLATED TIN          | 29 | LG BAG     | 1748.73 | quests
+  36750 | gainsboro firebrick black burlywood powder         | Manufacturer#2 | Brand#22 | STANDARD PLATED BRASS     |  2 | JUMBO PACK | 1686.75 | , unusual accoun
+  79185 | saddle steel lavender floral bisque                | Manufacturer#1 | Brand#11 | STANDARD BURNISHED BRASS  | 36 | SM BOX     | 1164.18 | ss the tithes. eve
+
+took 814.540 ms
+================================================================================
+time runtime opt for 14 for provenance of part with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq14/p_part_opt.sql
+Timing is on.
+   A0   |                         A1                         |       A2       |    A3    |            A4             | A5 |     A6     |   A7    |           A8
+--------+----------------------------------------------------+----------------+----------+---------------------------+----+------------+---------+------------------------
+  71566 | sandy floral navajo chiffon peru                   | Manufacturer#2 | Brand#21 | PROMO PLATED TIN          | 15 | JUMBO PKG  | 1537.56 | lly across t
+ 111737 | drab sky spring misty medium                       | Manufacturer#1 | Brand#14 | PROMO PLATED TIN          | 29 | LG BAG     | 1748.73 | quests
+  36750 | gainsboro firebrick black burlywood powder         | Manufacturer#2 | Brand#22 | STANDARD PLATED BRASS     |  2 | JUMBO PACK | 1686.75 | , unusual accoun
+  79185 | saddle steel lavender floral bisque                | Manufacturer#1 | Brand#11 | STANDARD BURNISHED BRASS  | 36 | SM BOX     | 1164.18 | ss the tithes. eve
+
+took 816.678 ms
+================================================================================
+process query q15
+================================================================================
+
+================================================================================
+time runtime flatten for 15 for provenance of lineitem with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq15/p_lineitem_flatten.sql
+Timing is on.
+ A0 | A1 | A2 | A3 | A4 | A5 | A6 | A7 | A8 | A9 | A10 | A11 | A12 | A13 | A14 | A15
+----+----+----+----+----+----+----+----+----+----+-----+-----+-----+-----+-----+-----
+(0 rows)
+
+Time: 596.501 ms
+took 596.501 ms
+================================================================================
+time runtime opt for 15 for provenance of lineitem with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq15/p_lineitem_opt.sql
+Timing is on.
+   A0    |   A1   |  A2   | A3 | A4 |    A5     |  A6  |  A7  | A8 | A9 |    A10     |    A11     |    A12     |        A13        |   A14   |                     A15
+---------+--------+-------+----+----+-----------+------+------+----+----+------------+------------+------------+-------------------+---------+---------------------------------------------
+       1 |  15635 |   638 |  6 | 32 |  49620.16 | 0.07 | 0.02 | N  | O  | 1996-01-30 | 1996-02-07 | 1996-02-03 | DELIVER IN PERSON | MAIL    | arefully slyly ex
+       1 |  24027 |  1534 |  5 | 24 |  22824.48 |  0.1 | 0.04 | N  | O  | 1996-03-30 | 1996-03-14 | 1996-04-01 | NONE              | FOB     |  pending foxes. slyly re
+       1 |  63700 |  3701 |  3 |  8 |   13309.6 |  0.1 | 0.02 | N  | O  | 1996-01-29 | 1996-03-05 | 1996-01-31 | TAKE BACK RETURN  | REG AIR | riously. regular, express dep
+       1 | 155190 |  7706 |  1 | 17 |  21168.23 | 0.04 | 0.02 | N  | O  | 1996-03-13 | 1996-02-12 | 1996-03-
+took 3442.462 ms
+================================================================================
+time runtime flatten for 15 for provenance of supplier with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq15/p_supplier_flatten.sql
+Timing is on.
+ A0 | A1 | A2 | A3 | A4 | A5 | A6
+----+----+----+----+----+----+----
+(0 rows)
+
+Time: 599.273 ms
+took 599.273 ms
+================================================================================
+time runtime opt for 15 for provenance of supplier with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq15/p_supplier_opt.sql
+Timing is on.
+  A0  |         A1         |        A2         | A3 |       A4        |   A5    |                       A6
+------+--------------------+-------------------+----+-----------------+---------+------------------------------------------------
+ 8449 | Supplier#000008449 | Wp34zim9qYFbVctdW | 10 | 20-469-856-8873 | 3667.19 | onic instructions. carefully express packages
+(1 row)
+
+Time: 9.451 ms
+took 9.451 ms
+================================================================================
+process query q16
+================================================================================
+
+================================================================================
+time runtime flatten for 16 for provenance of part with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq16/p_part_flatten.sql
+Timing is on.
+   A0   |                   A1                   |       A2       |    A3    |           A4           | A5 |   A6   |   A7    |         A8
+--------+----------------------------------------+----------------+----------+------------------------+----+--------+---------+--------------------
+ 106884 | misty olive chartreuse metallic forest | Manufacturer#1 | Brand#11 | ECONOMY ANODIZED BRASS |  3 | SM BAG | 1890.88 | totes cajole caref
+(1 row)
+
+Time: 76.686 ms
+took 76.686 ms
+================================================================================
+time runtime opt for 16 for provenance of part with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq16/p_part_opt.sql
+Timing is on.
+   A0   |                   A1                   |       A2       |    A3    |           A4           | A5 |   A6   |   A7    |         A8
+--------+----------------------------------------+----------------+----------+------------------------+----+--------+---------+--------------------
+ 106884 | misty olive chartreuse metallic forest | Manufacturer#1 | Brand#11 | ECONOMY ANODIZED BRASS |  3 | SM BAG | 1890.88 | totes cajole caref
+(1 row)
+
+Time: 75.893 ms
+took 75.893 ms
+================================================================================
+time runtime flatten for 16 for provenance of partsupp with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq16/p_partsupp_flatten.sql
+Timing is on.
+   A0   |  A1  |  A2  |   A3   |                                                                    A4
+--------+------+------+--------+------------------------------------------------------------------------------------------------------------------------------------------
+ 106884 | 1905 | 8872 | 280.56 | onic requests. quiet accounts should have to maintain slyly pending packages. special ideas above the fluffil
+ 106884 | 4415 |  267 | 233.69 | osits lose furiously furiously final attainments? furiously even accounts cajole blithely according to the final instructions. quickly u
+ 106884 | 6885 | 9100 | 466.57 |  instructions wake about the slyly final instructions. blithely bold realms n
+ 106884 | 9395 | 3801 | 648.55 | pecial accounts. carefully regular dolphins wake. regular requests use regular requests.
+(4 rows)
+
+Time: 76.061 ms
+took 76.061 ms
+================================================================================
+time runtime opt for 16 for provenance of partsupp with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq16/p_partsupp_opt.sql
+Timing is on.
+   A0   |  A1  |  A2  |   A3   |                                                                    A4
+--------+------+------+--------+------------------------------------------------------------------------------------------------------------------------------------------
+ 106884 | 1905 | 8872 | 280.56 | onic requests. quiet accounts should have to maintain slyly pending packages. special ideas above the fluffil
+ 106884 | 4415 |  267 | 233.69 | osits lose furiously furiously final attainments? furiously even accounts cajole blithely according to the final instructions. quickly u
+ 106884 | 6885 | 9100 | 466.57 |  instructions wake about the slyly final instructions. blithely bold realms n
+ 106884 | 9395 | 3801 | 648.55 | pecial accounts. carefully regular dolphins wake. regular requests use regular requests.
+(4 rows)
+
+Time: 73.698 ms
+took 73.698 ms
+================================================================================
+time runtime flatten for 16 for provenance of supplier with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq16/p_supplier_flatten.sql
+Timing is on.
+  A0  |         A1         |                   A2                   | A3 |       A4        |   A5    |                                             A6
+------+--------------------+----------------------------------------+----+-----------------+---------+--------------------------------------------------------------------------------------------
+ 1905 | Supplier#000001905 | VhOcLXQyJM,Z,,QAVNWUPVNS58O            |  8 | 18-973-853-1876 | 8801.33 | c packages are. express, close accounts solve. blithely even packages sublate
+ 4415 | Supplier#000004415 | 89DcPGWO1wkkTHW54sU6B4KTlM0uhBNbowQEuW |  2 | 12-198-770-2454 | 6869.22 |  packages. theodolites play about the requests. carefully special requests sleep above the
+ 6885 | Supplier#000006885 | Z86smeUpgHKvZ,7tUWPM                   |  5 | 15-625-719-7144 | 2375.41 | ly regular packages. ironic platelets are theodolites. carefully regular dol
+ 9395 | Supplier#000009395 | DAT9T,nuGGqP
+took 72.642 ms
+================================================================================
+time runtime opt for 16 for provenance of supplier with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq16/p_supplier_opt.sql
+Timing is on.
+  A0  |         A1         |                   A2                   | A3 |       A4        |   A5    |                                             A6
+------+--------------------+----------------------------------------+----+-----------------+---------+--------------------------------------------------------------------------------------------
+ 1905 | Supplier#000001905 | VhOcLXQyJM,Z,,QAVNWUPVNS58O            |  8 | 18-973-853-1876 | 8801.33 | c packages are. express, close accounts solve. blithely even packages sublate
+ 4415 | Supplier#000004415 | 89DcPGWO1wkkTHW54sU6B4KTlM0uhBNbowQEuW |  2 | 12-198-770-2454 | 6869.22 |  packages. theodolites play about the requests. carefully special requests sleep above the
+ 6885 | Supplier#000006885 | Z86smeUpgHKvZ,7tUWPM                   |  5 | 15-625-719-7144 | 2375.41 | ly regular packages. ironic platelets are theodolites. carefully regular dol
+ 9395 | Supplier#000009395 | DAT9T,nuGGqP
+took 73.684 ms
+================================================================================
+process query q17
+================================================================================
+
+================================================================================
+time runtime flatten for 17 for provenance of lineitem with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq17/p_lineitem_flatten.sql
+Timing is on.
+   A0    |   A1   |  A2  | A3 | A4 |    A5    |  A6  |  A7  | A8 | A9 |    A10     |    A11     |    A12     |        A13        |   A14   |                     A15
+---------+--------+------+----+----+----------+------+------+----+----+------------+------------+------------+-------------------+---------+---------------------------------------------
+ 2469479 | 101749 | 9280 |  2 | 41 | 71780.34 | 0.02 | 0.05 | A  | F  | 1995-04-11 | 1995-05-26 | 1995-04-25 | COLLECT COD       | TRUCK   | g, regular accounts; pinto beans sleep quic
+ 1576321 |  90012 | 7540 |  5 | 50 |  50100.5 | 0.07 | 0.03 | N  | O  | 1996-12-07 | 1996-12-19 | 1996-12-08 | TAKE BACK RETURN  | SHIP    | usly permanent packages wake packages. blit
+ 1069092 |  60496 | 8015 |  2 | 32 | 46607.68 | 0.03 | 0.05 | A  | F  | 1994-09-14 | 1994-08-22 | 1994-10-05 | COLLECT COD       | RAIL    |  special theodolites. bold do
+ 3581894 |  60127 | 7646 |  6 | 35 |  38049.2 | 0.04 | 0.07 | N  | O  | 1
+took 2198.925 ms
+================================================================================
+time runtime opt for 17 for provenance of lineitem with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq17/p_lineitem_opt.sql
+Timing is on.
+   A0    |   A1   |  A2  | A3 | A4 |    A5    |  A6  |  A7  | A8 | A9 |    A10     |    A11     |    A12     |        A13        |   A14   |                     A15
+---------+--------+------+----+----+----------+------+------+----+----+------------+------------+------------+-------------------+---------+---------------------------------------------
+    9505 |  48756 | 3765 |  7 | 46 |  78418.5 | 0.05 | 0.07 | A  | F  | 1992-07-09 | 1992-08-28 | 1992-08-03 | DELIVER IN PERSON | MAIL    | ep slyly bli
+ 2469479 | 101749 | 9280 |  2 | 41 | 71780.34 | 0.02 | 0.05 | A  | F  | 1995-04-11 | 1995-05-26 | 1995-04-25 | COLLECT COD       | TRUCK   | g, regular accounts; pinto beans sleep quic
+ 1576321 |  90012 | 7540 |  5 | 50 |  50100.5 | 0.07 | 0.03 | N  | O  | 1996-12-07 | 1996-12-19 | 1996-12-08 | TAKE BACK RETURN  | SHIP    | usly permanent packages wake packages. blit
+ 1575168 |  69518 | 9519 |  2 |  9 | 13387.59 |    0 | 0.03 | N  | O  | 1998-02-13 | 1998-
+took 2087.712 ms
+================================================================================
+time runtime flatten for 17 for provenance of part with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq17/p_part_flatten.sql
+Timing is on.
+   A0   |                       A1                       |       A2       |    A3    |            A4             | A5 |   A6    |   A7    |           A8
+--------+------------------------------------------------+----------------+----------+---------------------------+----+---------+---------+------------------------
+  11816 | chocolate aquamarine yellow lawn dodger        | Manufacturer#2 | Brand#23 | SMALL POLISHED STEEL      | 15 | MED BOX | 1727.81 | ts. perma
+ 113269 | cream medium beige lemon bisque                | Manufacturer#2 | Brand#23 | MEDIUM BRUSHED TIN        | 24 | MED BOX | 1282.26 | ultipliers. slyly reg
+  33299 | saddle drab honeydew sky light                 | Manufacturer#2 | Brand#23 | LARGE BURNISHED NICKEL    | 31 | MED BOX | 1232.29 | kages cajole
+ 109039 | pink dim orange chartreuse antique             | Manufacturer#2 | Brand#23 | STANDARD BURNISHED NICKEL | 11 | MED BOX | 1048.03 | l account
+ 131821 | olive green navy ghost antique
+took 1777.775 ms
+================================================================================
+time runtime opt for 17 for provenance of part with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq17/p_part_opt.sql
+Timing is on.
+   A0   |                       A1                       |       A2       |    A3    |            A4             | A5 |   A6    |   A7    |           A8
+--------+------------------------------------------------+----------------+----------+---------------------------+----+---------+---------+------------------------
+ 138423 | navajo orchid chocolate lawn honeydew          | Manufacturer#2 | Brand#23 | MEDIUM BURNISHED BRASS    |  6 | MED BOX | 1461.42 | nently regular deposit
+  52721 | brown seashell forest steel yellow             | Manufacturer#2 | Brand#23 | SMALL ANODIZED STEEL      | 29 | MED BOX | 1673.72 |  packages
+  76404 | chiffon puff ivory olive blue                  | Manufacturer#2 | Brand#23 | STANDARD PLATED BRASS     | 38 | MED BOX |  1380.4 | efully even packages h
+ 102817 | indian brown beige plum chocolate              | Manufacturer#2 | Brand#23 | STANDARD ANODIZED BRASS   |  3 | MED BOX | 1819.81 | ly pending packages
+ 193851 | firebrick l
+took 1763.678 ms
+================================================================================
+process query q18
+================================================================================
+
+================================================================================
+time runtime flatten for 18 for provenance of customer with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq18/p_customer_flatten.sql
+Timing is on.
+   A0   |         A1         |           A2           | A3 |       A4        |   A5    |    A6     |                                    A7
+--------+--------------------+------------------------+----+-----------------+---------+-----------+---------------------------------------------------------------------------
+ 105410 | Customer#000105410 | D0YZMlDH7b1OepiLFOXvdu |  6 | 16-162-171-4284 | 7247.76 | MACHINERY |  carefully. express tithes wake carefully. slyly regular ideas kindle fur
+(1 row)
+
+Time: 3097.402 ms (00:03.097)
+took 3097.402 ms
+================================================================================
+time runtime opt for 18 for provenance of customer with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq18/p_customer_opt.sql
+Timing is on.
+   A0   |         A1         |           A2           | A3 |       A4        |   A5    |    A6     |                                    A7
+--------+--------------------+------------------------+----+-----------------+---------+-----------+---------------------------------------------------------------------------
+ 105410 | Customer#000105410 | D0YZMlDH7b1OepiLFOXvdu |  6 | 16-162-171-4284 | 7247.76 | MACHINERY |  carefully. express tithes wake carefully. slyly regular ideas kindle fur
+(1 row)
+
+Time: 3.174 ms
+took 3.174 ms
+================================================================================
+time runtime flatten for 18 for provenance of lineitem with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq18/p_lineitem_flatten.sql
+Timing is on.
+   A0    |   A1   |  A2  | A3 | A4 |    A5    |  A6  |  A7  | A8 | A9 |    A10     |    A11     |    A12     |        A13        |   A14   |               A15
+---------+--------+------+----+----+----------+------+------+----+----+------------+------------+------------+-------------------+---------+---------------------------------
+ 4478371 |  36732 | 4242 |  3 | 33 | 55068.09 | 0.04 |    0 | N  | O  | 1996-05-31 | 1996-04-24 | 1996-06-03 | COLLECT COD       | REG AIR |  regular accounts. blithe
+ 4478371 | 108359 | 8360 |  1 | 46 |  62898.1 |    0 | 0.01 | N  | O  | 1996-07-03 | 1996-05-30 | 1996-07-19 | DELIVER IN PERSON | MAIL    | lar accounts cajole c
+ 4478371 | 120263 | 2776 |  7 | 47 | 60313.22 | 0.04 | 0.02 | N  | O  | 1996-03-09 | 1996-04-17 | 1996-04-06 | TAKE BACK RETURN  | REG AIR | ost fluffily about
+ 4478371 | 131762 | 1763 |  6 | 39 | 69956.64 | 0.01 |    0 | N  | O  | 1996-06-04 | 1996-05-11 | 1996-06-30 | DELIVER IN PERSON | FOB     | usly sp
+took 3205.452 ms
+================================================================================
+time runtime opt for 18 for provenance of lineitem with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq18/p_lineitem_opt.sql
+Timing is on.
+   A0    |   A1   |  A2  | A3 | A4 |    A5    |  A6  |  A7  | A8 | A9 |    A10     |    A11     |    A12     |        A13        |   A14   |               A15
+---------+--------+------+----+----+----------+------+------+----+----+------------+------------+------------+-------------------+---------+---------------------------------
+ 4478371 | 108359 | 8360 |  1 | 46 |  62898.1 |    0 | 0.01 | N  | O  | 1996-07-03 | 1996-05-30 | 1996-07-19 | DELIVER IN PERSON | MAIL    | lar accounts cajole c
+ 4478371 | 181242 | 1243 |  5 | 40 |  52929.6 | 0.08 | 0.06 | N  | O  | 1996-03-10 | 1996-05-05 | 1996-03-20 | TAKE BACK RETURN  | RAIL    | onic pinto beans. unusual depos
+ 4478371 |  36732 | 4242 |  3 | 33 | 55068.09 | 0.04 |    0 | N  | O  | 1996-05-31 | 1996-04-24 | 1996-06-03 | COLLECT COD       | REG AIR |  regular accounts. blithe
+ 4478371 | 189317 | 6872 |  2 | 50 |  70315.5 | 0.03 |    0 | N  | O  | 1996-06-02 | 1996-05-24 | 1996-06-19 | DELIVER IN PERSON | FOB
+took 3054.902 ms
+================================================================================
+time runtime flatten for 18 for provenance of orders with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq18/p_orders_flatten.sql
+Timing is on.
+   A0    |   A1   | A2 |    A3     |     A4     |   A5   |       A6        | A7 |                             A8
+---------+--------+----+-----------+------------+--------+-----------------+----+------------------------------------------------------------
+ 4478371 | 105410 | O  | 412754.51 | 1996-03-05 | 2-HIGH | Clerk#000000286 |  0 | re quietly. bold, careful Tiresias maintain slyly pending
+(1 row)
+
+Time: 3102.368 ms (00:03.102)
+took 3102.368 ms
+================================================================================
+time runtime opt for 18 for provenance of orders with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq18/p_orders_opt.sql
+Timing is on.
+   A0    |   A1   | A2 |    A3     |     A4     |   A5   |       A6        | A7 |                             A8
+---------+--------+----+-----------+------------+--------+-----------------+----+------------------------------------------------------------
+ 4478371 | 105410 | O  | 412754.51 | 1996-03-05 | 2-HIGH | Clerk#000000286 |  0 | re quietly. bold, careful Tiresias maintain slyly pending
+(1 row)
+
+Time: 3.074 ms
+took 3.074 ms
+================================================================================
+process query q19
+================================================================================
+
+================================================================================
+time runtime flatten for 19 for provenance of lineitem with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq19/p_lineitem_flatten.sql
+Timing is on.
+   A0    |   A1   |  A2   | A3 | A4 |    A5    |  A6  |  A7  | A8 | A9 |    A10     |    A11     |    A12     |        A13        |   A14   |                     A15
+---------+--------+-------+----+----+----------+------+------+----+----+------------+------------+------------+-------------------+---------+---------------------------------------------
+ 2386497 | 148436 |   951 |  4 | 21 | 31173.03 | 0.08 |    0 | R  | F  | 1992-07-01 | 1992-08-11 | 1992-07-16 | DELIVER IN PERSON | FOB     | y bold packages are fluffily. fu
+ 3687079 | 191310 |  6349 |  1 | 21 | 29427.51 | 0.09 | 0.04 | R  | F  | 1993-12-21 | 1994-02-01 | 1994-01-03 | DELIVER IN PERSON | SHIP    | ngly sly pinto beans boost furiously from
+ 5470019 |  51479 |  1480 |  6 | 23 | 32900.81 | 0.09 | 0.03 | N  | O  | 1996-06-30 | 1996-05-06 | 1996-07-16 | DELIVER IN PERSON | MAIL    | lyly. deposits along the blithely speci
+ 5300357 |  41087 |  8600 |  4 | 28 | 28786.24 | 0.04 | 0.05 | N  | O
+took 1217.003 ms
+================================================================================
+time runtime opt for 19 for provenance of lineitem with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq19/p_lineitem_opt.sql
+Timing is on.
+   A0    |   A1   |  A2   | A3 | A4 |    A5    |  A6  |  A7  | A8 | A9 |    A10     |    A11     |    A12     |        A13        |   A14   |                     A15
+---------+--------+-------+----+----+----------+------+------+----+----+------------+------------+------------+-------------------+---------+---------------------------------------------
+ 1302786 |  36233 |  8737 |  7 | 14 | 16369.22 | 0.06 | 0.08 | N  | O  | 1998-08-07 | 1998-07-14 | 1998-08-25 | DELIVER IN PERSON | SHIP    |  the fluffily special packages. pe
+ 1533730 |  45977 |   986 |  6 | 22 | 42305.34 | 0.03 | 0.02 | N  | O  | 1997-07-03 | 1997-06-11 | 1997-07-29 | DELIVER IN PERSON | TRUCK   | ar deposits was carefully above
+ 2785440 |  30295 |  7805 |  3 | 22 | 26956.38 | 0.04 | 0.01 | N  | O  | 1997-02-14 | 1997-04-20 | 1997-03-13 | DELIVER IN PERSON | MAIL    | uickly bold asymptotes.
+ 2412356 | 104347 |  1878 |  5 | 29 | 39188.86 | 0.04 | 0.08 | N  | O  | 1996-11-12 | 1996-12-
+took 375.886 ms
+================================================================================
+time runtime flatten for 19 for provenance of part with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq19/p_part_flatten.sql
+Timing is on.
+   A0   |                        A1                         |       A2       |    A3    |            A4             | A5 |     A6     |   A7    |           A8
+--------+---------------------------------------------------+----------------+----------+---------------------------+----+------------+---------+------------------------
+     76 | bisque light yellow puff salmon                   | Manufacturer#3 | Brand#34 | MEDIUM BRUSHED COPPER     |  9 | SM PKG     |  976.07 | n accounts sleep qu
+    292 | navajo tan chiffon ivory royal                    | Manufacturer#1 | Brand#12 | SMALL PLATED NICKEL       |  2 | MED CAN    | 1192.29 | zzle among t
+    313 | moccasin midnight tomato lime royal               | Manufacturer#3 | Brand#34 | PROMO BRUSHED TIN         | 13 | WRAP PACK  | 1213.31 | nly regular
+    340 | gainsboro saddle moccasin chartreuse light        | Manufacturer#2 | Brand#23 | STANDARD BRUSHED TIN      |  3 | JUMBO BOX  | 1240.34 | l ideas wake. qui
+took 312.803 ms
+================================================================================
+time runtime opt for 19 for provenance of part with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq19/p_part_opt.sql
+Timing is on.
+   A0   |                        A1                         |       A2       |    A3    |            A4             | A5 |     A6     |   A7    |           A8
+--------+---------------------------------------------------+----------------+----------+---------------------------+----+------------+---------+------------------------
+     76 | bisque light yellow puff salmon                   | Manufacturer#3 | Brand#34 | MEDIUM BRUSHED COPPER     |  9 | SM PKG     |  976.07 | n accounts sleep qu
+    292 | navajo tan chiffon ivory royal                    | Manufacturer#1 | Brand#12 | SMALL PLATED NICKEL       |  2 | MED CAN    | 1192.29 | zzle among t
+    313 | moccasin midnight tomato lime royal               | Manufacturer#3 | Brand#34 | PROMO BRUSHED TIN         | 13 | WRAP PACK  | 1213.31 | nly regular
+    340 | gainsboro saddle moccasin chartreuse light        | Manufacturer#2 | Brand#23 | STANDARD BRUSHED TIN      |  3 | JUMBO BOX  | 1240.34 | l ideas wake. qui
+took 314.793 ms
+================================================================================
+process query q20
+================================================================================
+
+================================================================================
+time runtime flatten for 20 for provenance of part with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq20/p_part_flatten.sql
+Timing is on.
+   A0   |                   A1                    |       A2       |    A3    |            A4            | A5 |     A6     |   A7    |           A8
+--------+-----------------------------------------+----------------+----------+--------------------------+----+------------+---------+------------------------
+     19 | dodger forest floral cream black        | Manufacturer#2 | Brand#23 | SMALL ANODIZED NICKEL    | 33 | WRAP BOX   |  919.01 |  pending acc
+   2519 | metallic cyan seashell honeydew thistle | Manufacturer#4 | Brand#44 | MEDIUM ANODIZED STEEL    | 24 | SM DRUM    | 1421.51 | equests
+   5019 | green firebrick grey gainsboro rosy     | Manufacturer#5 | Brand#52 | STANDARD POLISHED COPPER |  4 | MED PACK   |  924.01 | nts wake slyly du
+   7519 | dim cornsilk powder pink blush          | Manufacturer#5 | Brand#55 | LARGE BRUSHED TIN        | 44 | LG PACK    | 1426.51 | ts use careful
+  12516 | smoke dark peru ghost firebrick         | Manufacturer#5 | Bran
+took 2291.383 ms
+================================================================================
+time runtime opt for 20 for provenance of part with 1 repetitions
+================================================================================
+
+ITERATION: 1 of 1
+run PSQL:
+ psql -h 127.0.0.1 -U postgres -d semanticopt -p 5463 -c \timing on -f /home/perm/semantic_opt_gprom/umflint/tpcq20/p_part_opt.sql
+Timing is on.
+   A0   |                   A1                    |       A2       |    A3    |            A4            | A5 |     A6     |   A7    |           A8
+--------+-----------------------------------------+----------------+----------+--------------------------+----+------------+---------+------------------------
+     19 | dodger forest floral cream black        | Manufacturer#2 | Brand#23 | SMALL ANODIZED NICKEL    | 33 | WRAP BOX   |  919.01 |  pending acc
+   2519 | metallic cyan seashell honeydew thistle | Manufacturer#4 | Brand#44 | MEDIUM ANODIZED STEEL    | 24 | SM DRUM    | 1421.51 | equests
+   5019 | green firebrick grey gainsboro rosy     | Manufacturer#5 | Brand#52 | STANDARD POLISHED COPPER |  4 | MED PACK   |  924.01 | nts wake slyly du
+   7519 | dim cornsilk powder pink blush          | Manufacturer#5 | Brand#55 | LARGE BRUSHED TIN        | 44 | LG PACK    | 1426.51 | ts use careful
+  12516 | smoke dark peru ghost firebrick         | Manufacturer#5 | Bran
+took 2047.948 ms
+(umflint) perm@debussy:~/semantic_opt_gprom/umflint$
