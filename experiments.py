@@ -37,6 +37,7 @@ class GpromSetting:
 
 
 gprom_settings = [
+    GpromSetting("unopt", ["-Osemantic_opt","FALSE", "-Oflatten_dl", "FALSE" ]),
     GpromSetting("flatten", ["-Osemantic_opt","FALSE", "-Oflatten_dl", "TRUE" ]),
     GpromSetting("opt", ["-Osemantic_opt","TRUE", "-Oflatten_dl", "TRUE" ]),
 ]
