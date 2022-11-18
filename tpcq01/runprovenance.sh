@@ -2,7 +2,7 @@ if [ ! -d "results" ]; then
   mkdir results
 fi
 
-for sqlfile in *.sql
+for sqlfile in *opt.sql
 do 
   if [[ ${sqlfile} == *"tpc"* ]]; then
     continue
