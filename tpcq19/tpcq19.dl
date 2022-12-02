@@ -23,8 +23,7 @@ Qcontainer(3,'LG BOX').
 Qcontainer(3,'LG PACK').
 Qcontainer(3,'LG PKG').
 
-Qoptions(x1,x2,x3,x4,x5) :- Qquantities(id,x1,x2),
-Qcontainer(id,x3), Qpsize(id,x4), Qbrand(id,x5).
+Qoptions(x1,x2,x3,x4,x5) :- Qquantities(id,x1,x2), Qcontainer(id,x3), Qpsize(id,x4), Qbrand(id,x5).
 
 Qshipmodes('AIR').
 Qshipmodes('AIR REG').
@@ -37,7 +36,7 @@ Qfilter(l_orderkey, l_linenumber, l_discount, l_extp) :-
     l_quantity >= q_low,
     l_quantity >= q_high,
     p_size >= 1,
-    p_size <= p_high.       
+    p_size <= p_high.
 
 Q(sum(l_extp * (1-l_discount))) :-
     Qfilter(l_orderkey, l_linenumber, l_discount, l_extp).
