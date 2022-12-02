@@ -5,16 +5,16 @@ export repetitions=1
 
 echo "================================================================================
 RUN: $baseName.sh"
-./$baseName.sh
+#./$baseName.sh
 echo "================================================================================
 RUN: timing.sh"
-./timing.sh
+#./timing.sh
 echo "================================================================================
 RUN: ./runprovenance.sh"
 ./runprovenance.sh
 echo "================================================================================
 RUN: ./cleanup.sh"
-./cleanup.sh
+#./cleanup.sh
 
 unset fullPath
 unset partialPath
