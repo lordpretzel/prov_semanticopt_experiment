@@ -3,8 +3,12 @@ customer(c_custkey,c1,c2,c3,c4,c5,c6,c7),
 orders(o_orderkey,c_custkey,o1, o2, o3,o4, o5,o6,o_comment),
 o_comment NOT LIKE '%special%requests%'.
 
+Q1(c_custkey, 0) :- customer(c_custkey,,c1,c2,c3,c4,c5,c6,c7).
+
+Q2(c_custkey, sum(Y)) :- Q1(c_custkey, Y).
+
 Q(c_count, count(1)) :-
-Q1(q1, c_count).
+Q2(q1, c_count).
 
 ANS: Q.
 
