@@ -213,7 +213,7 @@ def process_one_query(q):
         generate_rewritten_sql(q)
     if not options.only or 'time' in options.only:
         time_provenance_capture(q)
-    if (options.cleanup and options.only is None) or 'cleanup' in options.only:
+    if (options.cleanup and options.only is None) or 'cleanup' in options:
         cleanup_result_table(q)
     
 def main(args):
