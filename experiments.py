@@ -40,6 +40,7 @@ gprom_settings = [
     GpromSetting("unopt", ["-Osemantic_opt","FALSE", "-Oflatten_dl", "FALSE" ]),
     GpromSetting("flatten", ["-Osemantic_opt","FALSE", "-Oflatten_dl", "TRUE" ]),
     GpromSetting("opt", ["-Osemantic_opt","TRUE", "-Oflatten_dl", "TRUE" ]),
+    GpromSetting("optnoflat", ["-Osemantic_opt", "TRUE", "-Oflatten_dl", "FALSE"]),
 ]
 
 GPROM_BIN = "/home/perm/semantic_opt_gprom/src/command_line/gprom"
@@ -167,7 +168,7 @@ def generate_rewritten_sql(q):
     for pt in queries[q]:
         infile = d + f"{pt}.dl"
         ensure_file_exists(infile)
-        for s in gprom_settings:
+        for s in options.methods:
             outfile = d + f"p_{pt}_{s.name}.sql"
             logfat(f"generate sql for {s.name} for {q} for provenance of {pt}")
             log(f"sql file: {outfile} from dl file {infile}")
@@ -191,7 +192,7 @@ def cleanup_result_table(q):
 def time_provenance_capture(q):
     d = qdir(q)
     for pt in queries[q]:
-        for s in gprom_settings:
+        for s in options.methods:
             logfat(f"time runtime {s.name} for {q} for provenance of {pt} with {str(options.repetitions)} repetitions")
             infile = d + f"p_{pt}_{s.name}.sql"
             ensure_file_exists(infile)
@@ -219,24 +220,27 @@ def process_one_query(q):
 def main(args):
     global options
     options = args
+
+    # process options with list arguments
     options.only = options.only.strip().split(",") if options.only else None
+    options.queries = options.queries.strip().split(",") if options.queries else queries    
+    options.methods = [ g for g in gprom_settings if g.name in options.methods.strip().split(",") ] if options.methods else gprom_settings
+
     if not os.path.exists(options.resultdir):
         os.mkdir(options.resultdir)
-    if args.queries:
-        for q in args.queries.strip().split(","):
-            logfat(f"process query q{q}")
-            process_one_query(q)
-    else:
-        for q in queries:
-            logfat(f"process query q{q}")
-            process_one_query(q)
+    for q in options.queries:
+        logfat(f"process query q{q}")
+        process_one_query(q)
+
 
 if __name__ == '__main__':
     ap = argparse.ArgumentParser(description='Running semantic optimization experiment')
     ap.add_argument('-r', '--repetitions', type=int, default=1,
                     help="number of repetitions for each experiment")
     ap.add_argument('-q', '--queries', type=str, default=None,
-                    help="run only this query (default is to run all)")
+                    help=f"run only this query (default is to run all: {queries})")
+    ap.add_argument('-m', '--methods', type=str, default=None,
+                    help=f"run only these methods (default is to run all: {[ m.name for m in gprom_settings ]}")
     ap.add_argument('--gprom', type=str, default=GPROM_BIN,
                     help="use this gprom binary")
     ap.add_argument('-o', '--overwrite', action='store_true',
