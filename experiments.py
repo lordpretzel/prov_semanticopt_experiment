@@ -200,7 +200,7 @@ def generate_rewritten_datalog(q):
             else:
                 (rt, err) = run_gprom_store_output(common_opts + s.args, infile, outfile)
                 if rt:
-                    log(f"error generating rewritting SQL for {s.name} for {q} [{rt}]:\n{err}")
+                    log(f"error generating rewritting datalog for {s.name} for {q} [{rt}]:\n{err}")
 
 def get_result_table(query):
     return f"rtpcq{query}"
@@ -233,7 +233,7 @@ def process_one_query(q):
     if not options.only or 'gensql' in options.only:
         generate_rewritten_sql(q)
     if not options.only or 'gendl' in options.only:
-        generate_rewritten_sql(q)
+        generate_rewritten_datalog(q)
     if not options.only or 'time' in options.only:
         time_provenance_capture(q)
     if (options.cleanup and not options.only) or 'cleanup' in options.only:
