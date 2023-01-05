@@ -1,0 +1,17 @@
+q1(s_account_bal,s_name,n_name,p_key,s_cost,p_manu,s_addr,s_phone,s_comment) :- nation(n_key,n_name,r_key,x1),region(r_key,EUROPE,x2),supplier(s_key,s_name,s_addr,n_key,s_phone,s_account_bal,s_comment),part(p_key,x3,p_manu,x4,p_type,15,x5,x6,x7),partsupp(p_key,s_key,x8,s_cost,x9),p_type LIKE %BRASS.
+
+q2(p_key,min(s_cost)) :- q1(x1,x2,x3,p_key,s_cost,x5,x6,x7,x8).
+
+q(s_account_bal,s_name,n_name,p_key,s_cost,p_manu,s_addr,s_phone,s_comment) :- q1(s_account_bal,s_name,n_name,p_key,s_cost,p_manu,s_addr,s_phone,s_comment),q2(p_key,s_cost).
+
+rp(x1,x2,x3,x4,x5,x6,x7,x8,x9) :- rtpcq02(x1,x2,x3,x4,x5,x6,x7,x8,x9).
+
+prov_q1(x1,x2,x3,p_key,s_cost,x5,x6,x7,x8) :- q1(x1,x2,x3,p_key,s_cost,x5,x6,x7,x8),prov_q2(p_key,v1).
+
+prov_q1(s_account_bal,s_name,n_name,p_key,s_cost,p_manu,s_addr,s_phone,s_comment) :- rp(s_account_bal,s_name,n_name,p_key,s_cost,p_manu,s_addr,s_phone,s_comment).
+
+prov_q2(p_key,s_cost) :- rp(s_account_bal,s_name,n_name,p_key,s_cost,p_manu,s_addr,s_phone,s_comment).
+
+prov_part(p_key,x3,p_manu,x4,p_type,15,x5,x6,x7) :- part(p_key,x3,p_manu,x4,p_type,15,x5,x6,x7),p_type LIKE %BRASS,prov_q1(s_account_bal,s_name,n_name,p_key,s_cost,p_manu,s_addr,s_phone,s_comment).
+
+

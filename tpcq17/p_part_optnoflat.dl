@@ -1,0 +1,9 @@
+qsub(l_pk,avg((0.200000 * l_q))) :- lineitem(l1,l_pk,l2,l3,l_q,l_ep,l4,l5,l6,l7,l8,l9,l10,l11,l12,l13).
+
+q(sum((l_ep / 7.000000))) :- qsub(l_pk,q2),part(l_pk,p1,p2,Brand#23,p3,p4,MED BOX,p5,p6),lineitem(l1,l_pk,l2,l3,l_q,l_ep,l4,l5,l6,l7,l8,l9,l10,l11,l12,l13),l_q < q2.
+
+rp(x1) :- rtpcq17(x1).
+
+prov_part(l_pk,p1,p2,Brand#23,p3,p4,MED BOX,p5,p6) :- part(l_pk,p1,p2,Brand#23,p3,p4,MED BOX,p5,p6),qsub(l_pk,q2),lineitem(l1,l_pk,l2,l3,l_q,l_ep,l4,l5,l6,l7,l8,l9,l10,l11,l12,l13),l_q < q2,rp(v1).
+
+

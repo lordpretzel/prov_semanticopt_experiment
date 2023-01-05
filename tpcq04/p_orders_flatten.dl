@@ -1,0 +1,3 @@
+prov_orders(l_okey,x1,x2,x3,o_odate,o_opriority,x4,x5,x6) :- orders(l_okey,x1,x2,x3,o_odate,o_opriority,x4,x5,x6),lineitem(l_okey,V1,V2,V3,V4,V5,V6,x7,x8,x9,x10,l_comm_date,l_receipt_date,x11,x12,x13),l_comm_date < l_receipt_date,o_odate >= 1993-07-01,o_odate < 1993-10-01,rtpcq04(o_opriority,v1).
+
+

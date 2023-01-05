@@ -1,0 +1,15 @@
+prov_nation(s_nkey,n_name,x6,x7) :- prov_q2_pre_4(s_nkey,n_name,x6,x7,v0,v1,n_name),q2(v0,v1,n_name),prov_q_pre_4(v0,v2,v3,v0,V0),rtpcq08(v0,V0).
+
+prov_nation(c_nkey,x14,n_rkey,x15) :- prov_q2_pre_4(c_nkey,x14,n_rkey,x15,v0,v1,n_name),q2(v0,v1,n_name),prov_q_pre_4(v0,v2,v3,v0,V0),rtpcq08(v0,V0).
+
+prov_q2_pre_4(s_nkey,n_name,x6,x7,date_part('YEAR', o_odate),(l_extend * (1 - l_discount)),n_name) :- nation(s_nkey,n_name,x6,x7),supplier(s_key,x1,x2,s_nkey,x3,x4,x5),lineitem(o_okey,l_pkey,s_key,x24,x25,l_extend,l_discount,x26,x27,x28,x29,x30,x31,x32,x33,x34),orders(o_okey,c_ckey,x18,x19,o_odate,x20,x21,x22,x23),part(l_pkey,x35,x36,x37,ECONOMY ANODIZED STEEL,x38,x39,x40,x41),customer(c_ckey,x8,x9,c_nkey,x10,x11,x12,x13),nation(c_nkey,x14,n_rkey,x15),region(n_rkey,AMERICA,x16),o_odate >= 1995-01-01,o_odate < 1996-12-31.
+
+prov_q2_pre_4(c_nkey,x14,n_rkey,x15,date_part('YEAR', o_odate),(l_extend * (1 - l_discount)),n_name) :- nation(c_nkey,x14,n_rkey,x15),customer(c_ckey,x8,x9,c_nkey,x10,x11,x12,x13),region(n_rkey,AMERICA,x16),orders(o_okey,c_ckey,x18,x19,o_odate,x20,x21,x22,x23),lineitem(o_okey,l_pkey,s_key,x24,x25,l_extend,l_discount,x26,x27,x28,x29,x30,x31,x32,x33,x34),part(l_pkey,x35,x36,x37,ECONOMY ANODIZED STEEL,x38,x39,x40,x41),supplier(s_key,x1,x2,s_nkey,x3,x4,x5),nation(s_nkey,n_name,x6,x7),o_odate >= 1995-01-01,o_odate < 1996-12-31.
+
+q2(date_part('YEAR', o_odate),(l_extend * (1 - l_discount)),n_name) :- supplier(s_key,x1,x2,s_nkey,x3,x4,x5),nation(s_nkey,n_name,x6,x7),customer(c_ckey,x8,x9,c_nkey,x10,x11,x12,x13),nation(c_nkey,x14,n_rkey,x15),region(n_rkey,AMERICA,x16),orders(o_okey,c_ckey,x18,x19,o_odate,x20,x21,x22,x23),lineitem(o_okey,l_pkey,s_key,x24,x25,l_extend,l_discount,x26,x27,x28,x29,x30,x31,x32,x33,x34),part(l_pkey,x35,x36,x37,ECONOMY ANODIZED STEEL,x38,x39,x40,x41),o_odate >= 1995-01-01,o_odate < 1996-12-31.
+
+prov_q_pre_4(year,x,y,year,(x / y)) :- q1(year,x,y).
+
+q1(year,sum((CASE  WHEN (nation = 'BRAZIL') THEN volume ELSE 0 END)),sum(volume)) :- q2(year,volume,nation).
+
+

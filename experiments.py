@@ -184,14 +184,14 @@ def generate_rewritten_sql(q):
 
 def generate_rewritten_datalog(q):
     d = qdir(q)
-    common_opts = ['-loglevel', '0', '-backend', 'dl']
+    common_opts = ['-loglevel', '0', '-Ptranslator', 'dl-to-dl', '-Psqlserializer', 'dl', '-Pexecutor', 'dl'] # '-loglevel', '5']
     for pt in queries[q]:
         infile = d + f"{pt}.dl"
         ensure_file_exists(infile)
         for s in options.methods:
             outfile = d + f"p_{pt}_{s.name}.dl"
             logfat(f"generate rewritten datalog for {s.name} for {q} for provenance of {pt}")
-            log(f"sql file: {outfile} from dl file {infile}")
+            log(f"rewritten dl file: {outfile} from dl file {infile}")
             if options.debug:
                 (rt, out, err) = run_gprom(common_opts + s.args + get_debug_args(), infile)
                 log(out)

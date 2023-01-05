@@ -1,0 +1,7 @@
+prov_lineitem(l1,l_pk,l2,l3,l_q,l_ep,l4,l5,l6,l7,l8,l9,l10,l11,l12,l13) :- qsub(l_pk,q2),part(l_pk,p1,p2,Brand#23,p3,p4,MED BOX,p5,p6),lineitem(l1,l_pk,l2,l3,l_q,l_ep,l4,l5,l6,l7,l8,l9,l10,l11,l12,l13),l_q < q2,rtpcq17(v1).
+
+prov_lineitem(l1,l_pk,l2,l3,l_q,l_ep,l4,l5,l6,l7,l8,l9,l10,l11,l12,l13) :- lineitem(l1,l_pk,l2,l3,l_q,l_ep,l4,l5,l6,l7,l8,l9,l10,l11,l12,l13),qsub(l_pk,v1),part(l_pk,p1,p2,Brand#23,p3,p4,MED BOX,p5,p6),lineitem(V1,l_pk,V2,V3,V4,V5,V6,V7,V8,V9,V10,V11,V12,V13,V14,V15),V4 < v1,rtpcq17(V16).
+
+qsub(l_pk,avg((0.200000 * l_q))) :- lineitem(l1,l_pk,l2,l3,l_q,l_ep,l4,l5,l6,l7,l8,l9,l10,l11,l12,l13).
+
+

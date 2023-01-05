@@ -1,0 +1,13 @@
+q1(n_name,date_part('year', o_orderdate),((l_ep * (1 - l_discount)) - (ps_supplycost * l_quantity))) :- part(p_partkey,p_name,p1,p2,p3,p4,p5,p6,p7),supplier(s_suppkey,s1,s2,n_nationkey,s3,s4,s5),lineitem(o_orderkey,p_partkey,s_suppkey,l1,l_quantity,l_ep,l_discount,l2,l3,l4,l5,l6,l7,l8,l9,l10),partsupp(p_partkey,s_suppkey,ps1,ps_supplycost,ps2),nation(n_nationkey,n_name,n1,n2),orders(o_orderkey,o1,o2,o3,o_orderdate,o4,o5,o6,o7),p_name LIKE %green%.
+
+q(nation,o_year,sum(amount)) :- q1(nation,o_year,amount).
+
+rp(x1,x2,x3) :- rtpcq09(x1,x2,x3).
+
+prov_q1(nation,o_year,amount) :- q1(nation,o_year,amount),rp(nation,o_year,v1).
+
+prov_lineitem(o_orderkey,p_partkey,s_suppkey,l1,l_quantity,l_ep,l_discount,l2,l3,l4,l5,l6,l7,l8,l9,l10) :- prov_q1_pre_3(o_orderkey,p_partkey,s_suppkey,l1,l_quantity,l_ep,l_discount,l2,l3,l4,l5,l6,l7,l8,l9,l10,n_name,v0,v1),prov_q1(n_name,v0,v1).
+
+prov_q1_pre_3(o_orderkey,p_partkey,s_suppkey,l1,l_quantity,l_ep,l_discount,l2,l3,l4,l5,l6,l7,l8,l9,l10,n_name,date_part('year', o_orderdate),((l_ep * (1 - l_discount)) - (ps_supplycost * l_quantity))) :- lineitem(o_orderkey,p_partkey,s_suppkey,l1,l_quantity,l_ep,l_discount,l2,l3,l4,l5,l6,l7,l8,l9,l10),orders(o_orderkey,o1,o2,o3,o_orderdate,o4,o5,o6,o7),part(p_partkey,p_name,p1,p2,p3,p4,p5,p6,p7),partsupp(p_partkey,s_suppkey,ps1,ps_supplycost,ps2),supplier(s_suppkey,s1,s2,n_nationkey,s3,s4,s5),nation(n_nationkey,n_name,n1,n2),p_name LIKE %green%.
+
+

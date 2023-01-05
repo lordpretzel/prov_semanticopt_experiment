@@ -1,0 +1,9 @@
+prov_part(p_key,x3,p_manu,x4,p_type,15,x5,x6,x7) :- nation(n_key,n_name,r_key,x1),region(r_key,EUROPE,x2),supplier(s_key,s_name,s_addr,n_key,s_phone,s_account_bal,s_comment),part(p_key,x3,p_manu,x4,p_type,15,x5,x6,x7),partsupp(p_key,s_key,x8,s_cost,x9),p_type LIKE %BRASS,q2(p_key,s_cost),rtpcq02(s_account_bal,s_name,n_name,p_key,s_cost,p_manu,s_addr,s_phone,s_comment).
+
+prov_part(p_key,x3,p_manu,x4,p_type,15,x5,x6,x7) :- nation(n_key,n_name,r_key,x1),region(r_key,EUROPE,x2),supplier(s_key,s_name,s_addr,n_key,s_phone,s_account_bal,s_comment),part(p_key,x3,p_manu,x4,p_type,15,x5,x6,x7),partsupp(p_key,s_key,x8,s_cost,x9),p_type LIKE %BRASS,nation(V9,n_name,V10,V11),region(V10,EUROPE,V12),supplier(V13,s_name,s_addr,V9,s_phone,s_account_bal,s_comment),part(p_key,V14,p_manu,V15,V16,15,V17,V18,V19),partsupp(p_key,V13,V20,s_cost,V21),V16 LIKE %BRASS,nation(V2,V3,V4,V5),region(V4,EUROPE,V6),supplier(V7,V8,V22,V2,V23,V24,V25),part(p_key,V26,V27,V28,V29,15,V30,V31,V32),partsupp(p_key,V7,V33,v1,V34),V29 LIKE %BRASS,q2(p_key,v1),rtpcq02(V24,V8,V3,p_key,v1,V27,V22,V23,V25).
+
+q2(p_key,min(s_cost)) :- q1(x1,x2,x3,p_key,s_cost,x5,x6,x7,x8).
+
+q1(s_account_bal,s_name,n_name,p_key,s_cost,p_manu,s_addr,s_phone,s_comment) :- nation(n_key,n_name,r_key,x1),region(r_key,EUROPE,x2),supplier(s_key,s_name,s_addr,n_key,s_phone,s_account_bal,s_comment),part(p_key,x3,p_manu,x4,p_type,15,x5,x6,x7),partsupp(p_key,s_key,x8,s_cost,x9),p_type LIKE %BRASS.
+
+

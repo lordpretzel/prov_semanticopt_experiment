@@ -1,0 +1,3 @@
+prov_customer(c_custkey,c1,c2,c3,c4,c5,BUILDING,c6) :- customer(c_custkey,c1,c2,c3,c4,c5,BUILDING,c6),orders(l_orderkey,c_custkey,o1,o2,o_orderdate,o3,o4,o_shippriority,o5),o_orderdate < 1995-03-15,rtpcq03(l_orderkey,o_orderdate,o_shippriority,v1).
+
+
