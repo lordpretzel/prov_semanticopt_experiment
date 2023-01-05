@@ -55,7 +55,7 @@ def log(m):
 
 def logfat(m, other=""):
     log(80 * "=" + "\n" + m + "\n" + 80 * "=" + "\n" + other)
-    
+
 def qdir(q):
     return f"{os.getcwd()}/tpcq{q}/"
 
@@ -96,7 +96,7 @@ def psql_time(infile, outfile, repetitions):
                 exit(rt)
             log(out[0:min(len(out), 1000)])
             t = re.search("Time: ([0-9.]+)", out).group(1)
-            log(f"took {t} ms") 
+            log(f"took {t} ms")
             f.write(t + "\n")
 
 def gprom_connection_options():
@@ -134,14 +134,14 @@ def run_gprom_store_output(gprom_opts, inf, outf):
         return (rt, process.stderr)
 
 def materialize_result_subset(q):
-    logfat(f"create table for {q}") 
+    logfat(f"create table for {q}")
     dlfile = qdir(q) + "tpcq" + q + ".dl"
     ensure_file_exists(dlfile)
     sqlfile = qdir(q) + "tpcq" + q + ".sql"
     if options.debug:
         (rt,sql,err) = run_gprom(["-Pexecutor", "sql"] + get_debug_args(), dlfile)
         log(f"EXECUTION [{rt}]:\n\n{sql}\n\n{err}")
-    
+
     (rt,sql,err) = run_gprom(["-Pexecutor", "sql","-loglevel","0"], dlfile)
     if rt:
         log(f"error running gprom {dlfile} [ERR:{rt}]:\n{err}\n{sql}")
@@ -181,11 +181,31 @@ def generate_rewritten_sql(q):
                 (rt, err) = run_gprom_store_output(common_opts + s.args, infile, outfile)
                 if rt:
                     log(f"error generating rewritting SQL for {s.name} for {q} [{rt}]:\n{err}")
-                
+
+def generate_rewritten_datalog(q):
+    d = qdir(q)
+    common_opts = ['-loglevel', '0', '-backend', 'dl']
+    for pt in queries[q]:
+        infile = d + f"{pt}.dl"
+        ensure_file_exists(infile)
+        for s in options.methods:
+            outfile = d + f"p_{pt}_{s.name}.dl"
+            logfat(f"generate rewritten datalog for {s.name} for {q} for provenance of {pt}")
+            log(f"sql file: {outfile} from dl file {infile}")
+            if options.debug:
+                (rt, out, err) = run_gprom(common_opts + s.args + get_debug_args(), infile)
+                log(out)
+            if os.path.exists(outfile) and not options.overwrite:
+                log(f"do not overwrite file {outfile}")
+            else:
+                (rt, err) = run_gprom_store_output(common_opts + s.args, infile, outfile)
+                if rt:
+                    log(f"error generating rewritting SQL for {s.name} for {q} [{rt}]:\n{err}")
+
 def get_result_table(query):
     return f"rtpcq{query}"
 
-def cleanup_result_table(q):    
+def cleanup_result_table(q):
     logfat(f"dropped result table {get_result_table(q)}")
     psql_cmd(f"DROP TABLE IF EXISTS {get_result_table(q)};")
 
@@ -202,7 +222,7 @@ def time_provenance_capture(q):
             else:
                 psql_time(infile, outfile, options.repetitions)
 
-def process_one_query(q):    
+def process_one_query(q):
     d = qdir(q)
     if not os.path.exists(d):
         log(f"missing directory {d}")
@@ -212,18 +232,20 @@ def process_one_query(q):
         materialize_result_subset(q)
     if not options.only or 'gensql' in options.only:
         generate_rewritten_sql(q)
+    if not options.only or 'gendl' in options.only:
+        generate_rewritten_sql(q)
     if not options.only or 'time' in options.only:
         time_provenance_capture(q)
-    if (options.cleanup and options.only is None) or 'cleanup' in options:
+    if (options.cleanup and not options.only) or 'cleanup' in options.only:
         cleanup_result_table(q)
-    
+
 def main(args):
     global options
     options = args
 
     # process options with list arguments
     options.only = options.only.strip().split(",") if options.only else None
-    options.queries = options.queries.strip().split(",") if options.queries else queries    
+    options.queries = options.queries.strip().split(",") if options.queries else queries
     options.methods = [ g for g in gprom_settings if g.name in options.methods.strip().split(",") ] if options.methods else gprom_settings
 
     if not os.path.exists(options.resultdir):
@@ -256,7 +278,7 @@ if __name__ == '__main__':
                     help="debug the process by logging more information.")
     ap.add_argument("-l", "--loglevel", type=int, default=3,
                     help="log level to use when debugging.")
-    
+
     ap.add_argument("-H", "--host", type=str, default="127.0.0.1",
                     help="database host")
     ap.add_argument("-u", "--user", type=str, default="postgres",
@@ -270,9 +292,7 @@ if __name__ == '__main__':
 
     ap.add_argument('-O', "--only", type=str, default=None,
                     help="only execute only listed steps (table, gensql, time, clean) separated by comma")
-    
-    args = ap.parse_args()
-    
-    main(args)
 
-        
+    args = ap.parse_args()
+
+    main(args)
