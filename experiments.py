@@ -184,14 +184,14 @@ def generate_rewritten_sql(q):
 
 def generate_rewritten_datalog(q):
     d = qdir(q)
-    common_opts = ['-loglevel', '0', '-backend', 'dl']
+    common_opts = ['-loglevel', '0', '-Ptranslator', 'dl-to-dl', '-Psqlserializer', 'dl', '-Pexecutor', 'dl'] # '-loglevel', '5']
     for pt in queries[q]:
         infile = d + f"{pt}.dl"
         ensure_file_exists(infile)
         for s in options.methods:
             outfile = d + f"p_{pt}_{s.name}.dl"
             logfat(f"generate rewritten datalog for {s.name} for {q} for provenance of {pt}")
-            log(f"sql file: {outfile} from dl file {infile}")
+            log(f"rewritten dl file: {outfile} from dl file {infile}")
             if options.debug:
                 (rt, out, err) = run_gprom(common_opts + s.args + get_debug_args(), infile)
                 log(out)
@@ -200,7 +200,7 @@ def generate_rewritten_datalog(q):
             else:
                 (rt, err) = run_gprom_store_output(common_opts + s.args, infile, outfile)
                 if rt:
-                    log(f"error generating rewritting SQL for {s.name} for {q} [{rt}]:\n{err}")
+                    log(f"error generating rewritting datalog for {s.name} for {q} [{rt}]:\n{err}")
 
 def get_result_table(query):
     return f"rtpcq{query}"
@@ -233,7 +233,7 @@ def process_one_query(q):
     if not options.only or 'gensql' in options.only:
         generate_rewritten_sql(q)
     if not options.only or 'gendl' in options.only:
-        generate_rewritten_sql(q)
+        generate_rewritten_datalog(q)
     if not options.only or 'time' in options.only:
         time_provenance_capture(q)
     if (options.cleanup and not options.only) or 'cleanup' in options.only:

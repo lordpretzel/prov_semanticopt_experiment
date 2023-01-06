@@ -1,0 +1,17 @@
+qsub1(ps_pk,sum((ps_sc * ps_aq))) :- partsupp(ps_pk,ps_sk,ps_aq,ps_sc,ps2),supplier(ps_sk,s1,s2,s_nk,s3,s4,s5),nation(s_nk,GERMANY,n1,n2).
+
+qsub2(sum(((c2)::float8 * 0.000100))) :- qsub1(c1,c2).
+
+q(c1,c2) :- qsub1(c1,c2),qsub2(c3),c2 > c3.
+
+rp(x1,x2) :- rtpcq11(x1,x2).
+
+prov_qsub1(c1,c2) :- qsub1(c1,c2),prov_qsub2(v1).
+
+prov_qsub1(c1,c2) :- qsub1(c1,c2),qsub2(c3),c2 > c3,rp(c1,c2).
+
+prov_qsub2(c3) :- qsub1(c1,c2),qsub2(c3),c2 > c3,rp(c1,c2).
+
+prov_nation(s_nk,GERMANY,n1,n2) :- partsupp(ps_pk,ps_sk,ps_aq,ps_sc,ps2),supplier(ps_sk,s1,s2,s_nk,s3,s4,s5),nation(s_nk,GERMANY,n1,n2),prov_qsub1(ps_pk,v1).
+
+

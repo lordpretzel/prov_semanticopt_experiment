@@ -1,0 +1,26 @@
+qquantities(1,1,11).
+qquantities(2,10,20).
+qquantities(3,20,30).
+qpsize(1,5).
+qpsize(2,10).
+qpsize(3,15).
+qbrand(1,Brand#12).
+qbrand(2,Brand#23).
+qbrand(3,Brand#34).
+qcontainer(1,SM CASE).
+qcontainer(1,SM BOX).
+qcontainer(1,SM PACK).
+qcontainer(1,SM PKG).
+qcontainer(2,MED BAG).
+qcontainer(2,MED BOX).
+qcontainer(2,MED PACK).
+qcontainer(2,MED PKG).
+qcontainer(3,LG CASE).
+qcontainer(3,LG BOX).
+qcontainer(3,LG PACK).
+qcontainer(3,LG PKG).
+qshipmodes(AIR).
+qshipmodes(AIR REG).
+prov_part(p_partkey,p1,p2,p_brand,p3,p_size,p_container,p4,p5) :- lineitem(l_orderkey,p_partkey,l2,l_linenumber,l_quantity,l_extp,l_discount,l4,l5,l6,l7,l8,l9,DELIVER IN PERSON,l_shipmode,l10),part(p_partkey,p1,p2,p_brand,p3,p_size,p_container,p4,p5),qshipmodes(l_shipmode),qquantities(id,q_low,q_high),qcontainer(id,p_container),qpsize(id,p_high),qbrand(id,p_brand),l_quantity >= q_low,l_quantity >= q_high,p_size >= 1,p_size <= p_high,lineitem(l_orderkey,V4,V5,l_linenumber,V6,l_extp,l_discount,V7,V8,V9,V10,V11,V12,DELIVER IN PERSON,V13,V14),part(V4,V15,V16,V17,V18,V19,V20,V21,V22),qshipmodes(V13),qquantities(V23,V24,V25),qcontainer(V23,V20),qpsize(V23,V26),qbrand(V23,V17),V6 >= V24,V6 >= V25,V19 >= 1,V19 <= V26,rtpcq19(v1).
+
+

@@ -1,0 +1,19 @@
+qnations(FRANCE,GERMANY).
+qnations(GERMANY,FRANCE).
+qsub(supp_nation,cust_nation,date_part('year', l_sd),(l_extendedprice * (1 - l_discount))) :- supplier(l_sk,s2,s3,s_nationkey,s4,s5,s6),lineitem(l_ok,l1,l_sk,l2,l3,l_extendedprice,l_discount,l6,l7,l8,l_sd,l9,l10,l11,l12,l13),orders(l_ok,l_ck,o1,o2,o3,o4,o5,o6,o7),customer(l_ck,c1,c2,c_nationkey,c3,c4,c5,c6),nation(s_nationkey,supp_nation,n1,n2),nation(c_nationkey,cust_nation,n3,n4),l_sd >= 1995-01-01,l_sd <= 1996-12-31,qnations(supp_nation,cust_nation).
+
+q(supp_nation,cust_nation,l_year,sum(volume)) :- qsub(supp_nation,cust_nation,l_year,volume).
+
+rp(x1,x2,x3,x4) :- rtpcq07(x1,x2,x3,x4).
+
+prov_qsub(supp_nation,cust_nation,l_year,volume) :- qsub(supp_nation,cust_nation,l_year,volume),rp(supp_nation,cust_nation,l_year,v1).
+
+prov_nation(s_nationkey,supp_nation,n1,n2) :- prov_qsub_pre_3(s_nationkey,supp_nation,n1,n2,supp_nation,cust_nation,v0,v1),prov_qsub(supp_nation,cust_nation,v0,v1).
+
+prov_qsub_pre_3(s_nationkey,supp_nation,n1,n2,supp_nation,cust_nation,date_part('year', l_sd),(l_extendedprice * (1 - l_discount))) :- nation(s_nationkey,supp_nation,n1,n2),supplier(l_sk,s2,s3,s_nationkey,s4,s5,s6),lineitem(l_ok,l1,l_sk,l2,l3,l_extendedprice,l_discount,l6,l7,l8,l_sd,l9,l10,l11,l12,l13),orders(l_ok,l_ck,o1,o2,o3,o4,o5,o6,o7),customer(l_ck,c1,c2,c_nationkey,c3,c4,c5,c6),nation(c_nationkey,cust_nation,n3,n4),l_sd >= 1995-01-01,l_sd <= 1996-12-31.
+
+prov_nation(c_nationkey,cust_nation,n3,n4) :- prov_qsub_pre_3(c_nationkey,cust_nation,n3,n4,supp_nation,cust_nation,v0,v1),prov_qsub(supp_nation,cust_nation,v0,v1).
+
+prov_qsub_pre_3(c_nationkey,cust_nation,n3,n4,supp_nation,cust_nation,date_part('year', l_sd),(l_extendedprice * (1 - l_discount))) :- nation(c_nationkey,cust_nation,n3,n4),customer(l_ck,c1,c2,c_nationkey,c3,c4,c5,c6),orders(l_ok,l_ck,o1,o2,o3,o4,o5,o6,o7),lineitem(l_ok,l1,l_sk,l2,l3,l_extendedprice,l_discount,l6,l7,l8,l_sd,l9,l10,l11,l12,l13),supplier(l_sk,s2,s3,s_nationkey,s4,s5,s6),nation(s_nationkey,supp_nation,n1,n2),l_sd >= 1995-01-01,l_sd <= 1996-12-31.
+
+

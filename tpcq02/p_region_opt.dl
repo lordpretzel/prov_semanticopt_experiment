@@ -1,0 +1,5 @@
+prov_region(r_key,EUROPE,x2) :- region(r_key,EUROPE,x2),nation(n_key,n_name,r_key,x1),supplier(s_key,s_name,s_addr,n_key,s_phone,s_account_bal,s_comment),partsupp(p_key,s_key,x8,s_cost,x9),rtpcq02(s_account_bal,s_name,n_name,p_key,s_cost,p_manu,s_addr,s_phone,s_comment).
+
+prov_region(r_key,EUROPE,x2) :- region(r_key,EUROPE,x2),nation(n_key,n_name,r_key,x1),supplier(s_key,s_name,s_addr,n_key,s_phone,s_account_bal,s_comment),partsupp(p_key,s_key,x8,s_cost,x9),nation(V9,n_name,V10,V11),region(V10,EUROPE,V12),supplier(V13,s_name,s_addr,V9,s_phone,s_account_bal,s_comment),part(p_key,x3,p_manu,x4,p_type,15,x5,x6,x7),partsupp(p_key,V13,V14,s_cost,V15),p_type LIKE %BRASS,rtpcq02(V2,V3,V4,p_key,v1,V5,V6,V7,V8).
+
+
