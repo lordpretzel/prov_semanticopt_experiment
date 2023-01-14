@@ -1,0 +1,14 @@
+Timing is on.
+                                                                                                            QUERY PLAN                                                                                                            
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Unique  (cost=9.48..9.51 rows=1 width=167)
+   ->  Sort  (cost=9.48..9.49 rows=1 width=167)
+         Sort Key: f0.c_custkey, f0.c_name, f0.c_address, f0.c_nationkey, f0.c_phone, f0.c_acctbal, f0.c_mktsegment, f0.c_comment
+         ->  Nested Loop  (cost=0.42..9.47 rows=1 width=167)
+               ->  Seq Scan on rtpcq10 f0_1  (cost=0.00..1.01 rows=1 width=113)
+               ->  Index Scan using customer_pkey on customer f0  (cost=0.42..8.45 rows=1 width=167)
+                     Index Cond: (c_custkey = f0_1."A0")
+                     Filter: (((f0_1."A1")::text = (c_name)::text) AND (f0_1."A3" = c_acctbal) AND ((f0_1."A5")::text = (c_address)::text) AND ((f0_1."A6")::text = (c_phone)::text) AND ((f0_1."A7")::text = (c_comment)::text))
+(8 rows)
+
+Time: 3.703 ms
