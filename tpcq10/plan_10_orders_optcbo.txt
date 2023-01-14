@@ -17,4 +17,4 @@ Timing is on.
                      Filter: ((l_returnflag)::text = 'R'::text)
 (14 rows)
 
-Time: 4.364 ms
+Time: 4.388 ms
