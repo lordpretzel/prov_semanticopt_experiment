@@ -1,0 +1,54 @@
+Timing is on.
+                                                                                                                                                     QUERY PLAN                                                                                                                                                      
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ HashAggregate  (cost=239650.27..239711.36 rows=6109 width=125)
+   Group Key: f0.l_orderkey, f0.l_partkey, f0.l_suppkey, f0.l_linenumber, f0.l_quantity, f0.l_extendedprice, f0.l_discount, f0.l_tax, f0.l_returnflag, f0.l_linestatus, f0.l_shipdate, f0.l_commitdate, f0.l_receiptdate, f0.l_shipinstruct, f0.l_shipmode, f0.l_comment
+   CTE _temp_view_0
+     ->  Finalize HashAggregate  (cost=204566.50..207021.86 rows=196429 width=16)
+           Group Key: f0_7.l_partkey
+           ->  Gather  (cost=161352.12..202602.21 rows=392858 width=40)
+                 Workers Planned: 2
+                 ->  Partial HashAggregate  (cost=160352.12..162316.41 rows=196429 width=40)
+                       Group Key: f0_7.l_partkey
+                       ->  Parallel Seq Scan on lineitem f0_7  (cost=0.00..141598.64 rows=2500464 width=16)
+   ->  Append  (cost=11665.23..30184.77 rows=61091 width=125)
+         ->  Unique  (cost=11665.23..11748.96 rows=1970 width=125)
+               ->  Sort  (cost=11665.23..11670.16 rows=1970 width=125)
+                     Sort Key: f0.l_orderkey, f0.l_partkey, f0.l_suppkey, f0.l_linenumber, f0.l_quantity, f0.l_extendedprice, f0.l_discount, f0.l_tax, f0.l_returnflag, f0.l_linestatus, f0.l_shipdate, f0.l_commitdate, f0.l_receiptdate, f0.l_shipinstruct, f0.l_shipmode, f0.l_comment
+                     ->  Nested Loop  (cost=6347.59..11557.44 rows=1970 width=125)
+                           ->  Seq Scan on rtpcq17 f0_2  (cost=0.00..1.01 rows=1 width=0)
+                           ->  Nested Loop  (cost=6347.59..11536.73 rows=1970 width=125)
+                                 ->  Hash Join  (cost=6347.16..10791.38 rows=193 width=24)
+                                       Hash Cond: (_temp_view_0."A0" = f0_1.p_partkey)
+                                       ->  CTE Scan on _temp_view_0  (cost=0.00..3928.58 rows=196429 width=16)
+                                       ->  Hash  (cost=6344.70..6344.70 rows=197 width=8)
+                                             ->  Gather  (cost=1000.00..6344.70 rows=197 width=8)
+                                                   Workers Planned: 2
+                                                   ->  Parallel Seq Scan on part f0_1  (cost=0.00..5325.00 rows=82 width=8)
+                                                         Filter: (((p_brand)::text = 'Brand#23'::text) AND ((p_container)::text = 'MED BOX'::text))
+                                 ->  Index Scan using fkey_4 on lineitem f0  (cost=0.43..3.76 rows=10 width=125)
+                                       Index Cond: (l_partkey = _temp_view_0."A0")
+                                       Filter: (l_quantity < _temp_view_0."A1")
+         ->  HashAggregate  (cost=16928.23..17519.44 rows=59121 width=125)
+               Group Key: f0_3.l_orderkey, f0_3.l_partkey, f0_3.l_suppkey, f0_3.l_linenumber, f0_3.l_quantity, f0_3.l_extendedprice, f0_3.l_discount, f0_3.l_tax, f0_3.l_returnflag, f0_3.l_linestatus, f0_3.l_shipdate, f0_3.l_commitdate, f0_3.l_receiptdate, f0_3.l_shipinstruct, f0_3.l_shipmode, f0_3.l_comment
+               ->  Nested Loop  (cost=6351.01..14563.39 rows=59121 width=125)
+                     Join Filter: (_temp_view_0_1."A0" = f0_3.l_partkey)
+                     ->  Nested Loop  (cost=6350.57..11762.61 rows=1930 width=24)
+                           ->  Hash Join  (cost=6350.14..11017.26 rows=193 width=24)
+                                 Hash Cond: (_temp_view_0_1."A0" = f0_4.p_partkey)
+                                 ->  CTE Scan on _temp_view_0 _temp_view_0_1  (cost=0.00..3928.58 rows=196429 width=16)
+                                 ->  Hash  (cost=6347.68..6347.68 rows=197 width=8)
+                                       ->  Nested Loop  (cost=1000.00..6347.68 rows=197 width=8)
+                                             ->  Seq Scan on rtpcq17 f0_6  (cost=0.00..1.01 rows=1 width=0)
+                                             ->  Gather  (cost=1000.00..6344.70 rows=197 width=8)
+                                                   Workers Planned: 2
+                                                   ->  Parallel Seq Scan on part f0_4  (cost=0.00..5325.00 rows=82 width=8)
+                                                         Filter: (((p_brand)::text = 'Brand#23'::text) AND ((p_container)::text = 'MED BOX'::text))
+                           ->  Index Scan using fkey_4 on lineitem f0_5  (cost=0.43..3.76 rows=10 width=16)
+                                 Index Cond: (l_partkey = _temp_view_0_1."A0")
+                                 Filter: (l_quantity < _temp_view_0_1."A1")
+                     ->  Index Scan using fkey_4 on lineitem f0_3  (cost=0.43..1.06 rows=31 width=125)
+                           Index Cond: (l_partkey = f0_5.l_partkey)
+(48 rows)
+
+Time: 19.378 ms

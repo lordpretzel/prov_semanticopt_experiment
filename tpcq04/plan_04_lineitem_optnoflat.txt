@@ -1,0 +1,36 @@
+Timing is on.
+                                                                                                                                  QUERY PLAN                                                                                                                                  
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Unique  (cost=277114.77..277802.21 rows=16175 width=125)
+   CTE _temp_view_0
+     ->  Seq Scan on rtpcq04 f0_4  (cost=0.00..1.01 rows=1 width=17)
+   ->  Sort  (cost=277113.76..277154.20 rows=16175 width=125)
+         Sort Key: f0.l_orderkey, f0.l_partkey, f0.l_suppkey, f0.l_linenumber, f0.l_quantity, f0.l_extendedprice, f0.l_discount, f0.l_tax, f0.l_returnflag, f0.l_linestatus, f0.l_shipdate, f0.l_commitdate, f0.l_receiptdate, f0.l_shipinstruct, f0.l_shipmode, f0.l_comment
+         ->  Nested Loop  (cost=249882.01..275983.01 rows=16175 width=125)
+               ->  Unique  (cost=249881.57..249897.07 rows=3099 width=8)
+                     ->  Sort  (cost=249881.57..249889.32 rows=3099 width=8)
+                           Sort Key: f0_3.l_orderkey
+                           ->  Hash Join  (cost=210042.72..249701.87 rows=3099 width=8)
+                                 Hash Cond: ((f0_1.o_orderpriority)::text = (f0_2."A0")::text)
+                                 ->  Gather  (cost=210042.66..249612.71 rows=15496 width=17)
+                                       Workers Planned: 2
+                                       ->  Hash Join  (cost=209042.66..247063.11 rows=6457 width=17)
+                                             Hash Cond: (f0_1.o_orderkey = f0_3.l_orderkey)
+                                             ->  Parallel Seq Scan on orders f0_1  (cost=0.00..37954.00 rows=25316 width=17)
+                                                   Filter: ((o_orderdate >= '1993-07-01'::date) AND (o_orderdate < '1993-10-01'::date))
+                                             ->  Hash  (cost=204260.42..204260.42 rows=382579 width=8)
+                                                   ->  HashAggregate  (cost=196608.84..200434.63 rows=382579 width=8)
+                                                         Group Key: f0_3.l_orderkey
+                                                         ->  Seq Scan on lineitem f0_3  (cost=0.00..191607.91 rows=2000371 width=8)
+                                                               Filter: (l_commitdate < l_receiptdate)
+                                 ->  Hash  (cost=0.05..0.05 rows=1 width=48)
+                                       ->  Subquery Scan on f0_2  (cost=0.03..0.05 rows=1 width=48)
+                                             ->  HashAggregate  (cost=0.03..0.04 rows=1 width=56)
+                                                   Group Key: _temp_view_0.x1, _temp_view_0.x2
+                                                   ->  CTE Scan on _temp_view_0  (cost=0.00..0.02 rows=1 width=56)
+               ->  Index Scan using fkey_2 on lineitem f0  (cost=0.43..8.36 rows=5 width=125)
+                     Index Cond: (l_orderkey = f0_3.l_orderkey)
+                     Filter: (l_commitdate < l_receiptdate)
+(30 rows)
+
+Time: 13.586 ms

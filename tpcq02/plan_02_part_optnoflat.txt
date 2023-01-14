@@ -1,0 +1,62 @@
+Timing is on.
+                                                                                                                      QUERY PLAN                                                                                                                       
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Unique  (cost=9345.91..9345.94 rows=1 width=121)
+   CTE _temp_view_2
+     ->  Seq Scan on rtpcq02 f0_7  (cost=0.00..1.01 rows=1 width=139)
+   CTE _temp_view_1
+     ->  HashAggregate  (cost=0.04..0.05 rows=1 width=594)
+           Group Key: _temp_view_2.x1, _temp_view_2.x2, _temp_view_2.x3, _temp_view_2.x4, _temp_view_2.x5, _temp_view_2.x6, _temp_view_2.x7, _temp_view_2.x8, _temp_view_2.x9
+           ->  CTE Scan on _temp_view_2  (cost=0.00..0.02 rows=1 width=594)
+   CTE _temp_view_0
+     ->  CTE Scan on _temp_view_1  (cost=0.00..0.02 rows=1 width=594)
+   CTE _temp_view_3
+     ->  CTE Scan on _temp_view_1 _temp_view_1_1  (cost=0.00..0.02 rows=1 width=594)
+   ->  Sort  (cost=9344.81..9344.81 rows=1 width=121)
+         Sort Key: f0.p_partkey, f0.p_name, f0.p_mfgr, f0.p_brand, f0.p_type, f0.p_container, f0.p_retailprice, f0.p_comment
+         ->  Nested Loop  (cost=9279.62..9344.80 rows=1 width=121)
+               ->  Unique  (cost=9279.20..9310.94 rows=4 width=276)
+                     ->  Merge Append  (cost=9279.20..9310.85 rows=4 width=276)
+                           Sort Key: f0_4.s_acctbal, f0_4.s_name, f0_2.n_name, f0_5.p_partkey, f0_6.ps_supplycost, f0_5.p_mfgr, f0_4.s_address, f0_4.s_phone, f0_4.s_comment
+                           ->  Unique  (cost=9279.16..9310.70 rows=3 width=170)
+                                 ->  Nested Loop  (cost=9279.16..9310.63 rows=3 width=170)
+                                       Join Filter: (f0_5.p_partkey = f0_1."A0")
+                                       ->  Unique  (cost=9279.14..9294.86 rows=629 width=170)
+                                             ->  Sort  (cost=9279.14..9280.71 rows=629 width=170)
+                                                   Sort Key: f0_4.s_acctbal, f0_4.s_name, f0_2.n_name, f0_5.p_partkey, f0_6.ps_supplycost, f0_5.p_mfgr, f0_4.s_address, f0_4.s_phone, f0_4.s_comment
+                                                   ->  Gather  (cost=1280.71..9249.90 rows=629 width=170)
+                                                         Workers Planned: 2
+                                                         ->  Hash Join  (cost=280.71..8187.00 rows=262 width=170)
+                                                               Hash Cond: (f0_6.ps_suppkey = f0_4.s_suppkey)
+                                                               ->  Nested Loop  (cost=0.42..7899.18 rows=1310 width=39)
+                                                                     ->  Parallel Seq Scan on part f0_5  (cost=0.00..5325.00 rows=328 width=23)
+                                                                           Filter: (((p_type)::text ~~ '%BRASS'::text) AND (p_size = 15))
+                                                                     ->  Index Scan using fkey_8 on partsupp f0_6  (cost=0.42..7.81 rows=4 width=24)
+                                                                           Index Cond: (ps_partkey = f0_5.p_partkey)
+                                                               ->  Hash  (cost=255.29..255.29 rows=2000 width=147)
+                                                                     ->  Nested Loop  (cost=8.94..255.29 rows=2000 width=147)
+                                                                           ->  Hash Join  (cost=1.07..2.45 rows=5 width=16)
+                                                                                 Hash Cond: (f0_2.n_regionkey = f0_3.r_regionkey)
+                                                                                 ->  Seq Scan on nation f0_2  (cost=0.00..1.25 rows=25 width=24)
+                                                                                 ->  Hash  (cost=1.06..1.06 rows=1 width=8)
+                                                                                       ->  Seq Scan on region f0_3  (cost=0.00..1.06 rows=1 width=8)
+                                                                                             Filter: ((r_name)::text = 'EUROPE'::text)
+                                                                           ->  Bitmap Heap Scan on supplier f0_4  (cost=7.87..46.57 rows=400 width=147)
+                                                                                 Recheck Cond: (s_nationkey = f0_2.n_nationkey)
+                                                                                 ->  Bitmap Index Scan on fkey_10  (cost=0.00..7.77 rows=400 width=0)
+                                                                                       Index Cond: (s_nationkey = f0_2.n_nationkey)
+                                       ->  Materialize  (cost=0.03..0.05 rows=1 width=8)
+                                             ->  Subquery Scan on f0_1  (cost=0.03..0.05 rows=1 width=8)
+                                                   ->  HashAggregate  (cost=0.03..0.04 rows=1 width=16)
+                                                         Group Key: _temp_view_0.p_key, _temp_view_0.s_cost
+                                                         ->  CTE Scan on _temp_view_0  (cost=0.00..0.02 rows=1 width=16)
+                           ->  Unique  (cost=0.03..0.06 rows=1 width=594)
+                                 ->  Sort  (cost=0.03..0.04 rows=1 width=594)
+                                       Sort Key: _temp_view_3.s_account_bal, _temp_view_3.s_name, _temp_view_3.n_name, _temp_view_3.p_key, _temp_view_3.s_cost, _temp_view_3.p_manu, _temp_view_3.s_addr, _temp_view_3.s_phone, _temp_view_3.s_comment
+                                       ->  CTE Scan on _temp_view_3  (cost=0.00..0.02 rows=1 width=594)
+               ->  Index Scan using part_pkey on part f0  (cost=0.42..8.45 rows=1 width=117)
+                     Index Cond: (p_partkey = f0_5.p_partkey)
+                     Filter: (((p_type)::text ~~ '%BRASS'::text) AND (p_size = 15) AND ((f0_5.p_mfgr)::text = (p_mfgr)::text))
+(56 rows)
+
+Time: 8.739 ms

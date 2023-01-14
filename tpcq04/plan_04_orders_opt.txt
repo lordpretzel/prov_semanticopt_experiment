@@ -1,0 +1,20 @@
+Timing is on.
+                                                                          QUERY PLAN                                                                          
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+ HashAggregate  (cost=66700.38..66862.43 rows=16205 width=112)
+   Group Key: f0.o_orderkey, f0.o_custkey, f0.o_orderstatus, f0.o_totalprice, f0.o_orderdate, f0.o_orderpriority, f0.o_clerk, f0.o_shippriority, f0.o_comment
+   ->  Gather  (cost=1001.46..66335.77 rows=16205 width=112)
+         Workers Planned: 2
+         ->  Nested Loop  (cost=1.46..63715.27 rows=6752 width=112)
+               ->  Hash Join  (cost=1.02..38100.59 rows=5063 width=112)
+                     Hash Cond: ((f0.o_orderpriority)::text = (f0_2."A0")::text)
+                     ->  Parallel Seq Scan on orders f0  (cost=0.00..37954.00 rows=25316 width=112)
+                           Filter: ((o_orderdate >= '1993-07-01'::date) AND (o_orderdate < '1993-10-01'::date))
+                     ->  Hash  (cost=1.01..1.01 rows=1 width=9)
+                           ->  Seq Scan on rtpcq04 f0_2  (cost=0.00..1.01 rows=1 width=9)
+               ->  Index Scan using fkey_2 on lineitem f0_1  (cost=0.43..5.01 rows=5 width=8)
+                     Index Cond: (l_orderkey = f0.o_orderkey)
+                     Filter: (l_commitdate < l_receiptdate)
+(14 rows)
+
+Time: 5.087 ms

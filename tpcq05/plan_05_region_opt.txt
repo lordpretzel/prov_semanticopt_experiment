@@ -1,0 +1,34 @@
+Timing is on.
+                                                            QUERY PLAN                                                            
+----------------------------------------------------------------------------------------------------------------------------------
+ Unique  (cost=9168.99..9171.19 rows=1 width=107)
+   ->  Sort  (cost=9168.99..9169.72 rows=294 width=107)
+         Sort Key: f0.r_regionkey, f0.r_comment
+         ->  Hash Join  (cost=569.88..9156.94 rows=294 width=107)
+               Hash Cond: ((f0_1.n_nationkey = f0_3.s_nationkey) AND (f0_5.l_suppkey = f0_3.s_suppkey))
+               ->  Nested Loop  (cost=92.88..8641.35 rows=7349 width=99)
+                     ->  Nested Loop  (cost=92.45..2809.47 rows=1837 width=99)
+                           ->  Nested Loop  (cost=92.02..755.23 rows=1200 width=99)
+                                 ->  Nested Loop  (cost=0.14..14.97 rows=1 width=83)
+                                       Join Filter: (f0_1.n_regionkey = f0.r_regionkey)
+                                       ->  Nested Loop  (cost=0.14..13.90 rows=1 width=16)
+                                             Join Filter: ((f0_1.n_name)::text = (f0_6."A0")::text)
+                                             ->  Index Scan using nation_pkey on nation f0_1  (cost=0.14..12.51 rows=25 width=24)
+                                             ->  Materialize  (cost=0.00..1.01 rows=1 width=6)
+                                                   ->  Seq Scan on rtpcq05 f0_6  (cost=0.00..1.01 rows=1 width=6)
+                                       ->  Seq Scan on region f0  (cost=0.00..1.06 rows=1 width=75)
+                                             Filter: ((r_name)::text = 'ASIA'::text)
+                                 ->  Bitmap Heap Scan on customer f0_2  (cost=91.88..680.26 rows=6000 width=16)
+                                       Recheck Cond: (c_nationkey = f0_1.n_nationkey)
+                                       ->  Bitmap Index Scan on fkey_1  (cost=0.00..90.38 rows=6000 width=0)
+                                             Index Cond: (c_nationkey = f0_1.n_nationkey)
+                           ->  Index Scan using fkey_7 on orders f0_4  (cost=0.43..1.68 rows=3 width=16)
+                                 Index Cond: (o_custkey = f0_2.c_custkey)
+                                 Filter: ((o_orderdate >= '1994-01-01'::date) AND (o_orderdate < '1995-01-01'::date))
+                     ->  Index Scan using fkey_2 on lineitem f0_5  (cost=0.43..3.01 rows=16 width=16)
+                           Index Cond: (l_orderkey = f0_4.o_orderkey)
+               ->  Hash  (cost=327.00..327.00 rows=10000 width=16)
+                     ->  Seq Scan on supplier f0_3  (cost=0.00..327.00 rows=10000 width=16)
+(28 rows)
+
+Time: 9.206 ms

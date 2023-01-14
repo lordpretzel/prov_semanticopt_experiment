@@ -1,0 +1,73 @@
+Timing is on.
+                                                                                QUERY PLAN                                                                                
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Unique  (cost=11976.04..11977.04 rows=50 width=147)
+   CTE _temp_view_0
+     ->  HashAggregate  (cost=4966.77..5286.77 rows=32000 width=16)
+           Group Key: f0_3.ps_partkey
+           ->  Nested Loop  (cost=11.81..4646.77 rows=32000 width=24)
+                 ->  Nested Loop  (cost=11.38..254.72 rows=400 width=8)
+                       ->  Seq Scan on nation f0_5  (cost=0.00..1.31 rows=1 width=8)
+                             Filter: ((n_name)::text = 'GERMANY'::text)
+                       ->  Bitmap Heap Scan on supplier f0_4  (cost=11.38..249.40 rows=400 width=16)
+                             Recheck Cond: (s_nationkey = f0_5.n_nationkey)
+                             ->  Bitmap Index Scan on fkey_10  (cost=0.00..11.29 rows=400 width=0)
+                                   Index Cond: (s_nationkey = f0_5.n_nationkey)
+                 ->  Index Scan using fkey_9 on partsupp f0_3  (cost=0.42..10.18 rows=80 width=32)
+                       Index Cond: (ps_suppkey = f0_4.s_suppkey)
+   CTE _temp_view_2
+     ->  Aggregate  (cost=800.00..800.01 rows=1 width=8)
+           ->  CTE Scan on _temp_view_0 _temp_view_0_3  (cost=0.00..640.00 rows=32000 width=8)
+   CTE _temp_view_5
+     ->  Seq Scan on rtpcq11 f0_6  (cost=0.00..1.01 rows=1 width=16)
+   CTE _temp_view_4
+     ->  HashAggregate  (cost=0.03..0.04 rows=1 width=16)
+           Group Key: _temp_view_5.x1, _temp_view_5.x2
+           ->  CTE Scan on _temp_view_5  (cost=0.00..0.02 rows=1 width=16)
+   ->  Sort  (cost=5888.22..5888.34 rows=50 width=147)
+         Sort Key: f0.ps_suppkey, f0_1.s_name, f0_1.s_address, f0_1.s_nationkey, f0_1.s_phone, f0_1.s_acctbal, f0_1.s_comment
+         ->  Hash Join  (cost=3236.36..5886.81 rows=50 width=147)
+               Hash Cond: (f0.ps_suppkey = f0_1.s_suppkey)
+               ->  Nested Loop  (cost=2976.65..5621.86 rows=1260 width=8)
+                     ->  HashAggregate  (cost=2976.22..2979.42 rows=320 width=16)
+                           Group Key: _temp_view_0."A0", _temp_view_0."A1"
+                           ->  Append  (cost=2000.11..2960.22 rows=3201 width=16)
+                                 ->  HashAggregate  (cost=2000.11..2032.11 rows=3200 width=16)
+                                       Group Key: _temp_view_0."A0", _temp_view_0."A1"
+                                       ->  Nested Loop  (cost=880.09..1840.11 rows=32000 width=16)
+                                             ->  Unique  (cost=880.09..880.10 rows=1 width=8)
+                                                   ->  Sort  (cost=880.09..880.09 rows=1 width=8)
+                                                         Sort Key: _temp_view_2."A0"
+                                                         ->  Nested Loop  (cost=0.04..880.08 rows=1 width=8)
+                                                               Join Filter: (_temp_view_0_1."A1" > _temp_view_2."A0")
+                                                               ->  Hash Join  (cost=0.04..880.04 rows=1 width=8)
+                                                                     Hash Cond: ((_temp_view_0_1."A0" = _temp_view_4."A0") AND (_temp_view_0_1."A1" = _temp_view_4."A1"))
+                                                                     ->  CTE Scan on _temp_view_0 _temp_view_0_1  (cost=0.00..640.00 rows=32000 width=16)
+                                                                     ->  Hash  (cost=0.02..0.02 rows=1 width=16)
+                                                                           ->  CTE Scan on _temp_view_4  (cost=0.00..0.02 rows=1 width=16)
+                                                               ->  CTE Scan on _temp_view_2  (cost=0.00..0.02 rows=1 width=8)
+                                             ->  CTE Scan on _temp_view_0  (cost=0.00..640.00 rows=32000 width=16)
+                                 ->  Unique  (cost=880.09..880.10 rows=1 width=16)
+                                       ->  Sort  (cost=880.09..880.09 rows=1 width=16)
+                                             Sort Key: _temp_view_0_2."A0", _temp_view_0_2."A1"
+                                             ->  Nested Loop  (cost=0.04..880.08 rows=1 width=16)
+                                                   Join Filter: (_temp_view_0_2."A1" > _temp_view_2_1."A0")
+                                                   ->  Hash Join  (cost=0.04..880.04 rows=1 width=16)
+                                                         Hash Cond: ((_temp_view_0_2."A0" = _temp_view_4_1."A0") AND (_temp_view_0_2."A1" = _temp_view_4_1."A1"))
+                                                         ->  CTE Scan on _temp_view_0 _temp_view_0_2  (cost=0.00..640.00 rows=32000 width=16)
+                                                         ->  Hash  (cost=0.02..0.02 rows=1 width=16)
+                                                               ->  CTE Scan on _temp_view_4 _temp_view_4_1  (cost=0.00..0.02 rows=1 width=16)
+                                                   ->  CTE Scan on _temp_view_2 _temp_view_2_1  (cost=0.00..0.02 rows=1 width=8)
+                     ->  Index Scan using fkey_8 on partsupp f0  (cost=0.42..8.21 rows=4 width=16)
+                           Index Cond: (ps_partkey = _temp_view_0."A0")
+               ->  Hash  (cost=254.72..254.72 rows=400 width=147)
+                     ->  Nested Loop  (cost=11.38..254.72 rows=400 width=147)
+                           ->  Seq Scan on nation f0_2  (cost=0.00..1.31 rows=1 width=8)
+                                 Filter: ((n_name)::text = 'GERMANY'::text)
+                           ->  Bitmap Heap Scan on supplier f0_1  (cost=11.38..249.40 rows=400 width=147)
+                                 Recheck Cond: (s_nationkey = f0_2.n_nationkey)
+                                 ->  Bitmap Index Scan on fkey_10  (cost=0.00..11.29 rows=400 width=0)
+                                       Index Cond: (s_nationkey = f0_2.n_nationkey)
+(67 rows)
+
+Time: 8.452 ms

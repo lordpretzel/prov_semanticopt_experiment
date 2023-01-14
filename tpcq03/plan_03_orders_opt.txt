@@ -1,0 +1,14 @@
+Timing is on.
+                                                                            QUERY PLAN                                                                             
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Unique  (cost=9.48..9.51 rows=1 width=112)
+   ->  Sort  (cost=9.48..9.49 rows=1 width=112)
+         Sort Key: f0.o_orderkey, f0.o_custkey, f0.o_orderstatus, f0.o_totalprice, f0.o_orderdate, f0.o_orderpriority, f0.o_clerk, f0.o_shippriority, f0.o_comment
+         ->  Nested Loop  (cost=0.43..9.47 rows=1 width=112)
+               ->  Seq Scan on rtpcq03 f0_1  (cost=0.00..1.01 rows=1 width=20)
+               ->  Index Scan using orders_pkey on orders f0  (cost=0.43..8.45 rows=1 width=112)
+                     Index Cond: (o_orderkey = f0_1."A0")
+                     Filter: ((o_orderdate < '1995-03-15'::date) AND (f0_1."A1" = o_orderdate) AND (f0_1."A2" = o_shippriority))
+(8 rows)
+
+Time: 3.237 ms

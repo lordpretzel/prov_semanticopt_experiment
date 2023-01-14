@@ -1,0 +1,24 @@
+Timing is on.
+                                                                                                                         QUERY PLAN                                                                                                                          
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Unique  (cost=77.80..77.84 rows=1 width=155)
+   CTE _temp_view_0
+     ->  Seq Scan on rtpcq10 f0_2  (cost=0.00..1.01 rows=1 width=127)
+   ->  Sort  (cost=76.79..76.79 rows=1 width=155)
+         Sort Key: f0.l_orderkey, f0.l_partkey, f0.l_suppkey, f0.l_linenumber, f0.l_quantity, f0.l_extendedprice, f0.l_discount, f0.l_tax, f0.l_linestatus, f0.l_shipdate, f0.l_commitdate, f0.l_receiptdate, f0.l_shipinstruct, f0.l_shipmode, f0.l_comment
+         ->  Nested Loop  (cost=5.03..76.78 rows=1 width=155)
+               ->  Nested Loop  (cost=4.60..71.68 rows=1 width=8)
+                     ->  HashAggregate  (cost=0.04..0.05 rows=1 width=558)
+                           Group Key: _temp_view_0.x1, _temp_view_0.x2, _temp_view_0.x3, _temp_view_0.x4, _temp_view_0.x5, _temp_view_0.x6, _temp_view_0.x7, _temp_view_0.x8
+                           ->  CTE Scan on _temp_view_0  (cost=0.00..0.02 rows=1 width=558)
+                     ->  Bitmap Heap Scan on orders f0_1  (cost=4.56..71.61 rows=1 width=16)
+                           Recheck Cond: (o_custkey = _temp_view_0.x1)
+                           Filter: ((o_orderdate >= '1993-10-01'::date) AND (o_orderdate < '1994-01-01'::date))
+                           ->  Bitmap Index Scan on fkey_7  (cost=0.00..4.56 rows=17 width=0)
+                                 Index Cond: (o_custkey = _temp_view_0.x1)
+               ->  Index Scan using fkey_2 on lineitem f0  (cost=0.43..5.06 rows=4 width=123)
+                     Index Cond: (l_orderkey = f0_1.o_orderkey)
+                     Filter: ((l_returnflag)::text = 'R'::text)
+(18 rows)
+
+Time: 5.145 ms
