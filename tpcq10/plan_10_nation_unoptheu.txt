@@ -23,4 +23,4 @@ Timing is on.
                      Index Cond: (n_nationkey = f0.c_nationkey)
 (20 rows)
 
-Time: 6.533 ms
+Time: 6.513 ms

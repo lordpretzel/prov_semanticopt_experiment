@@ -81,4 +81,4 @@ Timing is on.
                            ->  Seq Scan on nation f0_1  (cost=0.00..1.25 rows=25 width=16)
 (78 rows)
 
-Time: 13.978 ms
+Time: 13.985 ms

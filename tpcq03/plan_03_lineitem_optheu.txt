@@ -11,4 +11,4 @@ Timing is on.
                      Filter: (l_shipdate > '1995-03-15'::date)
 (8 rows)
 
-Time: 3.448 ms
+Time: 3.432 ms

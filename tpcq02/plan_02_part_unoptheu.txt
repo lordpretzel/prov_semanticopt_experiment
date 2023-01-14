@@ -76,4 +76,4 @@ Timing is on.
                      Filter: (((p_type)::text ~~ '%BRASS'::text) AND (p_size = 15))
 (73 rows)
 
-Time: 14.983 ms
+Time: 15.014 ms

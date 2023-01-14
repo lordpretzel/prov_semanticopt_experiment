@@ -22,4 +22,4 @@ Timing is on.
                      Filter: (l_commitdate < l_receiptdate)
 (19 rows)
 
-Time: 5.641 ms
+Time: 5.661 ms

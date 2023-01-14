@@ -54,4 +54,4 @@ Timing is on.
                                        Index Cond: (o_orderkey = f0_8.l_orderkey)
 (51 rows)
 
-Time: 14.968 ms
+Time: 15.076 ms

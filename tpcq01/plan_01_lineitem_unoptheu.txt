@@ -11,4 +11,4 @@ Timing is on.
                ->  Seq Scan on rtpcq01 f0_1  (cost=0.00..1.01 rows=1 width=4)
 (8 rows)
 
-Time: 20.328 ms
+Time: 20.956 ms

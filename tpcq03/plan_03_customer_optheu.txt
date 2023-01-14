@@ -15,4 +15,4 @@ Timing is on.
                      Filter: ((c_mktsegment)::text = 'BUILDING'::text)
 (12 rows)
 
-Time: 4.302 ms
+Time: 4.358 ms

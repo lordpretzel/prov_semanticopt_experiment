@@ -98,9 +98,13 @@ def psql_time(infile, outfile, repetitions):
                 log(f"error timing command with psql [{rt}]:\n{err}\n{out}")
                 exit(rt)
             log(out[0:min(len(out), 1000)])
-            t = re.search("Time: ([0-9.]+)", out).group(1)
-            log(f"took {t} ms")
-            f.write(t + "\n")
+            match = re.search("Time: ([0-9.]+)", out)
+            if match:
+                t = match.group(1)
+                log(f"took {t} ms")
+                f.write(t + "\n")
+            else:
+                f.write("NaN\n")
 
 def psql_explain(infile, outfile):
     with open(outfile, "w") as f:
@@ -136,16 +140,20 @@ def run_gprom(gprom_opts, f=None):
 def run_gprom_store_output(gprom_opts, inf, outf):
     cmd = gprom_command_as_list(gprom_opts, inf)
     log(f'run {" ".join(cmd)}\n to execute {inf} and store output in {outf}')
-    with open(outf, 'w') as f:
-        process = subprocess.run(cmd,
-                                 stdout=f,
-                                 stderr=subprocess.PIPE,
-                                 universal_newlines=True)
-        rt = process.returncode
-        if rt:
-            log(f'error running commands from {inf} and storing result in {outf} using command line:\n{cmd}')
+    try:
+        with open(outf, 'w') as f:
+            process = subprocess.run(cmd,
+                                     stdout=f,
+                                     stderr=subprocess.PIPE,
+                                     universal_newlines=True)
+            rt = process.returncode
+            if rt:
+                log(f'error running commands from {inf} and storing result in {outf} using command line:\n{cmd}')
 
-        return (rt, process.stderr)
+            return (rt, process.stderr)
+    except Exception as e:
+        return (-1, f"error writing GProM results to file:\n{e}")
+
 
 def materialize_result_subset(q):
     logfat(f"create table for {q}")

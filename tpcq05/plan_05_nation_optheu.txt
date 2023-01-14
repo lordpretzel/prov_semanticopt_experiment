@@ -31,4 +31,4 @@ Timing is on.
                      ->  Seq Scan on supplier f0_2  (cost=0.00..327.00 rows=10000 width=16)
 (28 rows)
 
-Time: 8.664 ms
+Time: 8.645 ms

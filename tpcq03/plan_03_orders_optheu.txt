@@ -11,4 +11,4 @@ Timing is on.
                      Filter: ((o_orderdate < '1995-03-15'::date) AND (f0_1."A1" = o_orderdate) AND (f0_1."A2" = o_shippriority))
 (8 rows)
 
-Time: 3.199 ms
+Time: 3.234 ms
