@@ -1,0 +1,58 @@
+Timing is on.
+                                                                               QUERY PLAN                                                                                
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Unique  (cost=252866.64..252866.66 rows=1 width=125)
+   CTE _temp_view_0
+     ->  HashAggregate  (cost=215590.21..220404.71 rows=481450 width=24)
+           Group Key: f0_6.l_partkey, f0_6.l_suppkey
+           ->  Seq Scan on lineitem f0_6  (cost=0.00..206610.70 rows=897951 width=24)
+                 Filter: ((l_shipdate >= '1994-01-01'::date) AND (l_shipdate < '1995-01-01'::date))
+   CTE _temp_view_2
+     ->  Seq Scan on rtpcq20 f0_7  (cost=0.00..1.01 rows=1 width=45)
+   ->  Sort  (cost=32460.92..32460.93 rows=1 width=125)
+         Sort Key: f0.p_partkey, f0.p_name, f0.p_mfgr, f0.p_brand, f0.p_type, f0.p_size, f0.p_container, f0.p_retailprice, f0.p_comment
+         ->  Nested Loop  (cost=20375.14..32460.91 rows=1 width=125)
+               Join Filter: (f0.p_partkey = f0_1.ps_partkey)
+               ->  Nested Loop  (cost=20374.71..32445.47 rows=24 width=157)
+                     ->  Hash Join  (cost=20374.29..31293.88 rows=2407 width=32)
+                           Hash Cond: (_temp_view_0."A1" = f0_2.s_suppkey)
+                           ->  CTE Scan on _temp_view_0  (cost=0.00..9629.00 rows=481450 width=24)
+                           ->  Hash  (cost=20374.28..20374.28 rows=1 width=8)
+                                 ->  Unique  (cost=20366.15..20374.27 rows=1 width=8)
+                                       ->  Nested Loop  (cost=20366.15..20374.27 rows=1 width=8)
+                                             Join Filter: (((f0_2.s_name)::text = (_temp_view_2.x1)::text) AND ((f0_2.s_address)::text = (_temp_view_2.x2)::text))
+                                             ->  Nested Loop  (cost=20366.13..20374.21 rows=1 width=52)
+                                                   ->  Nested Loop  (cost=20365.99..20374.03 rows=1 width=60)
+                                                         ->  Unique  (cost=20365.71..20365.71 rows=1 width=8)
+                                                               ->  Sort  (cost=20365.71..20365.71 rows=1 width=8)
+                                                                     Sort Key: f0_5.ps_suppkey
+                                                                     ->  Nested Loop  (cost=6344.34..20365.70 rows=1 width=8)
+                                                                           Join Filter: (f0_4.p_partkey = f0_5.ps_partkey)
+                                                                           ->  Hash Join  (cost=6343.92..17236.75 rows=4863 width=32)
+                                                                                 Hash Cond: (_temp_view_0_1."A0" = f0_4.p_partkey)
+                                                                                 ->  CTE Scan on _temp_view_0 _temp_view_0_1  (cost=0.00..9629.00 rows=481450 width=24)
+                                                                                 ->  Hash  (cost=6318.67..6318.67 rows=2020 width=8)
+                                                                                       ->  Gather  (cost=1000.00..6318.67 rows=2020 width=8)
+                                                                                             Workers Planned: 2
+                                                                                             ->  Parallel Seq Scan on part f0_4  (cost=0.00..5116.67 rows=842 width=8)
+                                                                                                   Filter: ((p_name)::text ~~ 'forest%'::text)
+                                                                           ->  Index Scan using partsupp_pkey on partsupp f0_5  (cost=0.42..0.63 rows=1 width=24)
+                                                                                 Index Cond: ((ps_partkey = _temp_view_0_1."A0") AND (ps_suppkey = _temp_view_0_1."A1"))
+                                                                                 Filter: ((ps_availqty)::double precision > _temp_view_0_1."A2")
+                                                         ->  Index Scan using supplier_pkey on supplier f0_2  (cost=0.29..8.30 rows=1 width=60)
+                                                               Index Cond: (s_suppkey = f0_5.ps_suppkey)
+                                                   ->  Index Scan using nation_pkey on nation f0_3  (cost=0.14..0.16 rows=1 width=8)
+                                                         Index Cond: (n_nationkey = f0_2.s_nationkey)
+                                                         Filter: ((n_name)::text = 'CANADA'::text)
+                                             ->  HashAggregate  (cost=0.03..0.04 rows=1 width=166)
+                                                   Group Key: _temp_view_2.x1, _temp_view_2.x2
+                                                   ->  CTE Scan on _temp_view_2  (cost=0.00..0.02 rows=1 width=166)
+                     ->  Index Scan using part_pkey on part f0  (cost=0.42..0.48 rows=1 width=125)
+                           Index Cond: (p_partkey = _temp_view_0."A0")
+                           Filter: ((p_name)::text ~~ 'forest%'::text)
+               ->  Index Scan using partsupp_pkey on partsupp f0_1  (cost=0.42..0.63 rows=1 width=24)
+                     Index Cond: ((ps_partkey = _temp_view_0."A0") AND (ps_suppkey = _temp_view_0."A1"))
+                     Filter: ((ps_availqty)::double precision > _temp_view_0."A2")
+(52 rows)
+
+Time: 25.469 ms

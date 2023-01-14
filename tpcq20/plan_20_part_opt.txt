@@ -1,0 +1,37 @@
+Timing is on.
+                                                                  QUERY PLAN                                                                   
+-----------------------------------------------------------------------------------------------------------------------------------------------
+ Unique  (cost=232099.50..232099.53 rows=1 width=125)
+   CTE _temp_view_0
+     ->  HashAggregate  (cost=215590.21..220404.71 rows=481450 width=24)
+           Group Key: f0_5.l_partkey, f0_5.l_suppkey
+           ->  Seq Scan on lineitem f0_5  (cost=0.00..206610.70 rows=897951 width=24)
+                 Filter: ((l_shipdate >= '1994-01-01'::date) AND (l_shipdate < '1995-01-01'::date))
+   ->  Sort  (cost=11694.80..11694.80 rows=1 width=125)
+         Sort Key: f0.p_partkey, f0.p_name, f0.p_mfgr, f0.p_brand, f0.p_type, f0.p_size, f0.p_container, f0.p_retailprice, f0.p_comment
+         ->  Nested Loop  (cost=259.61..11694.79 rows=1 width=125)
+               ->  Nested Loop  (cost=259.19..11694.32 rows=1 width=16)
+                     ->  Hash Join  (cost=258.76..11693.68 rows=1 width=32)
+                           Hash Cond: (_temp_view_0."A1" = f0_2.s_suppkey)
+                           ->  CTE Scan on _temp_view_0  (cost=0.00..9629.00 rows=481450 width=24)
+                           ->  Hash  (cost=258.75..258.75 rows=1 width=8)
+                                 ->  Hash Join  (cost=12.41..258.75 rows=1 width=8)
+                                       Hash Cond: (((f0_2.s_name)::text = (f0_4."A0")::text) AND ((f0_2.s_address)::text = (f0_4."A1")::text))
+                                       ->  Nested Loop  (cost=11.38..254.72 rows=400 width=52)
+                                             ->  Seq Scan on nation f0_3  (cost=0.00..1.31 rows=1 width=8)
+                                                   Filter: ((n_name)::text = 'CANADA'::text)
+                                             ->  Bitmap Heap Scan on supplier f0_2  (cost=11.38..249.40 rows=400 width=60)
+                                                   Recheck Cond: (s_nationkey = f0_3.n_nationkey)
+                                                   ->  Bitmap Index Scan on fkey_10  (cost=0.00..11.29 rows=400 width=0)
+                                                         Index Cond: (s_nationkey = f0_3.n_nationkey)
+                                       ->  Hash  (cost=1.01..1.01 rows=1 width=45)
+                                             ->  Seq Scan on rtpcq20 f0_4  (cost=0.00..1.01 rows=1 width=45)
+                     ->  Index Scan using partsupp_pkey on partsupp f0_1  (cost=0.42..0.63 rows=1 width=24)
+                           Index Cond: ((ps_partkey = _temp_view_0."A0") AND (ps_suppkey = _temp_view_0."A1"))
+                           Filter: ((ps_availqty)::double precision > _temp_view_0."A2")
+               ->  Index Scan using part_pkey on part f0  (cost=0.42..0.46 rows=1 width=125)
+                     Index Cond: (p_partkey = f0_1.ps_partkey)
+                     Filter: ((p_name)::text ~~ 'forest%'::text)
+(31 rows)
+
+Time: 25.276 ms

@@ -1,0 +1,14 @@
+Timing is on.
+                                                                                                                               QUERY PLAN                                                                                                                                
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ HashAggregate  (cost=285163.58..293946.54 rows=878296 width=125)
+   Group Key: f0.l_orderkey, f0.l_partkey, f0.l_suppkey, f0.l_linenumber, f0.l_quantity, f0.l_extendedprice, f0.l_discount, f0.l_tax, f0.l_returnflag, f0.l_linestatus, f0.l_shipdate, f0.l_commitdate, f0.l_receiptdate, f0.l_shipinstruct, f0.l_shipmode, f0.l_comment
+   ->  Hash Join  (cost=1.02..245772.14 rows=984786 width=125)
+         Hash Cond: (((f0.l_returnflag)::text = (f0_1."A0")::text) AND ((f0.l_linestatus)::text = (f0_1."A1")::text))
+         ->  Seq Scan on lineitem f0  (cost=0.00..191607.91 rows=5908713 width=125)
+               Filter: (l_shipdate <= '1998-09-01'::date)
+         ->  Hash  (cost=1.01..1.01 rows=1 width=4)
+               ->  Seq Scan on rtpcq01 f0_1  (cost=0.00..1.01 rows=1 width=4)
+(8 rows)
+
+Time: 20.956 ms

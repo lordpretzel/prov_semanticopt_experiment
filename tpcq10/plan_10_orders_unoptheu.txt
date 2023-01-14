@@ -1,0 +1,26 @@
+Timing is on.
+                                                                                                                     QUERY PLAN                                                                                                                     
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Unique  (cost=16.44..16.47 rows=1 width=112)
+   ->  Sort  (cost=16.44..16.44 rows=1 width=112)
+         Sort Key: f0_1.o_orderkey, f0.c_custkey, f0_1.o_orderstatus, f0_1.o_totalprice, f0_1.o_orderdate, f0_1.o_orderpriority, f0_1.o_clerk, f0_1.o_shippriority, f0_1.o_comment
+         ->  Nested Loop  (cost=1.42..16.43 rows=1 width=112)
+               Join Filter: ((f0_4."A4")::text = (f0_3.n_name)::text)
+               ->  Nested Loop  (cost=1.28..16.26 rows=1 width=126)
+                     ->  Nested Loop  (cost=0.85..11.16 rows=1 width=126)
+                           ->  Nested Loop  (cost=0.42..9.47 rows=1 width=30)
+                                 ->  Seq Scan on rtpcq10 f0_4  (cost=0.00..1.01 rows=1 width=119)
+                                 ->  Index Scan using customer_pkey on customer f0  (cost=0.42..8.45 rows=1 width=158)
+                                       Index Cond: (c_custkey = f0_4."A0")
+                                       Filter: (((f0_4."A1")::text = (c_name)::text) AND (f0_4."A3" = c_acctbal) AND ((f0_4."A5")::text = (c_address)::text) AND ((f0_4."A6")::text = (c_phone)::text) AND ((f0_4."A7")::text = (c_comment)::text))
+                           ->  Index Scan using fkey_7 on orders f0_1  (cost=0.43..1.68 rows=1 width=112)
+                                 Index Cond: (o_custkey = f0.c_custkey)
+                                 Filter: ((o_orderdate >= '1993-10-01'::date) AND (o_orderdate < '1994-01-01'::date))
+                     ->  Index Scan using fkey_2 on lineitem f0_2  (cost=0.43..5.06 rows=4 width=8)
+                           Index Cond: (l_orderkey = f0_1.o_orderkey)
+                           Filter: ((l_returnflag)::text = 'R'::text)
+               ->  Index Scan using nation_pkey on nation f0_3  (cost=0.14..0.16 rows=1 width=16)
+                     Index Cond: (n_nationkey = f0.c_nationkey)
+(20 rows)
+
+Time: 6.958 ms

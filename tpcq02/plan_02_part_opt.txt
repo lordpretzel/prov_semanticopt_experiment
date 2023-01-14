@@ -1,0 +1,44 @@
+Timing is on.
+                                                                          QUERY PLAN                                                                           
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Unique  (cost=23.00..23.05 rows=2 width=121)
+   ->  Sort  (cost=23.00..23.00 rows=2 width=121)
+         Sort Key: f0.p_partkey, f0.p_name, f0.p_mfgr, f0.p_brand, f0.p_type, (15), f0.p_container, f0.p_retailprice, f0.p_comment
+         ->  Append  (cost=9.47..22.99 rows=2 width=121)
+               ->  Unique  (cost=9.47..9.50 rows=1 width=121)
+                     ->  Sort  (cost=9.47..9.48 rows=1 width=121)
+                           Sort Key: f0.p_partkey, f0.p_name, f0.p_mfgr, f0.p_brand, f0.p_type, f0.p_container, f0.p_retailprice, f0.p_comment
+                           ->  Nested Loop  (cost=0.42..9.46 rows=1 width=121)
+                                 ->  Seq Scan on rtpcq02 f0_1  (cost=0.00..1.01 rows=1 width=23)
+                                 ->  Index Scan using part_pkey on part f0  (cost=0.42..8.45 rows=1 width=117)
+                                       Index Cond: (p_partkey = f0_1."A3")
+                                       Filter: (((p_type)::text ~~ '%BRASS'::text) AND (p_size = 15) AND ((f0_1."A5")::text = (p_mfgr)::text))
+               ->  Unique  (cost=13.43..13.46 rows=1 width=121)
+                     ->  Sort  (cost=13.43..13.44 rows=1 width=121)
+                           Sort Key: f0_2.p_partkey, f0_2.p_name, f0_2.p_mfgr, f0_2.p_brand, f0_2.p_type, f0_2.p_container, f0_2.p_retailprice, f0_2.p_comment
+                           ->  Nested Loop  (cost=1.69..13.42 rows=1 width=121)
+                                 Join Filter: (f0_3.n_regionkey = f0_4.r_regionkey)
+                                 ->  Nested Loop  (cost=1.69..12.35 rows=1 width=125)
+                                       ->  Nested Loop  (cost=1.55..12.19 rows=1 width=125)
+                                             ->  Nested Loop  (cost=1.26..11.89 rows=1 width=125)
+                                                   Join Filter: ((f0_2.p_partkey = f0_6.p_partkey) AND ((f0_2.p_mfgr)::text = (f0_6.p_mfgr)::text))
+                                                   ->  Nested Loop  (cost=0.84..11.41 rows=1 width=141)
+                                                         ->  Nested Loop  (cost=0.42..9.55 rows=4 width=24)
+                                                               ->  Seq Scan on rtpcq02 f0_8  (cost=0.00..1.01 rows=1 width=8)
+                                                               ->  Index Scan using fkey_8 on partsupp f0_7  (cost=0.42..8.50 rows=4 width=16)
+                                                                     Index Cond: (ps_partkey = f0_8."A3")
+                                                         ->  Index Scan using part_pkey on part f0_2  (cost=0.42..0.47 rows=1 width=117)
+                                                               Index Cond: (p_partkey = f0_7.ps_partkey)
+                                                               Filter: (((p_type)::text ~~ '%BRASS'::text) AND (p_size = 15))
+                                                   ->  Index Scan using part_pkey on part f0_6  (cost=0.42..0.47 rows=1 width=23)
+                                                         Index Cond: (p_partkey = f0_7.ps_partkey)
+                                                         Filter: (((p_type)::text ~~ '%BRASS'::text) AND (p_size = 15))
+                                             ->  Index Scan using supplier_pkey on supplier f0_5  (cost=0.29..0.30 rows=1 width=16)
+                                                   Index Cond: (s_suppkey = f0_7.ps_suppkey)
+                                       ->  Index Scan using nation_pkey on nation f0_3  (cost=0.14..0.16 rows=1 width=16)
+                                             Index Cond: (n_nationkey = f0_5.s_nationkey)
+                                 ->  Seq Scan on region f0_4  (cost=0.00..1.06 rows=1 width=8)
+                                       Filter: ((r_name)::text = 'EUROPE'::text)
+(38 rows)
+
+Time: 10.623 ms

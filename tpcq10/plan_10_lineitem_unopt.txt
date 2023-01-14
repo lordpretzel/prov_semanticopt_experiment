@@ -1,0 +1,31 @@
+Timing is on.
+                                                                                                                                        QUERY PLAN                                                                                                                                         
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Unique  (cost=16.50..16.55 rows=1 width=155)
+   CTE _temp_view_0
+     ->  Seq Scan on rtpcq10 f0_4  (cost=0.00..1.01 rows=1 width=127)
+   ->  Sort  (cost=15.49..15.50 rows=1 width=155)
+         Sort Key: f0_1.o_orderkey, f0_2.l_partkey, f0_2.l_suppkey, f0_2.l_linenumber, f0_2.l_quantity, f0_2.l_extendedprice, f0_2.l_discount, f0_2.l_tax, f0_2.l_linestatus, f0_2.l_shipdate, f0_2.l_commitdate, f0_2.l_receiptdate, f0_2.l_shipinstruct, f0_2.l_shipmode, f0_2.l_comment
+         ->  Nested Loop  (cost=1.45..15.48 rows=1 width=155)
+               Join Filter: ((_temp_view_0.x5)::text = (f0_3.n_name)::text)
+               ->  Nested Loop  (cost=1.31..15.32 rows=1 width=199)
+                     ->  Nested Loop  (cost=0.88..10.22 rows=1 width=84)
+                           ->  Nested Loop  (cost=0.45..8.53 rows=1 width=92)
+                                 ->  Unique  (cost=0.03..0.06 rows=1 width=558)
+                                       ->  Sort  (cost=0.03..0.04 rows=1 width=558)
+                                             Sort Key: _temp_view_0.x1, _temp_view_0.x2, _temp_view_0.x3, _temp_view_0.x4, _temp_view_0.x5, _temp_view_0.x6, _temp_view_0.x7, _temp_view_0.x8
+                                             ->  CTE Scan on _temp_view_0  (cost=0.00..0.02 rows=1 width=558)
+                                 ->  Index Scan using customer_pkey on customer f0  (cost=0.42..8.45 rows=1 width=158)
+                                       Index Cond: (c_custkey = _temp_view_0.x1)
+                                       Filter: (((_temp_view_0.x2)::text = (c_name)::text) AND (_temp_view_0.x4 = c_acctbal) AND ((_temp_view_0.x6)::text = (c_address)::text) AND ((_temp_view_0.x7)::text = (c_phone)::text) AND ((_temp_view_0.x8)::text = (c_comment)::text))
+                           ->  Index Scan using fkey_7 on orders f0_1  (cost=0.43..1.68 rows=1 width=16)
+                                 Index Cond: (o_custkey = f0.c_custkey)
+                                 Filter: ((o_orderdate >= '1993-10-01'::date) AND (o_orderdate < '1994-01-01'::date))
+                     ->  Index Scan using fkey_2 on lineitem f0_2  (cost=0.43..5.06 rows=4 width=123)
+                           Index Cond: (l_orderkey = f0_1.o_orderkey)
+                           Filter: ((l_returnflag)::text = 'R'::text)
+               ->  Index Scan using nation_pkey on nation f0_3  (cost=0.14..0.16 rows=1 width=16)
+                     Index Cond: (n_nationkey = f0.c_nationkey)
+(25 rows)
+
+Time: 7.750 ms

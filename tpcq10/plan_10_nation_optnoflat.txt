@@ -1,0 +1,23 @@
+Timing is on.
+                                                                                                                              QUERY PLAN                                                                                                                              
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Unique  (cost=9.71..9.73 rows=1 width=99)
+   CTE _temp_view_0
+     ->  Seq Scan on rtpcq10 f0_2  (cost=0.00..1.01 rows=1 width=127)
+   ->  Sort  (cost=8.70..8.71 rows=1 width=99)
+         Sort Key: f0.n_nationkey, f0.n_name, f0.n_regionkey, f0.n_comment
+         ->  Nested Loop  (cost=0.59..8.69 rows=1 width=99)
+               Join Filter: ((_temp_view_0.x5)::text = (f0.n_name)::text)
+               ->  Nested Loop  (cost=0.45..8.53 rows=1 width=76)
+                     ->  Unique  (cost=0.03..0.06 rows=1 width=558)
+                           ->  Sort  (cost=0.03..0.04 rows=1 width=558)
+                                 Sort Key: _temp_view_0.x1, _temp_view_0.x2, _temp_view_0.x3, _temp_view_0.x4, _temp_view_0.x5, _temp_view_0.x6, _temp_view_0.x7, _temp_view_0.x8
+                                 ->  CTE Scan on _temp_view_0  (cost=0.00..0.02 rows=1 width=558)
+                     ->  Index Scan using customer_pkey on customer f0_1  (cost=0.42..8.45 rows=1 width=158)
+                           Index Cond: (c_custkey = _temp_view_0.x1)
+                           Filter: (((_temp_view_0.x2)::text = (c_name)::text) AND (_temp_view_0.x4 = c_acctbal) AND ((_temp_view_0.x6)::text = (c_address)::text) AND ((_temp_view_0.x7)::text = (c_phone)::text) AND ((_temp_view_0.x8)::text = (c_comment)::text))
+               ->  Index Scan using nation_pkey on nation f0  (cost=0.14..0.16 rows=1 width=99)
+                     Index Cond: (n_nationkey = f0_1.c_nationkey)
+(17 rows)
+
+Time: 4.548 ms

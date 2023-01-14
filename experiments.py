@@ -41,6 +41,9 @@ gprom_settings = [
     GpromSetting("flatten", ["-Osemantic_opt","FALSE", "-Oflatten_dl", "TRUE" ]),
     GpromSetting("opt", ["-Osemantic_opt","TRUE", "-Oflatten_dl", "TRUE" ]),
     GpromSetting("optnoflat", ["-Osemantic_opt", "TRUE", "-Oflatten_dl", "FALSE"]),
+    GpromSetting("optheu", ["-Osemantic_opt","TRUE", "-Oflatten_dl", "TRUE", "-heuristic_opt", "TRUE" ]),
+    GpromSetting("unoptheu", ["-Osemantic_opt","FALSE", "-Oflatten_dl", "FALSE", "-heuristic_opt", "TRUE" ]),
+    GpromSetting("optcbo", ["-Osemantic_opt","TRUE", "-Oflatten_dl", "TRUE", "-heuristic_opt", "TRUE",  "-cbo", "TRUE"]),
 ]
 
 GPROM_BIN = "/home/perm/semantic_opt_gprom/src/command_line/gprom"
@@ -95,9 +98,24 @@ def psql_time(infile, outfile, repetitions):
                 log(f"error timing command with psql [{rt}]:\n{err}\n{out}")
                 exit(rt)
             log(out[0:min(len(out), 1000)])
-            t = re.search("Time: ([0-9.]+)", out).group(1)
-            log(f"took {t} ms")
-            f.write(t + "\n")
+            match = re.search("Time: ([0-9.]+)", out)
+            if match:
+                t = match.group(1)
+                log(f"took {t} ms")
+                f.write(t + "\n")
+            else:
+                f.write("NaN\n")
+
+def psql_explain(infile, outfile):
+    with open(outfile, "w") as f:
+        (rt,out,err) = psql_file_to_string(infile)
+        if options.debug:
+            log(out)
+        f.write(out)
+        if rt:
+            log(f"error explaining SQL with psql [{rt}]:\n{err}\n{out}")
+            exit(rt)
+            log(out[0:min(len(out), 1000)])
 
 def gprom_connection_options():
     return f'-backend postgres -host {options.host} -user {options.user} -passwd {options.password} -port {str(options.port)} -db {options.db} -frontend dl'
@@ -122,16 +140,20 @@ def run_gprom(gprom_opts, f=None):
 def run_gprom_store_output(gprom_opts, inf, outf):
     cmd = gprom_command_as_list(gprom_opts, inf)
     log(f'run {" ".join(cmd)}\n to execute {inf} and store output in {outf}')
-    with open(outf, 'w') as f:
-        process = subprocess.run(cmd,
-                                 stdout=f,
-                                 stderr=subprocess.PIPE,
-                                 universal_newlines=True)
-        rt = process.returncode
-        if rt:
-            log(f'error running commands from {inf} and storing result in {outf} using command line:\n{cmd}')
+    try:
+        with open(outf, 'w') as f:
+            process = subprocess.run(cmd,
+                                     stdout=f,
+                                     stderr=subprocess.PIPE,
+                                     universal_newlines=True)
+            rt = process.returncode
+            if rt:
+                log(f'error running commands from {inf} and storing result in {outf} using command line:\n{cmd}')
 
-        return (rt, process.stderr)
+            return (rt, process.stderr)
+    except Exception as e:
+        return (-1, f"error writing GProM results to file:\n{e}")
+
 
 def materialize_result_subset(q):
     logfat(f"create table for {q}")
@@ -165,7 +187,8 @@ def materialize_result_subset(q):
 def generate_rewritten_sql(q):
     d = qdir(q)
     common_opts = ['-loglevel', '0', '-Pexecutor', 'sql']
-    for pt in queries[q]:
+    tables = options.tables.split(',') if options.tables else queries[q]
+    for pt in tables:
         infile = d + f"{pt}.dl"
         ensure_file_exists(infile)
         for s in options.methods:
@@ -185,7 +208,8 @@ def generate_rewritten_sql(q):
 def generate_rewritten_datalog(q):
     d = qdir(q)
     common_opts = ['-loglevel', '0', '-Ptranslator', 'dl-to-dl', '-Psqlserializer', 'dl', '-Pexecutor', 'dl'] # '-loglevel', '5']
-    for pt in queries[q]:
+    tables = options.tables.split(',') if options.tables else queries[q]
+    for pt in tables:
         infile = d + f"{pt}.dl"
         ensure_file_exists(infile)
         for s in options.methods:
@@ -211,7 +235,8 @@ def cleanup_result_table(q):
 
 def time_provenance_capture(q):
     d = qdir(q)
-    for pt in queries[q]:
+    tables = options.tables.split(',') if options.tables else queries[q]
+    for pt in tables:
         for s in options.methods:
             logfat(f"time runtime {s.name} for {q} for provenance of {pt} with {str(options.repetitions)} repetitions")
             infile = d + f"p_{pt}_{s.name}.sql"
@@ -221,6 +246,26 @@ def time_provenance_capture(q):
                 log(f"do not overwrite file {outfile}")
             else:
                 psql_time(infile, outfile, options.repetitions)
+
+def explain_sql_query(q):
+    d = qdir(q)
+    tables = options.tables.split(',') if options.tables else queries[q]
+    for pt in tables:
+        for s in options.methods:
+            logfat(f"generate explanation {s.name} for {q} for provenance of {pt}")
+            infile = d + f"p_{pt}_{s.name}.sql"
+            explainfile = d + f"explain_p_{pt}_{s.name}.sql"
+            ensure_file_exists(infile)
+            outfile = d  + f"plan_{q}_{pt}_{s.name}.txt"
+            if os.path.exists(outfile) and not options.overwrite:
+                log(f"do not overwrite file {outfile}")
+            else:
+                with open(explainfile, 'w') as efile:
+                    with open(infile, 'r') as sqlfile:
+                        code = sqlfile.readlines()
+                    efile.write('EXPLAIN\n')
+                    efile.write('\n'.join(code))
+                psql_explain(explainfile, outfile)
 
 def process_one_query(q):
     d = qdir(q)
@@ -236,6 +281,8 @@ def process_one_query(q):
         generate_rewritten_datalog(q)
     if not options.only or 'time' in options.only:
         time_provenance_capture(q)
+    if 'explain' in options.only:
+        explain_sql_query(q)
     if (options.cleanup and not options.only) or 'cleanup' in options.only:
         cleanup_result_table(q)
 
@@ -260,7 +307,7 @@ if __name__ == '__main__':
     ap.add_argument('-r', '--repetitions', type=int, default=1,
                     help="number of repetitions for each experiment")
     ap.add_argument('-q', '--queries', type=str, default=None,
-                    help=f"run only this query (default is to run all: {queries})")
+                    help=f"run only this query (default is to run all: {queries.keys()})")
     ap.add_argument('-m', '--methods', type=str, default=None,
                     help=f"run only these methods (default is to run all: {[ m.name for m in gprom_settings ]}")
     ap.add_argument('--gprom', type=str, default=GPROM_BIN,
@@ -291,7 +338,10 @@ if __name__ == '__main__':
                     help="database password")
 
     ap.add_argument('-O', "--only", type=str, default=None,
-                    help="only execute only listed steps (table, gensql, time, clean) separated by comma")
+                    help="only execute only listed steps (table, gensql, gendl, explain, time, clean) separated by comma")
+
+    ap.add_argument('-T', "--tables", type=str, default=None,
+                    help="only capture provenance (or apply other steps) for these tables")
 
     args = ap.parse_args()
 

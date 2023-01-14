@@ -1,0 +1,18 @@
+Timing is on.
+                                                                            QUERY PLAN                                                                             
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Unique  (cost=9.53..9.56 rows=1 width=112)
+   CTE _temp_view_0
+     ->  Seq Scan on rtpcq03 f0_1  (cost=0.00..1.01 rows=1 width=28)
+   ->  Sort  (cost=8.52..8.53 rows=1 width=112)
+         Sort Key: f0.o_orderkey, f0.o_custkey, f0.o_orderstatus, f0.o_totalprice, f0.o_orderdate, f0.o_orderpriority, f0.o_clerk, f0.o_shippriority, f0.o_comment
+         ->  Nested Loop  (cost=0.46..8.51 rows=1 width=112)
+               ->  HashAggregate  (cost=0.03..0.04 rows=1 width=28)
+                     Group Key: _temp_view_0.x1, _temp_view_0.x2, _temp_view_0.x3, _temp_view_0.x4
+                     ->  CTE Scan on _temp_view_0  (cost=0.00..0.02 rows=1 width=28)
+               ->  Index Scan using orders_pkey on orders f0  (cost=0.43..8.45 rows=1 width=112)
+                     Index Cond: (o_orderkey = _temp_view_0.x1)
+                     Filter: ((o_orderdate < '1995-03-15'::date) AND (_temp_view_0.x2 = o_orderdate) AND (_temp_view_0.x3 = o_shippriority))
+(12 rows)
+
+Time: 3.463 ms

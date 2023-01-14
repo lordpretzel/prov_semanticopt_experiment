@@ -1,0 +1,18 @@
+Timing is on.
+                                                              QUERY PLAN                                                               
+---------------------------------------------------------------------------------------------------------------------------------------
+ Unique  (cost=9.95..9.97 rows=1 width=190)
+   ->  Sort  (cost=9.95..9.95 rows=1 width=190)
+         Sort Key: f0.c_custkey, f0.c_name, f0.c_address, f0.c_nationkey, f0.c_phone, f0.c_acctbal, f0.c_comment
+         ->  Nested Loop  (cost=0.85..9.94 rows=1 width=190)
+               ->  Nested Loop  (cost=0.43..9.47 rows=1 width=8)
+                     ->  Seq Scan on rtpcq03 f0_2  (cost=0.00..1.01 rows=1 width=20)
+                     ->  Index Scan using orders_pkey on orders f0_1  (cost=0.43..8.45 rows=1 width=28)
+                           Index Cond: (o_orderkey = f0_2."A0")
+                           Filter: ((o_orderdate < '1995-03-15'::date) AND (f0_2."A1" = o_orderdate) AND (f0_2."A2" = o_shippriority))
+               ->  Index Scan using customer_pkey on customer f0  (cost=0.42..0.46 rows=1 width=158)
+                     Index Cond: (c_custkey = f0_1.o_custkey)
+                     Filter: ((c_mktsegment)::text = 'BUILDING'::text)
+(12 rows)
+
+Time: 4.358 ms

@@ -1,0 +1,32 @@
+Timing is on.
+                                                               QUERY PLAN                                                               
+----------------------------------------------------------------------------------------------------------------------------------------
+ Unique  (cost=218689.04..218727.64 rows=197 width=172)
+   CTE _temp_view_0
+     ->  Finalize HashAggregate  (cost=204566.50..207021.86 rows=196429 width=16)
+           Group Key: f0_3.l_partkey
+           ->  Gather  (cost=161352.12..202602.21 rows=392858 width=40)
+                 Workers Planned: 2
+                 ->  Partial HashAggregate  (cost=160352.12..162316.41 rows=196429 width=40)
+                       Group Key: f0_3.l_partkey
+                       ->  Parallel Seq Scan on lineitem f0_3  (cost=0.00..141598.64 rows=2500464 width=16)
+   ->  Sort  (cost=11667.18..11672.01 rows=1930 width=172)
+         Sort Key: f0.p_partkey, f0.p_name, f0.p_mfgr, f0.p_type, f0.p_size, f0.p_retailprice, f0.p_comment
+         ->  Nested Loop  (cost=6347.59..11561.86 rows=1930 width=172)
+               ->  Seq Scan on rtpcq17 f0_2  (cost=0.00..1.01 rows=1 width=0)
+               ->  Nested Loop  (cost=6347.59..11541.55 rows=1930 width=108)
+                     Join Filter: (f0.p_partkey = f0_1.l_partkey)
+                     ->  Hash Join  (cost=6347.16..10791.38 rows=193 width=124)
+                           Hash Cond: (_temp_view_0."A0" = f0.p_partkey)
+                           ->  CTE Scan on _temp_view_0  (cost=0.00..3928.58 rows=196429 width=16)
+                           ->  Hash  (cost=6344.70..6344.70 rows=197 width=108)
+                                 ->  Gather  (cost=1000.00..6344.70 rows=197 width=108)
+                                       Workers Planned: 2
+                                       ->  Parallel Seq Scan on part f0  (cost=0.00..5325.00 rows=82 width=108)
+                                             Filter: (((p_brand)::text = 'Brand#23'::text) AND ((p_container)::text = 'MED BOX'::text))
+                     ->  Index Scan using fkey_4 on lineitem f0_1  (cost=0.43..3.76 rows=10 width=16)
+                           Index Cond: (l_partkey = _temp_view_0."A0")
+                           Filter: (l_quantity < _temp_view_0."A1")
+(26 rows)
+
+Time: 14.058 ms

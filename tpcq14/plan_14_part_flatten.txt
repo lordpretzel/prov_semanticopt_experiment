@@ -1,0 +1,18 @@
+Timing is on.
+                                                            QUERY PLAN                                                             
+-----------------------------------------------------------------------------------------------------------------------------------
+ HashAggregate  (cost=171109.97..171862.85 rows=75288 width=125)
+   Group Key: f0.p_partkey, f0.p_name, f0.p_mfgr, f0.p_brand, f0.p_type, f0.p_size, f0.p_container, f0.p_retailprice, f0.p_comment
+   ->  Nested Loop  (cost=6950.00..169415.99 rows=75288 width=125)
+         ->  Seq Scan on rtpcq14 f0_2  (cost=0.00..1.01 rows=1 width=0)
+         ->  Gather  (cost=6950.00..168662.10 rows=75288 width=125)
+               Workers Planned: 2
+               ->  Parallel Hash Join  (cost=5950.00..160133.30 rows=31370 width=125)
+                     Hash Cond: (f0_1.l_partkey = f0.p_partkey)
+                     ->  Parallel Seq Scan on lineitem f0_1  (cost=0.00..154100.96 rows=31370 width=8)
+                           Filter: ((l_shipdate >= '1995-09-01'::date) AND (l_shipdate < '1995-10-01'::date))
+                     ->  Parallel Hash  (cost=4908.33..4908.33 rows=83333 width=125)
+                           ->  Parallel Seq Scan on part f0  (cost=0.00..4908.33 rows=83333 width=125)
+(12 rows)
+
+Time: 6.041 ms

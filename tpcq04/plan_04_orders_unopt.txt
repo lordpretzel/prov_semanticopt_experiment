@@ -1,0 +1,29 @@
+Timing is on.
+                                                                            QUERY PLAN                                                                             
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Unique  (cost=249882.58..249960.06 rows=3099 width=112)
+   CTE _temp_view_0
+     ->  Seq Scan on rtpcq04 f0_3  (cost=0.00..1.01 rows=1 width=17)
+   ->  Sort  (cost=249881.57..249889.32 rows=3099 width=112)
+         Sort Key: f0.o_orderkey, f0.o_custkey, f0.o_orderstatus, f0.o_totalprice, f0.o_orderdate, f0.o_orderpriority, f0.o_clerk, f0.o_shippriority, f0.o_comment
+         ->  Hash Join  (cost=210042.72..249701.87 rows=3099 width=112)
+               Hash Cond: ((f0.o_orderpriority)::text = (f0_1."A0")::text)
+               ->  Gather  (cost=210042.66..249612.71 rows=15496 width=112)
+                     Workers Planned: 2
+                     ->  Hash Join  (cost=209042.66..247063.11 rows=6457 width=112)
+                           Hash Cond: (f0.o_orderkey = f0_2.l_orderkey)
+                           ->  Parallel Seq Scan on orders f0  (cost=0.00..37954.00 rows=25316 width=112)
+                                 Filter: ((o_orderdate >= '1993-07-01'::date) AND (o_orderdate < '1993-10-01'::date))
+                           ->  Hash  (cost=204260.42..204260.42 rows=382579 width=8)
+                                 ->  HashAggregate  (cost=196608.84..200434.63 rows=382579 width=8)
+                                       Group Key: f0_2.l_orderkey
+                                       ->  Seq Scan on lineitem f0_2  (cost=0.00..191607.91 rows=2000371 width=8)
+                                             Filter: (l_commitdate < l_receiptdate)
+               ->  Hash  (cost=0.05..0.05 rows=1 width=48)
+                     ->  Subquery Scan on f0_1  (cost=0.03..0.05 rows=1 width=48)
+                           ->  HashAggregate  (cost=0.03..0.04 rows=1 width=56)
+                                 Group Key: _temp_view_0.x1, _temp_view_0.x2
+                                 ->  CTE Scan on _temp_view_0  (cost=0.00..0.02 rows=1 width=56)
+(23 rows)
+
+Time: 13.117 ms
