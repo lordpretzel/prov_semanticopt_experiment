@@ -55,4 +55,4 @@ Timing is on.
                                        Index Cond: (ps_suppkey = f0_4.s_suppkey)
 (52 rows)
 
-Time: 8.826 ms
+Time: 8.882 ms

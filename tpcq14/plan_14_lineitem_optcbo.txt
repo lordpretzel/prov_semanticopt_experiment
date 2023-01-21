@@ -1,2 +1,2 @@
 Timing is on.
-Time: 0.279 ms
+Time: 0.249 ms

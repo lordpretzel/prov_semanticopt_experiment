@@ -11,4 +11,4 @@ Timing is on.
                      Filter: (((f0_1."A1")::text = (c_name)::text) AND (f0_1."A3" = c_acctbal) AND ((f0_1."A5")::text = (c_address)::text) AND ((f0_1."A6")::text = (c_phone)::text) AND ((f0_1."A7")::text = (c_comment)::text))
 (8 rows)
 
-Time: 3.666 ms
+Time: 3.710 ms
