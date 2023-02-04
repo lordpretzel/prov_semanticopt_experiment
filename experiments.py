@@ -235,6 +235,7 @@ def cleanup_result_table(q):
 
 def time_provenance_capture(q):
     d = qdir(q)
+    reps = options.individual_repetitions[q] if options.individual_repetitions else options.repetitions
     tables = options.tables.split(',') if options.tables else queries[q]
     for pt in tables:
         for s in options.methods:
@@ -245,7 +246,7 @@ def time_provenance_capture(q):
             if os.path.exists(outfile) and not options.overwrite:
                 log(f"do not overwrite file {outfile}")
             else:
-                psql_time(infile, outfile, options.repetitions)
+                psql_time(infile, outfile, reps)
 
 def explain_sql_query(q):
     d = qdir(q)
@@ -281,9 +282,9 @@ def process_one_query(q):
         generate_rewritten_datalog(q)
     if not options.only or 'time' in options.only:
         time_provenance_capture(q)
-    if 'explain' in options.only:
+    if options.only and 'explain' in options.only:
         explain_sql_query(q)
-    if (options.cleanup and not options.only) or 'cleanup' in options.only:
+    if (options.cleanup and not options.only) or (options.only and 'cleanup' in options.only):
         cleanup_result_table(q)
 
 def main(args):
@@ -294,6 +295,12 @@ def main(args):
     options.only = options.only.strip().split(",") if options.only else None
     options.queries = options.queries.strip().split(",") if options.queries else queries
     options.methods = [ g for g in gprom_settings if g.name in options.methods.strip().split(",") ] if options.methods else gprom_settings
+    if options.individual_repetitions and len(options.individual_repetitions) != len(options.queries):
+        print(f"if individual number of repetitions for queries are given then the number of entries has to match the number of queries, but {len(options.individual_repetitions)} != {len(options.queries)}")
+        exit(1)
+    if options.individual_repetitions:
+        options.individual_repetitions = [ int(x) for x in options.individual_repetitions.strip().split(",") ]
+        options.individual_repetitions = [ options.queries[i]: options.individual_repetitions[i] for i in range(len(options.individual_repetitions)) ]
 
     if not os.path.exists(options.resultdir):
         os.mkdir(options.resultdir)
@@ -306,6 +313,8 @@ if __name__ == '__main__':
     ap = argparse.ArgumentParser(description='Running semantic optimization experiment')
     ap.add_argument('-r', '--repetitions', type=int, default=1,
                     help="number of repetitions for each experiment")
+    ap.add_argument('-i', '--individual-repetitions', type=str, default=None,
+                    help="number of repetitions for each experiment (specified for individual queries)")
     ap.add_argument('-q', '--queries', type=str, default=None,
                     help=f"run only this query (default is to run all: {queries.keys()})")
     ap.add_argument('-m', '--methods', type=str, default=None,
