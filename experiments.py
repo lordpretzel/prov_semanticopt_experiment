@@ -36,7 +36,6 @@ class GpromSetting:
     name: str
     args: List
 
-
 gprom_settings = [
     GpromSetting("unopt", ["-Osemantic_opt","FALSE", "-Oflatten_dl", "FALSE" ]),
     GpromSetting("flatten", ["-Osemantic_opt","FALSE", "-Oflatten_dl", "TRUE" ]),
@@ -83,7 +82,6 @@ def psql_connection_args():
 
 def psql_read_file_as_list(cmd):
     return ['psql'] + psql_connection_args() + [ "-c", "\\timing on" ] + [ '-f', cmd ]
-
 
 def psql_file_to_string(f):
     cmd = psql_read_file_as_list(f)
