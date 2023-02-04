@@ -5,6 +5,7 @@ import re
 import subprocess
 from dataclasses import dataclass
 from typing import List
+from math import ceil
 
 # Queries and the provenance tables we want to use
 queries = {
@@ -155,6 +156,15 @@ def run_gprom_store_output(gprom_opts, inf, outf):
         return (-1, f"error writing GProM results to file:\n{e}")
 
 
+def get_num_result_rows(q):
+    count_results = f"SELECT count(*) FROM ({sql}"[0:-1] + ") sub;"
+    (rt,out,err) = psql_cmd(count_results)
+    if rt:
+        log(f"error running gprom to count results [ERR:{rt}]:\n{err}\n{q}")
+        exit(rt)
+    else:
+        return int(out.strip())
+        
 def materialize_result_subset(q):
     logfat(f"create table for {q}")
     dlfile = qdir(q) + "tpcq" + q + ".dl"
@@ -177,7 +187,14 @@ def materialize_result_subset(q):
     if options.overwrite:
         cleanup_result_table(q)
     #TODO check that table has the number of rows we need
-    create_table = f"CREATE TABLE IF NOT EXISTS {get_result_table(q)} AS ({sql}"[0:-1] + " LIMIT 1);"
+    prov_num_results = options.num_result_rows
+    prov_absolute_results = options.num_result_rows_absolute
+    # get actual number of result rows to determine percentage and skip if there are not enough
+    if not prov_absolute_results:
+        actual_num_results = get_num_result_rows(q)
+        prov_num_results = ceil((0.01 * prov_num_results) * actual_num_results)
+
+    create_table = f"CREATE TABLE IF NOT EXISTS {get_result_table(q)} AS ({sql}"[0:-1] + " LIMIT {prov_num_results});"
     log(f"created table:\n{create_table}")
     (rt,out,err) = psql_cmd(create_table)
     if rt:
@@ -228,6 +245,9 @@ def generate_rewritten_datalog(q):
 
 def get_result_table(query):
     return f"rtpcq{query}"
+
+def get_all_result_table(query):
+    return f"rtpcq_all_{query}"
 
 def cleanup_result_table(q):
     logfat(f"dropped result table {get_result_table(q)}")
@@ -325,7 +345,9 @@ if __name__ == '__main__':
                     help="overwrite existing files")
     ap.add_argument('-c', '--cleanup', action='store_true',
                     help="cleanup by dropping table with result row")
-    ap.add_argument('-n', '--num-result-rows', type=int, default=1,
+    ap.add_argument('-A', '--num_result_rows_absolute', type=bool, default=True,
+                    help="If true then the number of result rows are specified as an absolute number, otherwise as a percentage of the total result rows for a query")
+    ap.add_argument('-n', '--num_result_rows', type=int, default=1,
                     help="compute provenance for this many result row")
     ap.add_argument("-R", "--resultdir", type=str, default="results",
                     help="store results in this folder")
