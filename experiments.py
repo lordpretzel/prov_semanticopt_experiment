@@ -192,7 +192,7 @@ def materialize_result_subset(q):
         actual_num_results = get_num_result_rows(q)
         prov_num_results = ceil((0.01 * prov_num_results) * actual_num_results)
 
-    create_table = f"CREATE TABLE IF NOT EXISTS {get_result_table(q)} AS ({sql}"[0:-1] + " LIMIT {prov_num_results});"
+    create_table = f"CREATE TABLE IF NOT EXISTS {get_result_table(q)} AS ({sql}"[0:-1] + f" LIMIT {prov_num_results});"
     log(f"created table:\n{create_table}")
     (rt,out,err) = psql_cmd(create_table)
     if rt:
@@ -313,12 +313,12 @@ def main(args):
     options.only = options.only.strip().split(",") if options.only else None
     options.queries = options.queries.strip().split(",") if options.queries else queries
     options.methods = [ g for g in gprom_settings if g.name in options.methods.strip().split(",") ] if options.methods else gprom_settings
-    if options.individual_repetitions and len(options.individual_repetitions) != len(options.queries):
-        print(f"if individual number of repetitions for queries are given then the number of entries has to match the number of queries, but {len(options.individual_repetitions)} != {len(options.queries)}")
-        exit(1)
     if options.individual_repetitions:
         options.individual_repetitions = [ int(x) for x in options.individual_repetitions.strip().split(",") ]
-        options.individual_repetitions = [ options.queries[i]: options.individual_repetitions[i] for i in range(len(options.individual_repetitions)) ]
+        if len(options.individual_repetitions) != len(options.queries):
+            print(f"if individual number of repetitions for queries are given then the number of entries has to match the number of queries, but {len(options.individual_repetitions)} != {len(options.queries)}")
+            exit(1)
+        options.individual_repetitions = { options.queries[i]: options.individual_repetitions[i] for i in range(len(options.individual_repetitions)) }
 
     if not os.path.exists(options.resultdir):
         os.mkdir(options.resultdir)
