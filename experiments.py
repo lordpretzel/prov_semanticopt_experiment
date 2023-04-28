@@ -198,6 +198,12 @@ def materialize_result_subset(q):
     if rt:
         log(f"error creating table for {q} [exit code: {rt}]:\n{out}\n{err}")
         exit(rt)
+    analyze = f"ANALYZE {get_result_table(q)};"
+    (rt,out,err) = psql_cmd(analyze)
+    if rt:
+        log(f"error analzying table for {q} [exit code: {rt}]:\n{out}\n{err}")
+        exit(rt)
+
 
 def generate_rewritten_sql(q):
     d = qdir(q)

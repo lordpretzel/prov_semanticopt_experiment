@@ -1,5 +1,5 @@
 Timing is on.
-                                                                                                                                              QUERY PLAN                                                                                                                                               
+                                                                                                                                              QUERY PLAN
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  HashAggregate  (cost=172427.51..173180.39 rows=75288 width=125)
    Group Key: f0_1.l_orderkey, f0.p_partkey, f0_1.l_suppkey, f0_1.l_linenumber, f0_1.l_quantity, f0_1.l_extendedprice, f0_1.l_discount, f0_1.l_tax, f0_1.l_returnflag, f0_1.l_linestatus, f0_1.l_shipdate, f0_1.l_commitdate, f0_1.l_receiptdate, f0_1.l_shipinstruct, f0_1.l_shipmode, f0_1.l_comment
