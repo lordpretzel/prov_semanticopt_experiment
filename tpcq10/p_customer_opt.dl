@@ -1,3 +1,5 @@
-prov_customer(c_ck,c_n,c_a,c_nk,c_p,c_ab,c1,c_c) :- customer(c_ck,c_n,c_a,c_nk,c_p,c_ab,c1,c_c),rtpcq10(c_ck,c_n,v1,c_ab,n_n,c_a,c_p,c_c).
+prov_customer(c_ck,c_n,c_a,c_nk,c_p,c_ab,c1,c_c) :-
+    customer(c_ck,c_n,c_a,c_nk,c_p,c_ab,c1,c_c),
+    rtpcq10(c_ck,c_n,v1,c_ab,n_n,c_a,c_p,c_c).
 
 
