@@ -32,6 +32,9 @@ queries = {
     "20": ["part"],
     }
 
+console = rich.get_console()
+fatstyle = "bold black on white"
+
 @dataclass
 class GpromSetting:
     name: str
@@ -58,7 +61,10 @@ def log(m):
     print(m)
 
 def logfat(m, other=""):
-    rich.print("\n[b black on white]" + 80 * " " + "\n" + m + "\n" + 80 * " " + "\n" + other + "[/]")
+    console.print(80 * " ", style=fatstyle, justify="center")
+    console.print(m, style=fatstyle, justify="center")
+    console.print(80 * " ", style=fatstyle, justify="center")
+    print(other)
 
 def qdir(q):
     return f"{os.getcwd()}/tpcq{q}/"
@@ -166,7 +172,7 @@ def get_num_result_rows(q):
         return int(snd.strip())
         
 def materialize_result_subset(q):
-    logfat(f"create table for {q}")
+    logfat(f"[red]create table[/] for [red on white]{q}[/]")
     dlfile = qdir(q) + "tpcq" + q + ".dl"
     ensure_file_exists(dlfile)
     sqlfile = qdir(q) + "tpcq" + q + ".sql"
@@ -216,7 +222,7 @@ def generate_rewritten_sql(q):
         ensure_file_exists(infile)
         for s in options.methods:
             outfile = d + f"p_{pt}_{s.name}.sql"
-            logfat(f"generate sql for {s.name} for {q} for provenance of {pt}")
+            logfat(f"[red]generate sql[/] for [red]{s.name}[/] for [red]{q}[/] for provenance of [red]{pt}[/]")
             log(f"sql file: {outfile} from dl file {infile}")
             if options.debug:
                 (rt, out, err) = run_gprom(common_opts + s.args + get_debug_args(), infile)
@@ -237,7 +243,7 @@ def generate_rewritten_datalog(q):
         ensure_file_exists(infile)
         for s in options.methods:
             outfile = d + f"p_{pt}_{s.name}.dl"
-            logfat(f"generate rewritten datalog for {s.name} for {q} for provenance of {pt}")
+            logfat(f"[red]generate rewritten datalog[/] for [red]{s.name}[/] for [red]{q}[/] for provenance of [red]{pt}[/]")
             log(f"rewritten dl file: {outfile} from dl file {infile}")
             if options.debug:
                 (rt, out, err) = run_gprom(common_opts + s.args + get_debug_args(), infile)
@@ -256,7 +262,7 @@ def get_all_result_table(query):
     return f"rtpcq_all_{query}"
 
 def cleanup_result_table(q):
-    logfat(f"dropped result table {get_result_table(q)}")
+    logfat(f"[red]dropped result[/] table [red]{get_result_table(q)}[/]")
     psql_cmd(f"DROP TABLE IF EXISTS {get_result_table(q)};")
 
 def time_provenance_capture(q):
@@ -265,7 +271,7 @@ def time_provenance_capture(q):
     tables = options.tables.split(',') if options.tables else queries[q]
     for pt in tables:
         for s in options.methods:
-            logfat(f"time runtime {s.name} for {q} for provenance of {pt} with {str(options.repetitions)} repetitions")
+            logfat(f"[red]time[/] runtime [red]{s.name}[/] for [red]{q}[/] for provenance of [red]{pt}[/] with [red]{str(options.repetitions)}[/] repetitions")
             infile = d + f"p_{pt}_{s.name}.sql"
             ensure_file_exists(infile)
             outfile = options.resultdir + "/" + f"runtime_{q}_{pt}_{s.name}.csv"
@@ -279,7 +285,7 @@ def explain_sql_query(q):
     tables = options.tables.split(',') if options.tables else queries[q]
     for pt in tables:
         for s in options.methods:
-            logfat(f"generate explanation {s.name} for {q} for provenance of {pt}")
+            logfat(f"generate [red]explanation[/] [red]{s.name}[/] for [red]{q}[/] for provenance of [red]{pt}[/]")
             infile = d + f"p_{pt}_{s.name}.sql"
             explainfile = d + f"explain_p_{pt}_{s.name}.sql"
             ensure_file_exists(infile)
@@ -331,7 +337,7 @@ def main(args):
     if not os.path.exists(options.resultdir):
         os.mkdir(options.resultdir)
     for q in options.queries:
-        logfat(f"process query q{q}")
+        logfat(f"[red]process query[/] for [red]q{q}[/]")
         process_one_query(q)
 
 def str2bool(v):
