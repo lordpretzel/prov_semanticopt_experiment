@@ -255,6 +255,28 @@ def generate_rewritten_datalog(q):
                 if rt:
                     log(f"error generating rewritting datalog for {s.name} for {q} [{rt}]:\n{err}")
 
+def generate_gprom_optimization_timing(q):
+    q = qdir(q)
+    common_opts = ['-loglevel', '0', '-Ptranslator', 'dl-to-dl', '-Psqlserializer', 'dl', '-Pexecutor', 'dl', '-timing', 'on'] # '-loglevel', '5']
+    tables = options.tables.split(',') if options.tables else queries[q]
+    for pt in tables:
+        infile = d + f"{pt}.dl"
+        ensure_file_exists(infile)
+        for s in options.methods:
+            outfile = d + f"p_{pt}_{s.name}.dl"
+            logfat(f"[red]generate rewritten datalog[/] for [red]{s.name}[/] for [red]{q}[/] for provenance of [red]{pt}[/]")
+            log(f"rewritten dl file: {outfile} from dl file {infile}")
+            if options.debug:
+                (rt, out, err) = run_gprom(common_opts + s.args + get_debug_args(), infile)
+                log(out)
+            if os.path.exists(outfile) and not options.overwrite:
+                log(f"do not overwrite file {outfile}")
+            else:
+                (rt, err) = run_gprom_store_output(common_opts + s.args, infile, outfile)
+                if rt:
+                    log(f"error generating rewritting datalog for {s.name} for {q} [{rt}]:\n{err}")
+
+
 def get_result_table(query):
     return f"rtpcq{query}"
 
