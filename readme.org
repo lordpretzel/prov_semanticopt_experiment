@@ -1,4 +1,4 @@
-* Experiments
+* Experiments - runtime
 - overall issues:
   - queries where we benefit are cheap
   - some expensive queries we have a disadvantage
@@ -19,6 +19,71 @@
 - a disjunctive filter condition is implemented as a "static" =qnations= table with two facts. Joining with this table is unnecessary, but provides useful filtering.
 - *take away:* removing joins can be detrimental if these joins are not increasing multiplicity and are very selective
   - should test the cost to avoid this
+** plans
+- SF1 and SF10 noindex for larger N
+* Experiments - PDQ comparison
+
+#+begin_src
+Query           cmd1_status     cmd1_timetaken  cmd2_status     cmd2_timetaken      numJoins    joins					GPROMjoins
+01_lineitem     Success         0.25            Success         1.58                2           RPrime, lineitem			matches
+02_nation       Success         0.26            Success         9.78                4           nation, partsupp, supplier, RPrime      nation, region, partsupp, supplier, RPrime (matches because of region constant we could not give to PDQ)
+03_customer     Success         0.26            Success         1.91                3		customer, orders RPrime			matches
+04_lineitem     Success         0.25            Success         1.67                3		lineitem, orders, RPrime		lineitem(x2), orders, RPrime (because the input query did not have two lineitems)
+05_customer     Success         0.27            Timeout         3600.05             -							customer, orders, supplier,nation, lineitem, region, RPrime
+06_lineitem     Success         0.25            Success         1.59                2		lineitem, RPrime			matches
+07_customer     Success         0.28            Timeout         3600.09             -
+08_customer     Success         0.29            Timeout         3600.10             -
+09_lineitem     Success         0.28            Timeout         3600.08             -
+10_customer     Success         0.27            Success         2.21                3		customer, nation, RPrime		customer, RPrime
+11_nation       Success         0.25            Success         1.94                4		partsupp, supplier, nation, RPrime	partsupp(x3), nation(x3), supplier(x3), RPrime (matches since we only gave the last subquery)
+12_lineitem     Success         0.25            Success         1.68                2		lineitem RPrime				lineitem, orders, RPrime (fixed DL query for PDQ, hard parts not in PDQ query)
+13_customer     Success         0.25            Success         1.65                2		customer, RPrime			customer (multiple), orders, PRime (not executed in gprom)
+14_lineitem     Success         0.25            Success         1.68                3		lineitem, part, RPrime			matches
+15_lineitem     Success         0.25            Success         1.68                2		lineitem, RPrime			lineitem(x2), RPrime (ignored subqueries, matches)
+16_part         Success         0.24            Success         1.69                3		partsupp, part, RPrime			error
+17_lineitem     Success         0.25            Success         1.68                2		lineitem, RPrime			lineitem(x2), part, RPrime (show second lineitem to PDQ)
+18_customer     Success         0.26            Success         1.68                2		customer, RPrime			matches
+19_lineitem     Success         0.25            Success         1.68                3		part, lineitem, RPrime			lineitem(x2), part, RPrime (show second lineitem to PDQ)
+20_part         Success         0.27            Timeout         3600.09             -
+#+end_src
+
+
+
+
+| Query       | cmd2_status | PDQ optimization time |
+|-------------+-------------+-----------------------|
+| 01_lineitem | Success     |                  1.58 |
+| 02_nation   | Success     |                  9.78 |
+| 03_customer | Success     |                  1.91 |
+| 04_lineitem | Success     |                  1.67 |
+| 05_customer | Timeout     |               3600.05 |
+| 06_lineitem | Success     |                  1.59 |
+| 07_customer | Timeout     |               3600.09 |
+| 08_customer | Timeout     |               3600.10 |
+| 09_lineitem | Timeout     |               3600.08 |
+| 10_customer | Success     |                  2.21 |
+| 11_nation   | Success     |                  1.94 |
+| 12_lineitem | Success     |                  1.68 |
+| 13_customer | Success     |                  1.65 |
+| 14_lineitem | Success     |                  1.68 |
+| 15_lineitem | Success     |                  1.68 |
+| 16_part     | Success     |                  1.69 |
+| 17_lineitem | Success     |                  1.68 |
+| 18_customer | Success     |                  1.68 |
+| 19_lineitem | Success     |                  1.68 |
+| 20_part     | Timeout     |               3600.09 |
+
+
+
+
+
+
+
+
+
+
+
+
 * Meeting with Murali's students
 :PROPERTIES:
 :ID:       765B15BD-DFA1-4E85-9C1A-39830AB87215
