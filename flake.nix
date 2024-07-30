@@ -55,7 +55,7 @@
             ###################################################################
             apps = {
               default = simple_script "jupyter" [] ''
-                jupyter notebook "''$@"
+                jupyter notebook --ServerApp.browser Chrome "''$@"
               '';
             };
 

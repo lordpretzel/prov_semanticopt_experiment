@@ -1,4 +1,8 @@
-* Experiments generation
+* Experiments
+- overall issues:
+  - queries where we benefit are cheap
+  - some expensive queries we have a disadvantage
+  - TPC-H has essentially only key-foreign key joins which are not very costly
 ** Query issues
 - [X] Q6: optheu and unoptheu sql code generation fails in model checking (timing results should not be used)
 - [ ] Q7:
@@ -6,6 +10,15 @@
   - [ ] nation (optheu) fails
   - [ ] nation (nooptheu) fails
 - [ ]
+** Query issues (index)
+** Query issues (noindex)
+- [ ] Q7 - nation: double runtime (remove join with constant two-row table that is good for filtering)
+- [ ] Q8 - all but nation: double runtime
+- [ ] Q9 - one sec longer for all tables
+** Q7 - nation (noindex)
+- a disjunctive filter condition is implemented as a "static" =qnations= table with two facts. Joining with this table is unnecessary, but provides useful filtering.
+- *take away:* removing joins can be detrimental if these joins are not increasing multiplicity and are very selective
+  - should test the cost to avoid this
 * Meeting with Murali's students
 :PROPERTIES:
 :ID:       765B15BD-DFA1-4E85-9C1A-39830AB87215
