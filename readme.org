@@ -9,10 +9,13 @@
   - [ ] nation (optnoflat) extremely slow
   - [ ] nation (optheu) fails
   - [ ] nation (nooptheu) fails
-- [ ]
+- [ ] Q15 would be helpful
+- [ ] Q18 would be helpful
 ** Query issues (index)
 ** Query issues (noindex)
 - [ ] Q7 - nation: double runtime (remove join with constant two-row table that is good for filtering)
+  - [ ] removing duplicate removal
+  - [ ] avoid the two-step tracing because we are lacking support for arithmetic expressions in the body of rules
 - [ ] Q8 - all but nation: double runtime
 - [ ] Q9 - one sec longer for all tables
 ** Q7 - nation (noindex)
